@@ -449,20 +449,17 @@ svg text{transition:fill .4s ease}
 }
 .site-footer .footer-art {
   width: 100%;
-  margin-top: 32px;
+  margin-top: clamp(48px, 6vw, 80px);
   line-height: 0;
   position: relative;
 }
 .site-footer .footer-art img {
   width: 100%;
   height: auto;
-  max-height: 320px;
-  object-fit: cover;
-  object-position: bottom center;
   display: block;
   mix-blend-mode: multiply;
-  mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
 }
 @media (max-width: 900px) {
   .site-footer .footer-content {
