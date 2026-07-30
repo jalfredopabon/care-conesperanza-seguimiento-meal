@@ -357,44 +357,80 @@ svg text{transition:fill .4s ease}
 }
 
 /* ============================================================
-   FULL-WIDTH SITE FOOTER
+   FULL-WIDTH SITE FOOTER WITH ARTWORK
    ============================================================ */
 .site-footer {
   width: 100%;
   background: var(--canvas);
   border-top: 1px solid var(--hairline);
-  padding: 24px clamp(20px, 4vw, 48px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  transition: background .4s ease, border-color .4s ease;
-}
-.site-footer .col-left {
+  padding: 48px 0 0 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+  transition: background .4s ease, border-color .4s ease;
+  position: relative;
+  overflow: hidden;
 }
-.site-footer .col-left img {
-  height: 24px;
+.site-footer .footer-content {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: clamp(24px, 3vw, 48px);
+  width: 100%;
+}
+.site-footer .footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.site-footer .footer-col .brand-logo {
+  height: 32px;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%) brightness(0.35) opacity(0.85);
-  transition: filter .3s ease;
+  margin-bottom: 4px;
 }
-.site-footer .col-left .brand-text {
+.site-footer .footer-col .brand-desc {
   font-family: var(--font-b);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--ink-soft);
 }
-.site-footer .col-right {
+.site-footer .footer-col h4 {
+  font-family: var(--font-b);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 4px 0;
+}
+.site-footer .footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
+  gap: 8px;
+}
+.site-footer .footer-col ul li a {
+  font-family: var(--font-b);
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.site-footer .footer-col ul li a:hover {
+  color: var(--ink);
+}
+.site-footer .footer-col .credit-tag {
+  font-family: var(--font-b);
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.site-footer .footer-col .credit-tag strong {
+  color: var(--ink);
 }
 .site-footer .timeframe {
   font-family: var(--font-b);
@@ -406,13 +442,35 @@ svg text{transition:fill .4s ease}
   padding: 5px 12px;
   border-radius: 999px;
   background: var(--canvas-muted);
+  display: inline-block;
+  width: fit-content;
 }
-.site-footer .col-right .location-text {
-  font-family: var(--font-b);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink-muted);
-  letter-spacing: .03em;
+.site-footer .footer-art {
+  width: 100%;
+  margin-top: 32px;
+  line-height: 0;
+  position: relative;
+}
+.site-footer .footer-art img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: bottom center;
+  display: block;
+  mix-blend-mode: multiply;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+}
+@media (max-width: 900px) {
+  .site-footer .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .site-footer .footer-content {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 
@@ -686,15 +744,42 @@ svg text{transition:fill .4s ease}
   </div>
 </section>
 
-<!-- ================= SITE FOOTER (FULL WIDTH) ================= -->
+<!-- ================= SITE FOOTER (FULL WIDTH WITH ARTWORK) ================= -->
 <footer class="site-footer">
-  <div class="col-left">
-    <img src="care_1.png" alt="care logo">
-    <span class="brand-text">Monitoreo, evaluación, rendición de cuentas y aprendizaje - MEAL</span>
+  <div class="footer-content">
+    <div class="footer-col">
+      <img src="care_1.png" alt="CARE Logo" class="brand-logo">
+      <p class="brand-desc">Proyecto ConEsperanza — CARE Colombia.<br>Sistema de Monitoreo, Evaluación, Rendición de Cuentas y Aprendizaje (MEAL).</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#p1">01. Panorama General</a></li>
+        <li><a href="#p2">02. Resumen de Impacto</a></li>
+        <li><a href="#p3">03. Desempeño Territorial</a></li>
+        <li><a href="#p4">04. Análisis Cualitativo</a></li>
+        <li><a href="#p5">05. Trayectoria POA</a></li>
+        <li><a href="#p6">06. Recomendaciones MEAL</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cobertura</h4>
+      <ul>
+        <li><a href="#p3">Norte de Santander (72.2%)</a></li>
+        <li><a href="#p3">Cauca (27.6%)</a></li>
+        <li><a href="#p3">Arauca (Fase Piloto)</a></li>
+        <li><a href="#p1">Periodo: Junio - Noviembre 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ubicación y Autoría</h4>
+      <p class="credit-tag">Medellín / Bogotá, Colombia</p>
+      <p class="credit-tag">Creado por <strong>Alfredo Pabón</strong></p>
+      <div class="timeframe" style="margin-top:6px">Corte: Julio 2026</div>
+    </div>
   </div>
-  <div class="col-right">
-    <div class="timeframe">Junio - Noviembre 2026</div>
-    <span class="location-text">MEAL Colombia</span>
+  <div class="footer-art">
+    <img src="footer_care.png" alt="Ilustración CARE Colombia">
   </div>
 </footer>
 
