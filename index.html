@@ -76,7 +76,7 @@ img{max-width:100%;display:block}
    TYPE ROLES
    ============================================================ */
 .claim{font-family:var(--font-d);font-weight:500;line-height:.98;letter-spacing:-.022em;
-  font-size:clamp(48px,8.4vw,120px)}
+  font-size:clamp(44px,5.2vw,76px)}
 .d-xl{font-family:var(--font-d);font-weight:500;line-height:1.02;letter-spacing:-.02em;
   font-size:clamp(40px,6vw,84px)}
 .d-lg{font-family:var(--font-d);font-weight:500;line-height:1.06;letter-spacing:-.015em;
@@ -140,9 +140,9 @@ main{margin-left:var(--rail)}
    COMPONENTS
    ============================================================ */
 .grid{display:grid;gap:clamp(20px,2.4vw,40px)}
-.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--hairline);
-  border-radius:999px;font-size:12.5px;font-weight:500;color:var(--ink);background:var(--canvas)}
-.chip .dot{width:8px;height:8px;border-radius:999px;background:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--hairline);
+  border-radius:999px;font-size:11.5px;font-weight:500;color:var(--ink);background:var(--canvas)}
+.chip .dot{width:6px;height:6px;border-radius:999px;background:var(--ink)}
 
 .card{background:var(--canvas-muted);border-radius:16px;padding:clamp(20px,2.2vw,30px);
   border:1px solid transparent}
@@ -512,15 +512,11 @@ svg text{transition:fill .4s ease}
 <main>
 
 <!-- ================= 01 · COVER ================= -->
-<section class="page" id="p1" style="position:relative;overflow:hidden">
-  <div class="wrap grid" style="position:relative;z-index:2;min-height:calc(100svh - 64px);align-content:center">
+<section class="page" id="p1" style="position:relative;overflow:hidden;padding:48px clamp(24px,4vw,64px);justify-content:flex-start;min-height:auto">
+  <div class="wrap grid" style="position:relative;z-index:2">
     <div class="split narrow-r" style="gap:clamp(24px,3vw,48px);align-items:center">
-      <div class="stack" style="gap:32px;max-width:680px">
-        <div class="reveal" style="margin-bottom:8px">
-          <div class="chip"><span class="dot"></span>Corte Julio 2026 · 40% Ejecución POA</div>
-        </div>
+      <div class="stack" style="gap:16px;max-width:680px">
         <div class="stack" style="gap:14px">
-          <div class="eyebrow reveal">Plan Operativo Anual 2026 · Avance a Julio</div>
           <h1 class="claim reveal d1">Seguimiento al POA 2026</h1>
           <p class="lead reveal d2" style="margin-top:4px">Monitoreo continuo de atenciones en protección, kits de dignidad y respuesta humanitaria para familias vulnerables y comunidades afectadas en Cauca y Norte de Santander.</p>
           <div class="tease reveal d3" style="margin-top:8px">
@@ -530,12 +526,10 @@ svg text{transition:fill .4s ease}
           </div>
         </div>
       </div>
-      <div></div>
+      <div class="photo reveal d2" style="aspect-ratio:16/10;max-width:360px;width:100%;justify-self:end">
+        <img src="img_section_1.jpg" alt="A person looking out toward the horizon">
+      </div>
     </div>
-  </div>
-  <div class="cover-photo-panel" style="position:absolute;top:0;right:0;bottom:0;width:44%;z-index:1;overflow:hidden;background:var(--surface-soft)">
-    <img src="img_section_1.jpg" alt="A person looking out toward the horizon" style="width:100%;height:100%;object-fit:cover;display:block">
-    <div class="veil"></div>
   </div>
 </section>
 
