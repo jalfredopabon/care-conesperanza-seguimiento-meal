@@ -371,27 +371,33 @@ svg text{transition:fill .4s ease}
   width: calc(100% - var(--rail));
   background: var(--canvas);
   border-top: 1px solid var(--hairline);
-  padding: 48px clamp(24px, 4vw, 64px) 0;
+  padding: 48px 0 0;
   display: flex;
   flex-direction: column;
   transition: background .4s ease, border-color .4s ease;
   position: relative;
   overflow: hidden;
 }
+.site-footer .footer-pad {
+  padding: 0 clamp(24px, 4vw, 64px);
+}
 .site-footer .footer-content {
   max-width: var(--wrap);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
-  gap: clamp(24px, 3vw, 48px);
+  grid-template-columns: 2fr 1fr 1fr 0.8fr;
+  grid-template-rows: auto 1fr;
+  gap: 24px clamp(24px, 3vw, 48px);
   width: 100%;
 }
 .site-footer .footer-col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 10px;
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  gap: 0;
+}
+.site-footer .footer-col > :first-child {
+  align-self: end;
 }
 .site-footer .footer-col .brand-logo {
   height: 32px;
@@ -456,7 +462,7 @@ svg text{transition:fill .4s ease}
 }
 .site-footer .footer-art {
   width: 100%;
-  margin-top: 0;
+  margin-top: 40px;
   padding: 0;
   line-height: 0;
   position: relative;
@@ -466,8 +472,6 @@ svg text{transition:fill .4s ease}
   height: auto;
   display: block;
   mix-blend-mode: multiply;
-  mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
 }
 @media (max-width: 900px) {
   .site-footer .footer-content {
@@ -718,35 +722,41 @@ svg text{transition:fill .4s ease}
 
 <!-- ================= SITE FOOTER (FULL WIDTH WITH ARTWORK) ================= -->
 <footer class="site-footer">
-  <div class="footer-content">
-    <div class="footer-col">
-      <img src="care_1.png" alt="CARE Logo" class="brand-logo">
-      <p class="brand-desc">Proyecto ConEsperanza — CARE Colombia.<br>Sistema de Monitoreo, Evaluación, Rendición de Cuentas y Aprendizaje (MEAL).</p>
-    </div>
-    <div class="footer-col">
-      <h4>Navegación</h4>
-      <ul>
-        <li><a href="#p1">01. Panorama General</a></li>
-        <li><a href="#p2">02. Resumen de Impacto</a></li>
-        <li><a href="#p3">03. Desempeño Territorial</a></li>
-        <li><a href="#p4">04. Análisis Cualitativo</a></li>
-        <li><a href="#p5">05. Trayectoria POA</a></li>
-        <li><a href="#p6">06. Recomendaciones MEAL</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Cobertura</h4>
-      <ul>
-        <li><a href="#p3">Norte de Santander (72.2%)</a></li>
-        <li><a href="#p3">Cauca (27.6%)</a></li>
-        <li><a href="#p3">Arauca (Fase Piloto)</a></li>
-        <li><a href="#p1">Periodo: Junio - Noviembre 2026</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Ubicación</h4>
-      <p class="credit-tag">Bogotá, Colombia</p>
-      <p class="credit-tag">Corte: Julio 2026</p>
+  <div class="footer-pad">
+    <div class="footer-content">
+      <div class="footer-col">
+        <img src="care_1.png" alt="CARE Logo" class="brand-logo">
+        <div class="footer-body">
+          <p class="brand-desc">Sistema de Monitoreo, Evaluación, Rendición de Cuentas y Aprendizaje.<br>Proyecto ConEsperanza — CARE Colombia.<br>MEAL</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#p1">01. Panorama General</a></li>
+          <li><a href="#p2">02. Resumen de Impacto</a></li>
+          <li><a href="#p3">03. Desempeño Territorial</a></li>
+          <li><a href="#p4">04. Análisis Cualitativo</a></li>
+          <li><a href="#p5">05. Trayectoria POA</a></li>
+          <li><a href="#p6">06. Recomendaciones MEAL</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Cobertura</h4>
+        <ul>
+          <li><a href="#p3">Norte de Santander (72.2%)</a></li>
+          <li><a href="#p3">Cauca (27.6%)</a></li>
+          <li><a href="#p3">Arauca (Fase Piloto)</a></li>
+          <li><a href="#p1">Periodo: Junio - Noviembre 2026</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ubicación</h4>
+        <div class="footer-body">
+          <p class="credit-tag">Bogotá, Colombia</p>
+          <p class="credit-tag">Corte: Julio 2026</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer-art">
