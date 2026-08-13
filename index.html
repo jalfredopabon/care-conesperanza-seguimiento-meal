@@ -1032,10 +1032,104 @@ document.getElementById("pbiBtn")?.addEventListener("click", () => {
   alert("Redirigiendo al informe consolidado de Power BI - CARE Colombia MEAL");
 });
 
+// i18n translation system
+const TRANSLATIONS = {
+  ES: {
+    heroTitle: "Seguimiento al POA 2026",
+    heroDesc: "Monitoreo continuo de atenciones en protección, kits de dignidad y respuesta humanitaria para familias vulnerables y comunidades afectadas en Cauca y Norte de Santander.",
+    heroAttentions: "Atenciones / Sensibilizaciones",
+    heroKits: "Kits CARE entregados",
+    heroVbg: "Casos VBG asistidos",
+    p2Eyebrow: "Resumen de Impacto",
+    p2Title: "Despliegue operativo en marcha. Crecimiento en territorio.",
+    p2Desc: "Con corte a Julio de 2026, el proyecto avanza al 40% del tiempo ejecutado, concentrando esfuerzos en atención directa, prevención de VBG y entrega de insumos esenciales.",
+    p3Eyebrow: "Desempeño Territorial",
+    p3Title: "Concentración estratégica en departamentos clave.",
+    p3Desc: "Distribución territorial de atenciones e insumos entregados: focalización operativa del 72.2% en Norte de Santander y consolidación de rutas comunitarias en Cauca (27.6%).",
+    p4Eyebrow: "Análisis Cualitativo MEAL",
+    p4Title: "Protección directa y presencia territorial",
+    p5Eyebrow: "Trayectoria y Proyección al Cierre",
+    p5Title: "La atención avanzó. El impacto se consolida.",
+    p6Eyebrow: "Decisiones y Recomendaciones MEAL",
+    p6Title: "Cuatro acciones clave para los próximos 90 días",
+    pbiBtn: "Power BI"
+  },
+  EN: {
+    heroTitle: "POA 2026 Monitoring",
+    heroDesc: "Continuous monitoring of protection assistance, dignity kits, and humanitarian response for vulnerable families and affected communities in Cauca and Norte de Santander.",
+    heroAttentions: "Assistance / Awareness",
+    heroKits: "CARE Kits Delivered",
+    heroVbg: "GBV Cases Assisted",
+    p2Eyebrow: "Impact Summary",
+    p2Title: "Operational deployment underway. Field growth.",
+    p2Desc: "As of July 2026, the project has executed 40% of its timeframe, focusing efforts on direct assistance, GBV prevention, and essential supplies delivery.",
+    p3Eyebrow: "Territorial Performance",
+    p3Title: "Strategic focus on key departments.",
+    p3Desc: "Territorial distribution of assistance and supplies: 72.2% operational focus in Norte de Santander and consolidation of community routes in Cauca (27.6%).",
+    p4Eyebrow: "MEAL Qualitative Analysis",
+    p4Title: "Direct protection and field presence",
+    p5Eyebrow: "POA Trajectory & Target Projection",
+    p5Title: "Assistance advanced. Impact consolidated.",
+    p6Eyebrow: "MEAL Decisions & Recommendations",
+    p6Title: "Four key actions for the next 90 days",
+    pbiBtn: "Power BI"
+  }
+};
+
+function applyTranslations(lang) {
+  const dict = TRANSLATIONS[lang] || TRANSLATIONS.ES;
+  
+  // Hero
+  const heroTitle = document.querySelector("#p1 h1");
+  if(heroTitle) heroTitle.textContent = dict.heroTitle;
+  const heroDesc = document.querySelector("#p1 p.lead");
+  if(heroDesc) heroDesc.textContent = dict.heroDesc;
+  const teaseLabels = document.querySelectorAll("#p1 .tease .l");
+  if(teaseLabels.length >= 3) {
+    teaseLabels[0].textContent = dict.heroAttentions;
+    teaseLabels[1].textContent = dict.heroKits;
+    teaseLabels[2].textContent = dict.heroVbg;
+  }
+
+  // Section 2
+  const p2Eyebrow = document.querySelector("#p2 .eyebrow");
+  if(p2Eyebrow) p2Eyebrow.textContent = dict.p2Eyebrow;
+  const p2Title = document.querySelector("#p2 h2");
+  if(p2Title) p2Title.textContent = dict.p2Title;
+  const p2Desc = document.querySelector("#p2 p.lead");
+  if(p2Desc) p2Desc.textContent = dict.p2Desc;
+
+  // Section 3
+  const p3Eyebrow = document.querySelector("#p3 .eyebrow");
+  if(p3Eyebrow) p3Eyebrow.textContent = dict.p3Eyebrow;
+  const p3Title = document.querySelector("#p3 h2");
+  if(p3Title) p3Title.textContent = dict.p3Title;
+  const p3Desc = document.querySelector("#p3 p.lead");
+  if(p3Desc) p3Desc.textContent = dict.p3Desc;
+
+  // Section 4
+  const p4Eyebrow = document.querySelector("#p4 .eyebrow");
+  if(p4Eyebrow) p4Eyebrow.textContent = dict.p4Eyebrow;
+  const p4Title = document.querySelector("#p4 h2");
+  if(p4Title) p4Title.textContent = dict.p4Title;
+
+  // Section 5
+  const p5Eyebrow = document.querySelector("#p5 .eyebrow");
+  if(p5Eyebrow) p5Eyebrow.textContent = dict.p5Eyebrow;
+  const p5Title = document.querySelector("#p5 h2");
+  if(p5Title) p5Title.textContent = dict.p5Title;
+
+  // Section 6
+  const p6Eyebrow = document.querySelector("#p6 .eyebrow");
+  if(p6Eyebrow) p6Eyebrow.textContent = dict.p6Eyebrow;
+  const p6Title = document.querySelector("#p6 h2");
+  if(p6Title) p6Title.textContent = dict.p6Title;
+}
+
 // lang selector (Spanish default / EN)
 document.getElementById("langSelect")?.addEventListener("change", (e) => {
   const lang = e.target.value;
-  console.log("Idioma seleccionado:", lang);
+  applyTranslations(lang);
 });
 
 // re-render charts on resize (debounced)
