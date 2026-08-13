@@ -482,6 +482,18 @@ svg text{transition:fill .4s ease}
   height: auto;
   display: block;
   mix-blend-mode: multiply;
+  transition: filter .4s ease, mix-blend-mode .4s ease;
+}
+:root[data-theme="dark"] .site-footer .footer-art img,
+:root:not([data-theme="light"]) .site-footer .footer-art img {
+  filter: invert(0.92) hue-rotate(180deg);
+  mix-blend-mode: screen;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .site-footer .footer-art img {
+    filter: invert(0.92) hue-rotate(180deg);
+    mix-blend-mode: screen;
+  }
 }
 @media (max-width: 900px) {
   .site-footer .footer-content {
