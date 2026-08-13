@@ -767,29 +767,14 @@ const WEEKS = ["Apr 27","May 4","May 11","May 18","May 25","Jun 1","Jun 8","Jun 
 const CY = [2225,2557,2579,2103,1960,1647,1503,1170,1502,1549,1634,1304,1488];
 const PY = [969,1196,1045,1119,1032,1147,1022,911,851,783,753,692,698];
 
-const DIVERGE = [ // YoY % change in users
-  {n:"Paid Other",v:2336,cap:true},{n:"Paid Social",v:202},{n:"Organic Social",v:103},
-  {n:"Paid Search",v:144},{n:"Direct",v:45},{n:"Email",v:21},
-  {n:"Referral",v:-5},{n:"Organic Search",v:-10},{n:"Cross-network",v:-54},{n:"Organic Video",v:-91}
+const DIVERGE = [ // % Participación territorial y atenciones
+  {n:"Norte Santander",v:72.2,count:936},
+  {n:"Cauca",v:27.6,count:358},
+  {n:"Arauca (Piloto)",v:0.2,count:1}
 ].sort((a,b)=>b.v-a.v);
 
-const BUBBLE = [ // conv rate %, rev/user €, users, group
-  {n:"Paid Search",x:9.15,y:5.24,u:5122,g:"paid"},
-  {n:"Paid Other",x:0.33,y:0.00,u:5018,g:"paid"},
-  {n:"Paid Social",x:5.98,y:0.03,u:3835,g:"paid"},
-  {n:"Cross-network",x:7.02,y:0.16,u:554,g:"paid"},
-  {n:"Direct",x:4.26,y:15.71,u:3993,g:"earned"},
-  {n:"Organic Search",x:5.54,y:4.59,u:1937,g:"earned"},
-  {n:"Email",x:6.82,y:5.13,u:1211,g:"earned"},
-  {n:"Referral",x:4.80,y:15.07,u:738,g:"earned"},
-  {n:"Organic Social",x:3.94,y:1.30,u:594,g:"earned"}
-];
-
-const REV = [ // channel, cy €, py €
-  {n:"Direct",cy:62749,py:49720},{n:"Paid Search",cy:26864,py:9453},
-  {n:"Referral",cy:11120,py:1690},{n:"Organic Search",cy:8893,py:34467},
-  {n:"Email",cy:6215,py:13469},{n:"Paid Other",cy:0,py:9571},{n:"Cross-network",cy:90,py:2423}
-];
+const BUBBLE = [];
+const REV = [];
 
 /* ============================================================
    SVG HELPERS
@@ -862,33 +847,36 @@ function drawTrend(){
 }
 
 /* ============================================================
-   2 · DIVERGING BARS (YoY % change in users)
+   2 · DIVERGING BARS (Distribución Territorial MEAL)
    ============================================================ */
 function drawDiverge(){
   const svg=document.getElementById("chart-diverge");if(!svg)return;svg.innerHTML="";
-  const W=760,H=430,T=10,B=26;
-  const nameW=118, valW=86, L=nameW, plotR=W-valW;   // fixed value column on the right
+  const W=760,H=220,T=20,B=36;
+  const nameW=140, valW=110, L=nameW, plotR=W-valW;
   const pw=plotR-L;
-  const rows=DIVERGE, rh=(H-T-B)/rows.length, bh=Math.min(17,rh-11);
-  const scaleMax=200, negRoom=60, span=scaleMax+negRoom;   // Paid Other capped + break-marked
-  const zero=L+(negRoom/span)*pw;
-  const px=v=>(Math.min(scaleMax,Math.abs(v))/span)*pw;
-  const cUp=cvar("--c-cy"), cDown=cvar("--c-down"), can=cvar("--canvas");
-  // zero axis
-  svg.appendChild(E("line",{x1:zero,x2:zero,y1:T,y2:H-B,stroke:cvar("--axis"),"stroke-width":1}));
-  svg.appendChild(E("text",{class:"axislbl",x:zero,y:H-10,"text-anchor":"middle",text:"0%"}));
+  const rows=DIVERGE, rh=(H-T-B)/rows.length, bh=Math.min(26,rh-12);
+  const scaleMax=100;
+  const zero=L;
+  const px=v=>(v/scaleMax)*pw;
+  const cUp=cvar("--c-cy");
+  
+  // Ejes y porcentaje
+  for(let g=0;g<=100;g+=25){
+    const gx=L+px(g);
+    svg.appendChild(E("line",{class:"gridline",x1:gx,x2:gx,y1:T,y2:H-B}));
+    svg.appendChild(E("text",{class:"axislbl",x:gx,y:H-12,"text-anchor":"middle",text:g+"%"}));
+  }
+
   rows.forEach((d,i)=>{
-    const y=T+i*rh+(rh-bh)/2, up=d.v>=0, col=up?cUp:cDown;
-    const w=Math.max(2,px(d.v)), x=up?zero:zero-w, tip=up?x+w:x;
-    const rect=E("rect",{x:x,y:y,width:w,height:bh,rx:2,fill:col});
-    rect.appendChild(E("title",{text:d.n+": "+(up?"+":"")+fmt(d.v)+"% users YoY"}));
+    const y=T+i*rh+(rh-bh)/2;
+    const w=Math.max(4,px(d.v));
+    const rect=E("rect",{x:zero,y:y,width:w,height:bh,rx:4,fill:cUp});
+    rect.appendChild(E("title",{text:d.n+": "+d.count+" atenciones ("+d.v+"%)"}));
     svg.appendChild(rect);
-    if(d.cap){ // axis break: two diagonal ticks near the capped tip
-      [tip-8,tip-4].forEach(bx=>svg.appendChild(E("line",{x1:bx-3,y1:y-2,x2:bx+3,y2:y+bh+2,stroke:can,"stroke-width":2})));
-    }
+
     svg.appendChild(E("text",{class:"axislbl",x:nameW-12,y:y+bh/2+4,"text-anchor":"end",text:d.n}));
-    svg.appendChild(E("text",{class:"datalbl",x:W-6,y:y+bh/2+4,"text-anchor":"end",fill:col,
-      text:(up?"▲ +":"▼ ")+fmt(d.v)+"%"}));
+    svg.appendChild(E("text",{class:"datalbl",x:zero+w+10,y:y+bh/2+4,"text-anchor":"start",fill:cvar("--ink"),
+      text:d.v+"% ("+fmt(d.count)+" atenciones)"}));
   });
 }
 
