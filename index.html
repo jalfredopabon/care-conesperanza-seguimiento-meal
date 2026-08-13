@@ -265,12 +265,14 @@ svg text{transition:fill .4s ease}
   .scorecard{grid-template-columns:repeat(2,1fr)}
   .split,.split.narrow-r,.split.narrow-l,.two{grid-template-columns:1fr}
   .recs{grid-template-columns:1fr}
-  .three{grid-template-columns:1fr}
+  .three{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:520px){
   #p1.page{padding-top:16px;padding-bottom:28px}
   .tease{grid-template-columns:repeat(2,1fr);gap:1px}
   .tease .t:last-child{grid-column:span 2}
+  .three{grid-template-columns:repeat(2,1fr);gap:1px}
+  .three .m:last-child{grid-column:span 2}
   .scorecard{grid-template-columns:repeat(2,1fr)}
   .top-bar{padding:0 16px}
   .top-bar .controls{gap:8px}
@@ -630,7 +632,7 @@ svg text{transition:fill .4s ease}
     </figure>
 
     <!-- 3. TARJETAS DE IMPACTO -->
-    <div class="three reveal d1" style="grid-template-columns:repeat(3,1fr)">
+    <div class="three reveal d1">
       <div class="m"><span class="k">Norte de Santander</span><span class="v delta up"><span class="ar">▲</span>72.2%</span></div>
       <div class="m"><span class="k">Cauca</span><span class="v">27.6%</span></div>
       <div class="m"><span class="k">Casos VBG</span><span class="v">203</span></div>
