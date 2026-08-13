@@ -259,14 +259,18 @@ svg text{transition:fill .4s ease}
   .page{padding:44px clamp(18px,5vw,28px);min-height:auto}
   .cover{grid-template-columns:1fr;padding-top:54px}
   .cover .right{min-height:38vh;order:-1}
+  .tease{grid-template-columns:repeat(2,1fr)}
   .scorecard{grid-template-columns:repeat(2,1fr)}
   .split,.split.narrow-r,.split.narrow-l,.two{grid-template-columns:1fr}
   .recs{grid-template-columns:1fr}
   .three{grid-template-columns:1fr}
 }
 @media (max-width:520px){
-  .scorecard{grid-template-columns:1fr}
-  .tease{gap:20px}
+  .tease{grid-template-columns:repeat(2,1fr);gap:1px}
+  .tease .t:last-child{grid-column:span 2}
+  .scorecard{grid-template-columns:repeat(2,1fr)}
+  .top-bar{padding:0 16px}
+  .top-bar .controls{gap:8px}
 }
 /* ============================================================
    STITCH-INSPIRED TOP APP BAR
