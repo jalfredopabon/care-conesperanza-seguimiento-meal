@@ -255,9 +255,11 @@ svg text{transition:fill .4s ease}
     padding:0 16px;justify-content:space-between}
   .rail nav{flex-direction:row;gap:10px}
   .rail nav a .tick{display:none}
-  main{margin-left:0;padding-top:54px}
-  .page{padding:44px clamp(18px,5vw,28px);min-height:auto}
-  .cover{grid-template-columns:1fr;padding-top:54px}
+  main{margin-left:0;padding-top:0}
+  .page{padding:32px clamp(18px,5vw,28px);min-height:auto}
+  #p1.page{padding-top:20px;padding-bottom:32px}
+  #p1 .stack{padding:0!important;gap:24px}
+  .cover{grid-template-columns:1fr;padding-top:0}
   .cover .right{min-height:38vh;order:-1}
   .tease{grid-template-columns:repeat(2,1fr)}
   .scorecard{grid-template-columns:repeat(2,1fr)}
@@ -266,6 +268,7 @@ svg text{transition:fill .4s ease}
   .three{grid-template-columns:1fr}
 }
 @media (max-width:520px){
+  #p1.page{padding-top:16px;padding-bottom:28px}
   .tease{grid-template-columns:repeat(2,1fr);gap:1px}
   .tease .t:last-child{grid-column:span 2}
   .scorecard{grid-template-columns:repeat(2,1fr)}
