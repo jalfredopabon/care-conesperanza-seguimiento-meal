@@ -119,13 +119,13 @@ img{max-width:100%;display:block}
    DECK / PAGES
    ============================================================ */
 main{margin-left:var(--rail)}
-.page{min-height:calc(100svh - 64px);scroll-snap-align:start;scroll-margin-top:64px;padding:48px clamp(24px,4vw,64px);
+.page{min-height:calc(100svh - 64px);scroll-snap-align:start;scroll-margin-top:64px;padding:64px clamp(24px,4vw,64px);
   display:flex;flex-direction:column;justify-content:center;position:relative;
   border-bottom:1px solid var(--hairline)}
 .wrap{width:100%;max-width:var(--wrap);margin:0 auto}
 @media (min-width:901px){html{scroll-snap-type:y proximity}}
 
-.page-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.page-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
 .page-num{font-family:var(--font-d);font-size:15px;color:var(--ink-muted);font-variant-numeric:tabular-nums}
 
 /* dark inverse page */
@@ -139,7 +139,7 @@ main{margin-left:var(--rail)}
 /* ============================================================
    COMPONENTS
    ============================================================ */
-.grid{display:grid;gap:clamp(20px,2.4vw,40px)}
+.grid{display:grid;gap:clamp(28px,3vw,48px)}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--hairline);
   border-radius:999px;font-size:11.5px;font-weight:500;color:var(--ink);background:var(--canvas)}
 .chip .dot{width:6px;height:6px;border-radius:999px;background:var(--ink)}
@@ -164,8 +164,8 @@ main{margin-left:var(--rail)}
 .page.inverse .scorecard{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.18)}
 .page.inverse .scorecard .cell{background:#0A1117}
 
-.callout{border-left:2px solid var(--ink);padding:2px 0 2px 18px}
-.callout .q{font-family:var(--font-d);font-size:18px;line-height:1.35;font-weight:500;color:var(--ink)}
+.callout{border-left:2px solid var(--ink);padding:6px 0 6px 20px;margin-bottom:6px}
+.callout .q{font-family:var(--font-d);font-size:18px;line-height:1.45;font-weight:500;color:var(--ink)}
 
 .photo{border-radius:16px;overflow:hidden;background:var(--surface-soft);position:relative}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
@@ -237,7 +237,7 @@ svg text{transition:fill .4s ease}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,56px);align-items:center}
 .split.narrow-r{grid-template-columns:1.25fr .75fr}
 .split.narrow-l{grid-template-columns:.8fr 1.2fr}
-.stack{display:flex;flex-direction:column;gap:clamp(16px,2vw,26px)}
+.stack{display:flex;flex-direction:column;gap:clamp(20px,2.5vw,32px)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,28px)}
 .three{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:14px;overflow:hidden}
 .three .m{background:var(--canvas);padding:20px;display:flex;flex-direction:column;gap:7px}
@@ -532,11 +532,11 @@ svg text{transition:fill .4s ease}
 <main>
 
 <!-- ================= 01 · COVER ================= -->
-<section class="page" id="p1" style="position:relative;overflow:hidden;padding:0 clamp(24px,4vw,64px);min-height:calc(100svh - 64px)">
-  <div class="wrap grid" style="position:relative;z-index:2;height:100%;min-height:calc(100svh - 64px)">
+<section class="page" id="p1" style="position:relative;overflow:hidden;padding:0;padding-left:clamp(24px,4vw,64px);min-height:calc(100svh - 64px)">
+  <div class="wrap grid" style="position:relative;z-index:2;height:100%;min-height:calc(100svh - 64px);max-width:none;margin:0">
     <div class="split narrow-r" style="gap:clamp(24px,3vw,48px);align-items:stretch;height:100%">
       <!-- COLUMNA IZQUIERDA: Conserva padding 48px arriba y abajo -->
-      <div class="stack" style="justify-content:space-between;height:100%;gap:32px;padding:48px 0">
+      <div class="stack" style="justify-content:space-between;height:100%;gap:32px;padding:48px 0;max-width:calc(var(--wrap) * 0.6)">
         <div class="stack" style="gap:14px;max-width:680px">
           <h1 class="claim reveal d1">Seguimiento al POA 2026</h1>
           <p class="lead reveal d2" style="margin-top:4px">Monitoreo continuo de atenciones en protección, kits de dignidad y respuesta humanitaria para familias vulnerables y comunidades afectadas en Cauca y Norte de Santander.</p>
@@ -547,7 +547,7 @@ svg text{transition:fill .4s ease}
           <div class="t"><div class="v">203</div><div class="l">Casos VBG asistidos</div></div>
         </div>
       </div>
-      <!-- COLUMNA DERECHA: Foto Full Height de borde a borde (padding 0) -->
+      <!-- COLUMNA DERECHA: Foto Full Height de borde a borde absoluto derecho -->
       <div class="photo reveal d2" style="height:100%;min-height:100%;width:100%;border-radius:0">
         <img src="img_section_1.jpg" alt="A person looking out toward the horizon" style="width:100%;height:100%;object-fit:cover">
       </div>
@@ -660,7 +660,7 @@ svg text{transition:fill .4s ease}
 
 <!-- ================= 05 · ORGANIC DEEP-DIVE ================= -->
 <section class="page" id="p5">
-  <div class="wrap grid" style="gap:clamp(24px,2.6vw,42px)">
+  <div class="wrap grid">
     <div class="page-head reveal"><span class="page-num">05</span><span class="eyebrow">Trayectoria y Proyección al Cierre</span></div>
     <div class="split narrow-l" style="align-items:center;gap:clamp(24px,3vw,52px)">
       <div class="photo reveal" style="aspect-ratio:5/4;max-height:420px">
@@ -670,12 +670,11 @@ svg text{transition:fill .4s ease}
       <div class="stack">
         <h2 class="d-lg reveal">La atención avanzó. El impacto se consolida.</h2>
         <p class="lead reveal d1">Con corte a Julio de 2026, las atenciones en prevención VBG, entrega de kits de dignidad y gestión de casos avanzan según el cronograma previsto, asegurando la cobertura del 100% al cierre de Noviembre.</p>
-        </div>
       </div>
     </div>
 
-    <div class="stack reveal d2" style="gap:14px;width:100%">
-      <div class="eyebrow">Puntos clave para el monitoreo en campo</div>
+    <div class="stack reveal d2" style="margin-top:16px">
+      <h3 class="headline" style="margin-bottom:8px">Puntos clave para el monitoreo en campo</h3>
       <div class="callout"><p class="q">¿Se están registrando y deduplicando correctamente las atenciones continuas frente a participantes únicos?</p></div>
       <div class="callout"><p class="q">¿El flujo de datos desde KoboToolbox a los consolidados se actualiza semanalmente sin rezago?</p></div>
       <div class="callout" style="margin-top:8px"><p class="body">El ritmo de atención alcanzado demuestra que la estrategia de focalización en Norte de Santander y Cauca ha sido <b style="color:var(--ink)">efectiva</b>. El reto actual del modelo <b style="color:var(--ink)">MEAL</b> es garantizar la calidad en el registro de beneficiarios únicos y la verificación en KoboToolbox.</p></div>
