@@ -27,13 +27,13 @@
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --ink:#FFFFFF; --ink-soft:#D6D6D2; --ink-muted:#9A9A96;
-    --canvas:#050A0E; --canvas-muted:#0E141A; --surface-soft:#141B22;
-    --hairline:#242C33; --hairline-soft:#1A2128;
-    --on-ink:#050A0E; --on-ink-muted:#5A5A57; --inverse:#FFFFFF;
+    --ink:#F3F4F6; --ink-soft:#D1D5DB; --ink-muted:#9CA3AF;
+    --canvas:#14171A; --canvas-muted:#1B1E23; --surface-soft:#23272E;
+    --hairline:#2C313A; --hairline-soft:#22262E;
+    --on-ink:#14171A; --on-ink-muted:#6B7280; --inverse:#F3F4F6;
     --c-cy:#729AB9; --c-py:#5C5C58; --c-paid:#E0A54B; --c-earned:#729AB9;
     --c-up:#4EAF61; --c-down:#E74C3C; --c-accent:#D96A61;
-    --grid:#242C33; --axis:#565E66; --wash:.14;
+    --grid:#2C313A; --axis:#6B7280; --wash:.14;
     color-scheme:dark;
   }
 }
@@ -47,13 +47,13 @@
   --grid:#E2E8F0; --axis:#9A9A94; --wash:.10; color-scheme:light;
 }
 :root[data-theme="dark"]{
-  --ink:#FFFFFF; --ink-soft:#D6D6D2; --ink-muted:#9A9A96;
-  --canvas:#050A0E; --canvas-muted:#0E141A; --surface-soft:#141B22;
-  --hairline:#242C33; --hairline-soft:#1A2128;
-  --on-ink:#050A0E; --on-ink-muted:#5A5A57; --inverse:#FFFFFF;
+  --ink:#F3F4F6; --ink-soft:#D1D5DB; --ink-muted:#9CA3AF;
+  --canvas:#14171A; --canvas-muted:#1B1E23; --surface-soft:#23272E;
+  --hairline:#2C313A; --hairline-soft:#22262E;
+  --on-ink:#14171A; --on-ink-muted:#6B7280; --inverse:#F3F4F6;
   --c-cy:#729AB9; --c-py:#5C5C58; --c-paid:#E0A54B; --c-earned:#729AB9;
   --c-up:#4EAF61; --c-down:#E74C3C; --c-accent:#D96A61;
-  --grid:#242C33; --axis:#565E66; --wash:.14; color-scheme:dark;
+  --grid:#2C313A; --axis:#6B7280; --wash:.14; color-scheme:dark;
 }
 
 /* ============================================================
@@ -483,8 +483,7 @@ svg text{transition:fill .4s ease}
   mix-blend-mode: multiply;
   transition: filter .4s ease, mix-blend-mode .4s ease;
 }
-:root[data-theme="dark"] .site-footer .footer-art img,
-:root:not([data-theme="light"]) .site-footer .footer-art img {
+:root[data-theme="dark"] .site-footer .footer-art img {
   filter: invert(0.92) hue-rotate(180deg);
   mix-blend-mode: screen;
 }
@@ -762,7 +761,6 @@ svg text{transition:fill .4s ease}
         <ul>
           <li><a href="#p3">Norte de Santander (72.2%)</a></li>
           <li><a href="#p3">Cauca (27.6%)</a></li>
-          <li><a href="#p3">Arauca (Fase Piloto)</a></li>
           <li><a href="#p1">Periodo: Junio - Noviembre 2026</a></li>
         </ul>
       </div>
