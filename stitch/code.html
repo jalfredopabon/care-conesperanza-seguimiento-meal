@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CARE - NGO Transparency Portal - Seguimiento al POA 2026</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#ee4640",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb4ac",
+                        "on-secondary-container": "#217128",
+                        "surface-bright": "#fbf9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e9e8e7",
+                        "outline-variant": "#c4c7c7",
+                        "primary": "#000000",
+                        "on-background": "#1b1c1c",
+                        "inverse-surface": "#303031",
+                        "secondary-fixed-dim": "#88d982",
+                        "on-primary-container": "#858383",
+                        "background": "#fbf9f9",
+                        "tertiary-fixed": "#ffdad6",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#444748",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-dim": "#dbdad9",
+                        "surface-tint": "#5f5e5e",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-variant": "#e3e2e2",
+                        "surface-container-highest": "#e3e2e2",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container": "#efeded",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary": "#1b6d24",
+                        "on-primary-fixed-variant": "#474746",
+                        "outline": "#747878",
+                        "secondary-container": "#a0f399",
+                        "on-secondary-fixed": "#002204",
+                        "on-tertiary-fixed-variant": "#93000e",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#005312",
+                        "primary-container": "#1c1b1b",
+                        "primary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed": "#410003",
+                        "tertiary-container": "#410003",
+                        "surface": "#fbf9f9",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#a3f69c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "section-gap": "80px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "data-metric": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "data-metric": ["40px", { "lineHeight": "40px", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-background dark:bg-inverse-surface border-b border-outline-variant dark:border-outline">
+<div class="text-headline-md font-headline-md font-extrabold text-primary dark:text-on-primary-fixed">
+            CARE
+        </div>
+<div class="flex items-center gap-gutter">
+<div class="flex gap-4 text-on-surface-variant dark:text-surface-variant">
+<button aria-label="Dark Mode" class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button aria-label="Language" class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">language</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded font-label-sm text-label-sm hover:opacity-80 transition-opacity">
+                Power BI
+            </button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop pt-32 pb-section-gap">
+<!-- Hero/Impact Summary -->
+<section class="mb-section-gap">
+<div class="max-w-3xl mb-12">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-4 uppercase tracking-wider">Impact Summary</p>
+<h1 class="font-display-lg text-display-lg text-primary mb-6">Seguimiento al POA 2026</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Reporte de progreso estratégico y operativo. Las métricas reflejan el avance consolidado en atenciones directas, distribución de insumos críticos y acompañamiento especializado, alineado con los objetivos de impacto a largo plazo de la organización.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="border border-outline-variant bg-surface-container-lowest p-6 rounded-lg">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase">Atenciones</h3>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div class="font-data-metric text-data-metric text-primary">1,295</div>
+<p class="text-sm mt-2 text-on-surface-variant">Personas alcanzadas este trimestre</p>
+</div>
+<div class="border border-outline-variant bg-surface-container-lowest p-6 rounded-lg">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase">Kits Entregados</h3>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div class="font-data-metric text-data-metric text-primary">320</div>
+<p class="text-sm mt-2 text-on-surface-variant">Insumos distribuidos exitosamente</p>
+</div>
+<div class="border border-outline-variant bg-surface-container-lowest p-6 rounded-lg">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase">Casos VBG</h3>
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">trending_down</span>
+</div>
+<div class="font-data-metric text-data-metric text-primary">203</div>
+<p class="text-sm mt-2 text-on-surface-variant">Casos con seguimiento activo</p>
+</div>
+</div>
+</section>
+<!-- Territorial Performance -->
+<section class="mb-section-gap">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8 border-b border-outline-variant pb-4">Concentración estratégica en departamentos clave</h2>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-8 space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-sm text-label-sm text-primary">Norte de Santander</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">72.2%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 72.2%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-sm text-label-sm text-primary">Cauca</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">27.6%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 27.6%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-sm text-label-sm text-primary">Arauca (Piloto)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">0.2%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-on-surface-variant h-full rounded-full" style="width: 0.2%"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant p-6 rounded-lg">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        La asignación de recursos prioriza <strong>Norte de Santander</strong> debido al alto índice de vulnerabilidad fronteriza. Las operaciones en <strong>Cauca</strong> mantienen una presencia constante, mientras que <strong>Arauca</strong> inicia su fase piloto de evaluación.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Qualitative Analysis & Roadmap -->
+<section class="mb-section-gap">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8 border-b border-outline-variant pb-4">Cuatro acciones clave para los próximos 90 días</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="border border-outline-variant bg-surface-container-lowest p-6 rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">fact_check</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Fortalecer verificación</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Auditoría cruzada de datos en terreno para asegurar la integridad de los reportes y la correcta asignación de recursos a beneficiarios finales.</p>
+</div>
+<div class="border border-outline-variant bg-surface-container-lowest p-6 rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">speed</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Acelerar focalización</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Implementación de nuevas herramientas digitales para reducir el tiempo de identificación y registro de poblaciones vulnerables en zonas remotas.</p>
+</div>
+<div class="border border-outline-variant bg-surface-container-lowest p-6 rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">support_agent</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Acompañamiento VBG</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Expansión de las redes de apoyo psicosocial y legal para sobrevivientes de violencia basada en género, con enfoque diferencial e interseccional.</p>
+</div>
+<div class="border border-outline-variant bg-surface-container-lowest p-6 rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">eco</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Sostenibilidad</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Desarrollo de estrategias de salida y empoderamiento comunitario para asegurar que el impacto perdure más allá de la intervención directa.</p>
+</div>
+</div>
+</section>
+<!-- MEAL Conclusion -->
+<section class="mb-section-gap bg-surface-container-low p-8 lg:p-12 rounded-xl">
+<div class="max-w-4xl mx-auto text-center mb-12">
+<span class="material-symbols-outlined text-primary text-4xl mb-6 opacity-20">format_quote</span>
+<p class="font-headline-md text-headline-md text-primary mb-4 italic">
+                    "El avance en atenciones cobra verdadero valor cuando los datos reflejan historias reales de resiliencia y recuperación en el terreno."
+                </p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Equipo MEAL Colombia</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-lg max-w-2xl mx-auto">
+<h3 class="font-label-sm text-label-sm text-primary uppercase mb-6 border-b border-outline-variant pb-2">Puntos clave para el monitoreo en campo</h3>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<span>Verificación aleatoria de entregas en zonas de difícil acceso.</span>
+</li>
+<li class="flex items-start gap-4 border-t border-outline-variant pt-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<span>Entrevistas cualitativas con líderes comunitarios sobre la pertinencia de la ayuda.</span>
+</li>
+<li class="flex items-start gap-4 border-t border-outline-variant pt-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<span>Revisión de protocolos de seguridad de la información en puntos de registro.</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Closing section -->
+<section>
+<div class="flex flex-col md:flex-row gap-gutter items-center">
+<div class="md:w-1/2">
+<h2 class="font-display-lg text-display-lg text-primary mb-4">La atención avanzó. El impacto se consolida.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        El primer trimestre marca una base sólida. Los próximos meses exigirán rigor analítico y adaptabilidad para maximizar los recursos y alcanzar las metas del POA 2026.
+                    </p>
+</div>
+<div class="md:w-1/2 w-full">
+<div class="bg-cover bg-center w-full h-64 md:h-96 rounded-lg border border-outline-variant grayscale" data-alt="A minimalist, high-quality documentary photograph showing hands of aid workers reviewing a printed map and documents on a simple wooden table. Bright, natural lighting, grayscale with a slight warm tone, emphasizing data collection and strategic planning in a professional NGO context." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBDQwHf9DI_juAJXJaubVC4pFkw2__L_Y3nLY7wiALsfurncTvJ868_wqYOXKcPTYqfXluWOGNy7JKut8z4Q4UgwpWQyAie_xVtZzFR9f31iQsOVxOF8cfDzpC1Nu4-ytxw4163OarnMuZwbhVosypKkVr5PUYoa9YI6nLA3QjCtnejl2iCWLFLPgXQ8Qu9mfv1y6OXMskhISvjdtUAaITvunZ7RQpOqEd66Iq7MphjrSz_me3I0x-cPg')"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap px-margin-desktop mt-section-gap border-t border-outline-variant bg-surface-container-low dark:bg-inverse-surface">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-headline-md text-headline-md text-primary">CARE</div>
+<div class="flex flex-wrap gap-6 text-body-md font-body-md justify-center">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-200" href="#">MEAL Recommendations</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-200" href="#">Contact Support</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary underline transition-all duration-200" href="#">Data Transparency</a>
+</div>
+<div class="text-body-md font-body-md text-on-surface-variant">© 2024 CARE International. All rights reserved.</div>
+</div>
+</footer>
+</body></html>

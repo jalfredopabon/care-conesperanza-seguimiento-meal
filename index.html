@@ -229,7 +229,7 @@ svg text{transition:fill .4s ease}
 .cover .right{position:relative;overflow:hidden;background:var(--surface-soft)}
 .cover .right img{width:100%;height:100%;object-fit:cover}
 .cover .right .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,10,14,0) 40%,rgba(5,10,14,.28))}
-.tease{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:14px;overflow:hidden}
+.tease{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:14px;overflow:hidden}
 .tease .t{background:var(--canvas);padding:clamp(16px,1.8vw,22px);display:flex;flex-direction:column;gap:8px}
 .tease .t .v{font-family:var(--font-d);font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1;letter-spacing:-.02em}
 .tease .t .l{font-size:12px;color:var(--ink-muted);margin-top:0}
@@ -270,7 +270,6 @@ svg text{transition:fill .4s ease}
 @media (max-width:520px){
   #p1.page{padding-top:16px;padding-bottom:28px}
   .tease{grid-template-columns:repeat(2,1fr);gap:1px}
-  .tease .t:last-child{grid-column:span 2}
   .three{grid-template-columns:repeat(2,1fr);gap:1px}
   .three .m:last-child{grid-column:span 2}
   .scorecard{grid-template-columns:repeat(2,1fr)}
@@ -545,6 +544,7 @@ svg text{transition:fill .4s ease}
           <div class="t"><div class="v delta up"><span class="ar">▲</span>1.295</div><div class="l">Atenciones / Sensibilizaciones</div></div>
           <div class="t"><div class="v delta up"><span class="ar">▲</span>320</div><div class="l">Kits CARE entregados</div></div>
           <div class="t"><div class="v">203</div><div class="l">Casos VBG asistidos</div></div>
+          <div class="t"><div class="v">5 Fam.</div><div class="l">Focalización Cash</div></div>
         </div>
       </div>
       <!-- COLUMNA DERECHA: Foto Full Height de borde a borde absoluto derecho -->
@@ -573,17 +573,17 @@ svg text{transition:fill .4s ease}
       <div class="cell"><span class="k">Focalización Cash</span><span class="v">5 Fam.</span><span class="s">En proceso de priorización</span></div>
     </div>
 
-    <!-- 1. GRÁFICO (Más pequeño y centrado) -->
-    <figure class="reveal" style="max-width:640px;margin:0 auto;width:100%">
-      <div class="figcap">
+    <!-- 1. GRÁFICO (Alineado a la izquierda con mejor espaciado) -->
+    <figure class="reveal" style="max-width:640px;margin:0 auto 0 0;width:100%">
+      <div class="figcap" style="margin-bottom:20px">
         <span class="t">Ritmo de atención mensual — Junio vs Julio 2026</span>
         <span class="legend">
           <span class="li"><span class="sw line" style="border-color:var(--c-cy)"></span>Julio</span>
           <span class="li"><span class="sw line" style="border-color:var(--c-py);border-top-style:dashed"></span>Junio</span>
         </span>
       </div>
-      <div class="chart-scroll" style="display:flex;justify-content:center"><svg id="chart-trend" viewBox="0 0 760 320" role="img" aria-label="Aumento mensual de atenciones" style="max-width:620px;width:100%;height:auto"></svg></div>
-      <p class="caption" style="margin-top:8px;text-align:left">La velocidad de atención comunitaria incrementó un +28% en Julio respecto a Junio, manteniendo una trayectoria óptima para el cumplimiento total en Noviembre.</p>
+      <div class="chart-scroll" style="display:flex;justify-content:flex-start"><svg id="chart-trend" viewBox="0 0 760 320" role="img" aria-label="Aumento mensual de atenciones" style="max-width:620px;width:100%;height:auto"></svg></div>
+      <p class="caption" style="margin-top:20px;text-align:left">La velocidad de atención comunitaria incrementó un +28% en Julio respecto a Junio, manteniendo una trayectoria óptima para el cumplimiento total en Noviembre.</p>
     </figure>
 
     <!-- 2. FOTO PANORÁMICA (Ancho completo de lado a lado en el centro) -->
@@ -607,20 +607,25 @@ svg text{transition:fill .4s ease}
       <p class="lead reveal d1">Distribución territorial de atenciones e insumos entregados: focalización operativa del 72.2% en Norte de Santander y consolidación de rutas comunitarias en Cauca (27.6%).</p>
     </div>
 
-    <!-- GRÁFICO DE BARRAS DEPARTAMENTAL (Más pequeño y centrado) -->
-    <figure class="reveal" style="max-width:640px;margin:0 auto;width:100%">
-      <div class="figcap">
-        <span class="t">Atenciones acumuladas por departamento</span>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center reveal" style="display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,3vw,48px);align-items:center;width:100%">
+      <!-- Columna Izquierda: Gráfico de 2 Barras de Departamentos -->
+      <div class="lg:col-span-8" style="grid-column:span 8">
+        <div class="figcap" style="margin-bottom:16px">
+          <span class="t">Atenciones acumuladas por departamento</span>
+        </div>
+        <div class="chart-scroll" style="display:flex;justify-content:flex-start">
+          <svg id="chart-diverge" viewBox="0 0 760 130" role="img" aria-label="Atenciones por departamento" style="max-width:100%;width:100%;height:auto"></svg>
+        </div>
       </div>
-      <div class="chart-scroll" style="display:flex;justify-content:center"><svg id="chart-diverge" viewBox="0 0 760 430" role="img" aria-label="Atenciones por departamento" style="max-width:620px;width:100%;height:auto"></svg></div>
-      <p class="caption" style="margin-top:8px;text-align:left">Norte de Santander concentra la mayor densidad de atenciones debido al volumen de sensibilizaciones y entregas de kits CARE.</p>
-    </figure>
-
-    <div class="two">
-      <div class="card line reveal"><div class="eyebrow" style="margin-bottom:8px">Norte de Santander</div><p class="body"><b style="color:var(--ink)">Norte de Santander</b> acumula 936 atenciones (72.2%) y 260 kits CARE entregados (81.3%), manteniéndose como el eje principal de respuesta humanitaria en zona de frontera.</p></div>
-      <div class="card line reveal d1"><div class="eyebrow" style="margin-bottom:8px">Cauca & Arauca</div><p class="body"><b style="color:var(--ink)">Cauca</b> registra 358 atenciones (27.6%) con enfoque de género en comunidades rurales. <b style="color:var(--ink)">Arauca</b> registra sus primeras atenciones piloto (0.2%) en preparación para la fase de aceleración.</p></div>
-      <div class="photo reveal d2" style="min-height:180px;grid-column:1/-1"><img src="img_section_3.jpg" alt="Entrega de kits CARE y trabajo territorial"><span class="tag">Distribución Territorial</span></div>
+      <!-- Columna Derecha: Tarjeta Cualitativa (Estilo Stitch) -->
+      <div class="lg:col-span-4 card line" style="grid-column:span 4;padding:24px">
+        <p class="body" style="font-size:14.5px;line-height:1.6">
+          La asignación de recursos prioriza <b style="color:var(--ink)">Norte de Santander</b> (72.2% · 936 atenciones) debido al alto índice de vulnerabilidad fronteriza. Las operaciones en <b style="color:var(--ink)">Cauca</b> (27.6% · 358 atenciones) mantienen una presencia comunitaria constante.
+        </p>
+      </div>
     </div>
+
+    <div class="photo reveal d2" style="aspect-ratio:21/9;max-height:240px;width:100%"><img src="img_section_3.jpg" alt="Entrega de kits CARE y trabajo territorial"><span class="tag">Distribución Territorial</span></div>
   </div>
 </section>
 
@@ -634,13 +639,13 @@ svg text{transition:fill .4s ease}
       <p class="lead reveal d1" style="max-width:none">Concentración estratégica de acciones en Norte de Santander (72.2%) y consolidación de rutas de atención presencial en el Cauca (27.6%) con enfoque de género y protección.</p>
     </div>
 
-    <!-- 2. GRÁFICO DE BARRAS DE COBERTURA (Más pequeño y centrado) -->
-    <figure class="reveal" style="max-width:640px;margin:0 auto;width:100%">
-      <div class="figcap">
+    <!-- 2. GRÁFICO DE BARRAS DE COBERTURA (Alineado a la izquierda) -->
+    <figure class="reveal" style="max-width:640px;margin:0 auto 0 0;width:100%">
+      <div class="figcap" style="margin-bottom:20px">
         <span class="t">Índice de Cobertura MEAL — Atenciones vs Meta (Base 100)</span>
       </div>
-      <div class="chart-scroll" style="display:flex;justify-content:center"><svg id="chart-index" viewBox="0 0 760 260" role="img" aria-label="Índice de cobertura de atenciones y kits entregados" style="max-width:620px;width:100%;height:auto"></svg></div>
-      <p class="caption" style="margin-top:8px;text-align:left">Las atenciones presenciales superaron la meta base proyectada (193%), mientras que la entrega de kits CARE avanza al 94% del cronograma.</p>
+      <div class="chart-scroll" style="display:flex;justify-content:flex-start"><svg id="chart-index" viewBox="0 0 760 260" role="img" aria-label="Índice de cobertura de atenciones y kits entregados" style="max-width:620px;width:100%;height:auto"></svg></div>
+      <p class="caption" style="margin-top:20px;text-align:left">Las atenciones presenciales superaron la meta base proyectada (193%), mientras que la entrega de kits CARE avanza al 94% del cronograma.</p>
     </figure>
 
     <!-- 3. TARJETAS DE IMPACTO -->
@@ -789,8 +794,7 @@ const PY = [969,1196,1045,1119,1032,1147,1022,911,851,783,753,692,698];
 
 const DIVERGE = [ // % Participación territorial y atenciones
   {n:"Norte Santander",v:72.2,count:936},
-  {n:"Cauca",v:27.6,count:358},
-  {n:"Arauca (Piloto)",v:0.2,count:1}
+  {n:"Cauca",v:27.6,count:358}
 ].sort((a,b)=>b.v-a.v);
 
 const BUBBLE = [];
@@ -871,32 +875,55 @@ function drawTrend(){
    ============================================================ */
 function drawDiverge(){
   const svg=document.getElementById("chart-diverge");if(!svg)return;svg.innerHTML="";
-  const W=760,H=220,T=20,B=36;
-  const nameW=140, valW=110, L=nameW, plotR=W-valW;
-  const pw=plotR-L;
-  const rows=DIVERGE, rh=(H-T-B)/rows.length, bh=Math.min(26,rh-12);
-  const scaleMax=100;
-  const zero=L;
-  const px=v=>(v/scaleMax)*pw;
+  const W=760, L=0, pw=W;
+  const rows=DIVERGE;
+  const rowHeight=64, bh=10, T=6;
+  const H=rows.length * rowHeight;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
   const cUp=cvar("--c-cy");
-  
-  // Ejes y porcentaje
-  for(let g=0;g<=100;g+=25){
-    const gx=L+px(g);
-    svg.appendChild(E("line",{class:"gridline",x1:gx,x2:gx,y1:T,y2:H-B}));
-    svg.appendChild(E("text",{class:"axislbl",x:gx,y:H-12,"text-anchor":"middle",text:g+"%"}));
-  }
+  const cTrack=cvar("--surface-soft") || "rgba(0,0,0,0.08)";
+  const cText=cvar("--ink");
+  const cMuted=cvar("--ink-muted");
 
   rows.forEach((d,i)=>{
-    const y=T+i*rh+(rh-bh)/2;
-    const w=Math.max(4,px(d.v));
-    const rect=E("rect",{x:zero,y:y,width:w,height:bh,rx:4,fill:cUp});
-    rect.appendChild(E("title",{text:d.n+": "+d.count+" atenciones ("+d.v+"%)"}));
-    svg.appendChild(rect);
+    const topY = i * rowHeight + T;
+    
+    // Texto Nombre a la izquierda
+    svg.appendChild(E("text",{
+      x:0, y:topY + 14,
+      fill:cText,
+      "font-family":cvar("--font-b"),
+      "font-size":"13.5px",
+      "font-weight":"600",
+      text:d.n
+    }));
 
-    svg.appendChild(E("text",{class:"axislbl",x:nameW-12,y:y+bh/2+4,"text-anchor":"end",text:d.n}));
-    svg.appendChild(E("text",{class:"datalbl",x:zero+w+10,y:y+bh/2+4,"text-anchor":"start",fill:cvar("--ink"),
-      text:d.v+"% ("+fmt(d.count)+" atenciones)"}));
+    // Texto Porcentaje / Atenciones a la derecha
+    svg.appendChild(E("text",{
+      x:W, y:topY + 14,
+      "text-anchor":"end",
+      fill:cMuted,
+      "font-family":cvar("--font-b"),
+      "font-size":"13px",
+      "font-weight":"600",
+      text:d.v+"% ("+fmt(d.count)+" atenciones)"
+    }));
+
+    // Barra de fondo 100% (Track gris claro)
+    const barY = topY + 24;
+    svg.appendChild(E("rect",{
+      x:0, y:barY, width:pw, height:bh, rx:5,
+      fill:cTrack
+    }));
+
+    // Barra de avance (Azul marca)
+    const w = (d.v / 100) * pw;
+    const progressRect = E("rect",{
+      x:0, y:barY, width:w, height:bh, rx:5,
+      fill:cUp
+    });
+    progressRect.appendChild(E("title",{text:d.n+": "+d.count+" atenciones ("+d.v+"%)"}));
+    svg.appendChild(progressRect);
   });
 }
 
