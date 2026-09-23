@@ -845,6 +845,54 @@ svg text{transition:fill .4s ease}
   }
 }
 
+
+/* Desktop Hero Section Full-Viewport Alignment */
+@media (min-width: 901px) {
+  :root {
+    --top-bar-h: 115px;
+  }
+  .page {
+    scroll-margin-top: var(--top-bar-h, 115px);
+  }
+  #p1.page {
+    height: calc(100svh - var(--top-bar-h, 115px)) !important;
+    min-height: calc(100svh - var(--top-bar-h, 115px)) !important;
+    max-height: calc(100svh - var(--top-bar-h, 115px)) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    overflow: hidden !important;
+  }
+  #p1 .wrap {
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+  }
+  #p1 .split {
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+  }
+  #p1 .hero-content-stack {
+    height: 100% !important;
+    min-height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  #p1 .hero-photo-full {
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+  }
+  #p1 .hero-photo-full img {
+    height: 100% !important;
+    min-height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+}
+
 </style>
 
 <!-- ================= TOP APP BAR (STITCH DESIGN) ================= -->
@@ -966,11 +1014,11 @@ svg text{transition:fill .4s ease}
 <main>
 
 <!-- ================= 01 · COVER ================= -->
-<section class="page" id="p1" style="position:relative;overflow:hidden;padding:0;padding-left:clamp(24px,4vw,64px);min-height:calc(100svh - 64px)">
-  <div class="wrap grid" style="position:relative;z-index:2;height:100%;min-height:calc(100svh - 64px);max-width:none;margin:0">
+<section class="page" id="p1" style="position:relative;overflow:hidden;padding:0;padding-left:clamp(24px,4vw,64px)">
+  <div class="wrap grid" style="position:relative;z-index:2;height:100%;max-width:none;margin:0">
     <div class="split narrow-r" style="gap:clamp(24px,3vw,48px);align-items:stretch;height:100%">
-      <!-- COLUMNA IZQUIERDA: Conserva padding 48px arriba y abajo -->
-      <div class="stack" style="justify-content:space-between;height:100%;gap:32px;padding:48px 0;max-width:calc(var(--wrap) * 0.6)">
+      <!-- COLUMNA IZQUIERDA: Distribución vertical balanceada -->
+      <div class="stack hero-content-stack" style="justify-content:space-between;height:100%;gap:24px;padding:clamp(24px,3.5vh,44px) 0;max-width:calc(var(--wrap) * 0.6)">
         <div class="stack" style="gap:14px;max-width:680px">
           <h1 class="claim reveal d1">Seguimiento al POA 2026</h1>
           <p class="lead reveal d2" style="margin-top:4px">Monitoreo continuo de atenciones en protección, kits de dignidad y respuesta humanitaria para familias vulnerables y comunidades afectadas en Cauca y Norte de Santander.</p>
@@ -982,196 +1030,209 @@ svg text{transition:fill .4s ease}
           <div class="t"><div class="v">5 Fam.</div><div class="l">Focalización Cash</div></div>
         </div>
       </div>
-      <!-- COLUMNA DERECHA: Foto Full Height de borde a borde absoluto derecho -->
-      <div class="photo reveal d2" style="height:100%;min-height:100%;width:100%;border-radius:0">
+      <!-- COLUMNA DERECHA: Foto Full Height al ras de pantalla en escritorio -->
+      <div class="photo hero-photo-full reveal d2" style="height:100%;width:100%;border-radius:0">
         <img src="img_section_1.jpg" alt="A person looking out toward the horizon" style="width:100%;height:100%;object-fit:cover">
       </div>
     </div>
   </div>
 </section>
-
-<!-- ================= 02 · SCORECARD ================= -->
+<!-- ================= 02 · CONTEXTO TERRITORIAL ================= -->
 <section class="page" id="p2">
-  <div class="wrap grid" style="gap:clamp(26px,3vw,44px)">
-    <div class="page-head reveal">
-      <span class="page-num">02</span><span class="eyebrow">Resumen de Impacto</span>
-    </div>
-    <div class="stack" style="gap:16px;width:100%">
-      <h2 class="d-lg reveal" style="max-width:none">Despliegue operativo en marcha. Crecimiento en territorio.</h2>
-      <p class="lead reveal d1" style="max-width:none">Con corte a Julio de 2026, el proyecto avanza al 40% del tiempo ejecutado, concentrando esfuerzos en atención directa, prevención de VBG y entrega de insumos esenciales.</p>
-    </div>
-
-    <div class="scorecard reveal d1">
-      <div class="cell"><span class="k">Total Participantes</span><span class="v">1.295</span><span class="s"><span class="delta up"><span class="ar">▲</span>40.5%</span> · Meta 3.200 (Nov 2026)</span></div>
-      <div class="cell"><span class="k">Kits CARE Distribuidos</span><span class="v">320</span><span class="s"><span class="delta up"><span class="ar">▲</span>40.0%</span> · Meta 800 Kits</span></div>
-      <div class="cell"><span class="k">Casos VBG Asistidos</span><span class="v">203</span><span class="s"><span class="delta up"><span class="ar">▲</span>45.1%</span> · Respuesta Inmediata</span></div>
-      <div class="cell"><span class="k">Focalización Cash</span><span class="v">5 Fam.</span><span class="s">En proceso de priorización</span></div>
-    </div>
-
-    <!-- 2. FOTO PANORÁMICA (Ancho completo de lado a lado en el centro) -->
-    <div class="photo reveal" style="aspect-ratio:21/9;max-height:280px;width:100%"><img src="img_section_2.jpg" alt="Comunidades y participantes en talleres de prevención"><span class="tag">Participantes y Comunidades</span></div>
-
-    <!-- 3. TEXTOS A ANCHO COMPLETO EN 1 SOLA COLUMNA -->
-    <div class="stack reveal d1" style="gap:20px;width:100%">
-      <div class="callout"><p class="q">El ritmo de atención mensual creció de <b>698</b> a <b>1.488</b> personas asistidas —un incremento del <b>+28%</b>— al acelerar la respuesta en territorio.</p></div>
-      <p class="body reveal d2">Durante el mes de Julio se consolidó la fase de aceleración operacional del POA, logrando mayor cobertura en talleres de prevención VBG, atención presencial de casos y entregas de kits de dignidad en Norte de Santander y Cauca.</p>
-      <p class="caption reveal d2">Nota: Cifras acumuladas a corte de Julio de 2026, consolidadas a partir de los registros de campo en KoboToolbox y verificadas por el equipo MEAL.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 03 · CHANNELS ================= -->
-<section class="page" id="p3">
-  <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
-    <div class="page-head reveal"><span class="page-num">03</span><span class="eyebrow">Desempeño Territorial</span></div>
-    <div class="stack" style="gap:16px;width:100%">
-      <h2 class="d-lg reveal">Concentración estratégica en departamentos clave.</h2>
-      <p class="lead reveal d1">Distribución territorial de atenciones e insumos entregados: focalización operativa del 72.2% en Norte de Santander y consolidación de rutas comunitarias en Cauca (27.6%).</p>
-    </div>
-
-        <div class="photo reveal d2" style="aspect-ratio:21/9;max-height:240px;width:100%"><img src="img_section_3.jpg" alt="Entrega de kits CARE y trabajo territorial"><span class="tag">Distribución Territorial</span></div>
-  </div>
-</section>
-
-<!-- ================= 04 · ANÁLISIS CUALITATIVO ================= -->
-<section class="page" id="p4">
   <div class="wrap grid" style="gap:clamp(24px,2.6vw,42px)">
-    <!-- 1. ENCABEZADO -->
-    <div class="page-head reveal"><span class="page-num">04</span><span class="eyebrow">Análisis Cualitativo MEAL</span></div>
+    <div class="page-head reveal">
+      <span class="page-num">02</span><span class="eyebrow">Despliegue territorial</span>
+    </div>
     <div class="stack" style="gap:16px;width:100%">
-      <h2 class="d-lg reveal" style="max-width:none">Protección directa y presencia territorial</h2>
-      <p class="lead reveal d1" style="max-width:none">Concentración estratégica de acciones en Norte de Santander (72.2%) y consolidación de rutas de atención presencial en el Cauca (27.6%) con enfoque de género y protección.</p>
+      <h2 class="d-lg reveal" style="max-width:none">Presencia humanitaria en zonas de alta vulnerabilidad</h2>
+      <p class="lead reveal d1" style="max-width:none">Distribución territorial de atenciones e insumos entregados: focalización operativa del 72.2% en Norte de Santander y consolidación de rutas comunitarias en Cauca (27.6%).</p>
     </div>
 
-    <!-- 3. TARJETAS DE IMPACTO (4 KPI grid responsive) -->
+    <!-- TARJETAS DE IMPACTO TERRITORIAL (4 KPI grid responsive integrado) -->
     <div class="tease reveal d1">
-      <div class="t"><span class="l">NORTE DE SANTANDER</span><span class="v delta up" style="color:var(--c-up)"><span class="ar">▲</span> 72.2%</span></div>
+      <div class="t"><span class="l">NORTE DE SANTANDER</span><span class="v"><span class="delta up">▲</span> 72.2%</span></div>
       <div class="t"><span class="l">CAUCA</span><span class="v">27.6%</span></div>
       <div class="t"><span class="l">CASOS VBG</span><span class="v">203</span></div>
-      <div class="t"><span class="l">KITS ENTREGADOS</span><span class="v delta up" style="color:var(--c-up)"><span class="ar">▲</span> 320</span></div>
+      <div class="t"><span class="l">KITS ENTREGADOS</span><span class="v"><span class="delta up">▲</span> 320</span></div>
     </div>
 
-    <!-- 4. TEXTO NARRATIVO Y FOTO DE CAMPO LADO A LADO -->
-    <div class="split" style="gap:clamp(24px,3vw,48px);align-items:center">
-      <p class="lead reveal d2">Las acciones presenciales han tenido un alto impacto en <b style="color:var(--ink)">Norte de Santander</b> (Abrego, Hacarí) con 936 sensibilizaciones y 260 kits entregados. En <b style="color:var(--ink)">Cauca</b> (Buenos Aires, Morales), 358 atenciones comunitarias priorizan a sobrevivientes y comunidades étnicas afectas por conflicto.</p>
-      <div class="photo reveal d2" style="aspect-ratio:16/9;width:100%"><img src="img_section_4.jpg" alt="Atención comunitaria y presencia territorial"><span class="tag">Presencia Territorial</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 05 · ORGANIC DEEP-DIVE ================= -->
-<section class="page" id="p5">
-  <div class="wrap grid">
-    <div class="page-head reveal"><span class="page-num">05</span><span class="eyebrow">Trayectoria y Proyección al Cierre</span></div>
-    <div class="split narrow-l" style="align-items:center;gap:clamp(24px,3vw,52px)">
-      <div class="photo reveal" style="aspect-ratio:5/4;max-height:420px">
-        <img src="img_section_5.jpg" alt="A laptop and open notebook on a desk">
-        <span class="tag">Monitoreo de Campo</span>
-      </div>
-      <div class="stack">
-        <h2 class="d-lg reveal">La atención avanzó. El impacto se consolida.</h2>
-        <p class="lead reveal d1">Con corte a Julio de 2026, las atenciones en prevención VBG, entrega de kits de dignidad y gestión de casos avanzan según el cronograma previsto, asegurando la cobertura del 100% al cierre de Noviembre.</p>
-      </div>
-    </div>
-
-    <div class="stack reveal d2" style="margin-top:16px">
-      <h3 class="headline" style="margin-bottom:8px">Puntos clave para el monitoreo en campo</h3>
-      <div class="callout"><p class="body">¿Se están registrando y deduplicando correctamente las atenciones continuas frente a participantes únicos?</p></div>
-      <div class="callout"><p class="body">¿El flujo de datos desde KoboToolbox a los consolidados se actualiza semanalmente sin rezago?</p></div>
-      <div class="callout" style="margin-top:8px"><p class="body">El ritmo de atención alcanzado demuestra que la estrategia de focalización en Norte de Santander y Cauca ha sido <b style="color:var(--ink)">efectiva</b>. El reto actual del modelo <b style="color:var(--ink)">MEAL</b> es garantizar la calidad en el registro de beneficiarios únicos y la verificación en KoboToolbox.</p></div>
+    <!-- FOTOGRAFÍA EDITORIAL DE CAMPO TERRITORIAL -->
+    <div class="photo reveal d2" style="aspect-ratio:21/9;max-height:260px;width:100%">
+      <img src="img_section_3.jpg" alt="Distribución y presencia territorial en Norte de Santander y Cauca">
+      <span class="tag">Presencia Territorial</span>
     </div>
   </div>
 </section>
 
-<!-- ================= 06 · ACTIONS ================= -->
-<section class="page" id="p6">
+<!-- ================= 03 · SECTORES MARCO LÓGICO OCHA ================= -->
+<section class="page" id="p3">
   <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
-    <div class="page-head reveal"><span class="page-num">06</span><span class="eyebrow">Decisiones y Recomendaciones MEAL</span></div>
+    <div class="page-head reveal">
+      <span class="page-num">03</span><span class="eyebrow">Sectores de respuesta</span>
+    </div>
     <div class="stack" style="gap:16px;width:100%">
-      <h2 class="d-lg reveal">Cuatro acciones clave para los próximos 90 días</h2>
-      <p class="lead reveal d1">Sostenibilidad de la respuesta: orientaciones estratégicas para garantizar el cumplimiento del 100% de las metas operacionales a Noviembre de 2026.</p>
+      <h2 class="d-lg reveal">Cuatro líneas de acción para la protección y el bienestar</h2>
+      <p class="lead reveal d1">Respuesta articulada en los cuatro sectores prioritarios de OCHA: VBG, Protección general, Salud primaria y Transferencias monetarias.</p>
     </div>
 
+    <!-- CUADRÍCULA 2x2 DE 4 TARJETAS UNIDAS -->
     <div class="recs reveal d1">
       <div class="rec">
         <span class="rn">01</span>
-        <h3>Fortalecer la verificación en KoboToolbox</h3>
-        <p class="body" style="color:var(--ink-soft)">Sincronizar semanalmente los registros de campo para evitar rezagos en la contabilización y deduplicación de participantes únicos.</p>
-        <span class="why">Punto crítico para la precisión de cifras MEAL.</span>
+        <h3>VBG (Violencia Basada en Género)</h3>
+        <p class="body" style="color:var(--ink-soft)">Sensibilizaciones comunitarias, prevención y entrega de kits de dignidad para la mitigación del riesgo.</p>
+        <span class="sub" style="color:var(--ink-muted)">Prevención y mitigación comunitaria</span>
       </div>
       <div class="rec">
         <span class="rn">02</span>
-        <h3>Acelerar focalización en Arauca</h3>
-        <p class="body" style="color:var(--ink-soft)">Consolidar la fase piloto en Arauca incrementando la entrega de kits CARE y sensibilizaciones comunitarias durante el Q3.</p>
-        <span class="why">Expansión oportuna de la cobertura fronteriza.</span>
+        <h3>Protección General y Especializada</h3>
+        <p class="body" style="color:var(--ink-soft)">Gestión de casos de protección, apoyo psicosocial integral y habilitación de espacios seguros.</p>
+        <span class="sub" style="color:var(--ink-muted)">Acompañamiento a personas afectadas</span>
       </div>
       <div class="rec">
         <span class="rn">03</span>
-        <h3>Acompañamiento a Casos VBG</h3>
-        <p class="body" style="color:var(--ink-soft)">Mantener la respuesta inmediata y la ruta de protección integral en Norte de Santander y Cauca.</p>
-        <span class="why">Garantizar atención digna y oportuna.</span>
+        <h3>Salud Primaria y SSR</h3>
+        <p class="body" style="color:var(--ink-soft)">Consultas de atención primaria en salud, salud sexual y reproductiva, y atención médica a sobrevivientes.</p>
+        <span class="sub" style="color:var(--ink-muted)">Atención en salud esencial</span>
       </div>
       <div class="rec">
         <span class="rn">04</span>
-        <h3>Sostenibilidad y Alianzas Locales</h3>
-        <p class="body" style="color:var(--ink-soft)">Articular acciones con organizaciones comunitarias e institucionalidad local para la sostenibilidad de la respuesta hacia el cierre de ciclo.</p>
-        <span class="why">Asegurar el impacto duradero en el territorio.</span>
+        <h3>Transferencias Monetarias (MPCA)</h3>
+        <p class="body" style="color:var(--ink-soft)">Asistencia en efectivo multipropósito para cobertura de necesidades alimentarias y vitales inmediatas.</p>
+        <span class="sub" style="color:var(--ink-muted)">Autonomía y dignidad para los hogares</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Conclusión MEAL (Sin línea física superior) -->
-    <div class="reveal" style="margin-top:24px;width:100%">
-      <div class="eyebrow" style="margin-bottom:20px">Conclusión MEAL</div>
-      <div class="split" style="align-items:start;gap:clamp(24px,3vw,48px)">
-        <p class="d-lg" style="font-size:clamp(24px,3vw,38px)">"El avance en atenciones cobra verdadero valor cuando se traduce en protección efectiva, calidad y dignidad para las comunidades."</p>
-        <div class="photo d1" style="aspect-ratio:16/10;width:100%;height:100%">
-          <img src="img_section_6.jpg" alt="Comunidad y equipo de trabajo CARE Colombia">
+<!-- ================= 04 · VOCES DESDE EL TERRITORIO ================= -->
+<section class="page" id="p4">
+  <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
+    <div class="page-head reveal">
+      <span class="page-num">04</span><span class="eyebrow">Voces de la comunidad</span>
+    </div>
+    <div class="stack" style="gap:16px;width:100%">
+      <h2 class="d-lg reveal" style="max-width:none">Evidencia cualitativa y dignidad en la atención</h2>
+      <p class="lead reveal d1" style="max-width:none">Percepciones, testimonios y relatos de vida recopilados bajo protocolos de protección y acción sin daño.</p>
+    </div>
+
+    <!-- VIÑETAS CON BARRA VERTICAL (CALLOUTS DE OPINIÓN) -->
+    <div class="stack" style="gap:18px;width:100%">
+      <div class="callout reveal d1">
+        <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El apoyo recibido nos permitió solventar necesidades básicas de alimentación y cuidado en los días más difíciles. Sentir que no estamos solos en nuestra vereda nos devuelve la tranquilidad.»</p>
+        <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante comunitaria, Norte de Santander (Testimonio protegido)</p>
+      </div>
+
+      <div class="callout reveal d2">
+        <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Las jornadas de sensibilización y los espacios seguros abrieron un canal de confianza que no existía. Las mujeres de la comunidad ahora reconocen sus derechos y las rutas de atención.»</p>
+        <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa comunitaria, Cauca (Testimonio protegido)</p>
+      </div>
+
+      <div class="callout reveal d3">
+        <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La atención médica oportuna y el suministro de insumos esenciales marcaron la diferencia para nuestras familias en momentos de aislamiento.»</p>
+        <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Facilitador de salud comunitaria en terreno</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 · RENDICIÓN DE CUENTAS (AAP) ================= -->
+<section class="page" id="p5">
+  <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
+    <div class="page-head reveal">
+      <span class="page-num">05</span><span class="eyebrow">Rendición de cuentas (AAP)</span>
+    </div>
+    <div class="split narrow-l" style="align-items:center;gap:clamp(24px,3vw,52px)">
+      <div class="photo reveal" style="aspect-ratio:5/4;max-height:400px">
+        <img src="img_section_5.jpg" alt="Monitoreo y evaluación en campo KoboToolbox">
+        <span class="tag">Monitoreo y AAP</span>
+      </div>
+      <div class="stack" style="gap:16px">
+        <h2 class="d-lg reveal">Mecanismos de escucha, consulta y transparencia</h2>
+        <p class="lead reveal d1">Mecanismos permanentes de consulta, canales de atención y monitoreo en terreno para garantizar la dignidad y pertinencia de la respuesta humanitaria.</p>
+        <div class="callout reveal d2" style="border-left-color:var(--green)">
+          <p class="body" style="color:var(--ink)">Canales de retroalimentación activos en veredas focalizadas: buzones comunitarios, líneas directas de atención y verificación periódica del trato digno en cada entrega.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SITE FOOTER (FULL WIDTH WITH ARTWORK) ================= -->
+<!-- ================= 06 · LECCIONES APRENDIDAS Y ADAPTACIÓN ================= -->
+<section class="page" id="p6">
+  <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
+    <div class="page-head reveal">
+      <span class="page-num">06</span><span class="eyebrow">Aprendizaje y adaptación</span>
+    </div>
+    <div class="stack" style="gap:16px;width:100%">
+      <h2 class="d-lg reveal">Lecciones aprendidas para la sostenibilidad y Fase 2</h2>
+      <p class="lead reveal d1">Sistematización de aprendizajes operativos, resolución de cuellos de botella y consolidación metodológica para la continuidad de la respuesta.</p>
+    </div>
+
+    <div class="split" style="gap:clamp(20px,2.5vw,36px);align-items:stretch">
+      <div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+        <div class="badge" style="width:fit-content">Aprendizaje Clave</div>
+        <h3 style="font-family:var(--font-d);font-size:18px">Adaptación de rutas ante retos de acceso</h3>
+        <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La concertación comunitaria previa y el trabajo articulado con autoridades locales permitieron mantener la continuidad operativa aun en momentos de restricciones viales o de seguridad en Cauca y Catatumbo.</p>
+      </div>
+      <div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+        <div class="badge" style="width:fit-content">Puente a Fase 2</div>
+        <h3 style="font-family:var(--font-d);font-size:18px">Capacidad instalada en las comunidades</h3>
+        <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Las lideresas y comités formados durante esta fase constituyen la red base sobre la cual se desplegarán las acciones escaladas en la siguiente etapa, maximizando la sostenibilidad del impacto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="footer-pad">
     <div class="footer-content">
+      <!-- Columna 1: Identidad del Consorcio -->
       <div class="footer-col">
-        <img src="care_1.png" alt="CARE Logo" class="brand-logo">
+        <div class="brand-title" style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px">ConEsperanza</div>
         <div class="footer-body">
-          <p class="brand-desc">Sistema de Monitoreo, Evaluación, Rendición de Cuentas y Aprendizaje.<br>Proyecto ConEsperanza — CARE Colombia.<br>MEAL</p>
+          <p class="brand-desc">Consorcio Humanitario en Colombia financiado por el Fondo Humanitario (OCHA / RHPF LAC).<br>Sistema de Monitoreo, Evaluación, Rendición de Cuentas y Aprendizaje (MEAL).</p>
         </div>
       </div>
+
+      <!-- Columna 2: Navegación -->
       <div class="footer-col">
         <h4>Navegación</h4>
         <ul>
-          <li><a href="#p1">01. Panorama General</a></li>
-          <li><a href="#p2">02. Resumen de Impacto</a></li>
-          <li><a href="#p3">03. Desempeño Territorial</a></li>
-          <li><a href="#p4">04. Análisis Cualitativo</a></li>
-          <li><a href="#p5">05. Trayectoria POA</a></li>
-          <li><a href="#p6">06. Recomendaciones MEAL</a></li>
+          <li><a href="#p1">01. Panorama general</a></li>
+          <li><a href="#p2">02. Despliegue territorial</a></li>
+          <li><a href="#p3">03. Sectores de respuesta</a></li>
+          <li><a href="#p4">04. Voces de la comunidad</a></li>
+          <li><a href="#p5">05. Rendición de cuentas (AAP)</a></li>
+          <li><a href="#p6">06. Aprendizaje y adaptación</a></li>
         </ul>
       </div>
+
+      <!-- Columna 3: Socias Implementadoras -->
       <div class="footer-col">
-        <h4>Cobertura</h4>
+        <h4>Socias implementadoras</h4>
         <ul>
-          <li><a href="#p3">Norte de Santander (72.2%)</a></li>
-          <li><a href="#p3">Cauca (27.6%)</a></li>
-          <li><a href="#p1">Periodo: Junio - Noviembre 2026</a></li>
+          <li><a href="javascript:void(0)" onclick="selectOrg('care')">CARE Colombia</a></li>
+          <li><a href="javascript:void(0)" onclick="selectOrg('irc')">International Rescue Committee (IRC)</a></li>
+          <li><a href="javascript:void(0)" onclick="selectOrg('mercy_corps')">Mercy Corps</a></li>
+          <li><a href="javascript:void(0)" onclick="selectOrg('stc')">Save the Children</a></li>
         </ul>
       </div>
+
+      <!-- Columna 4: Datos del Reporte -->
       <div class="footer-col">
-        <h4>Ubicación</h4>
+        <h4>Datos del reporte</h4>
         <div class="footer-body">
-          <p class="credit-tag">Bogotá, Colombia</p>
-          <p class="credit-tag">Corte: Julio 2026</p>
+          <p class="credit-tag">Donante: OCHA / RHPF LAC</p>
+          <p class="credit-tag">Corte oficial: 30 de septiembre de 2026</p>
+          <p class="credit-tag">Periodo: Junio – Noviembre 2026</p>
+          <p class="credit-tag" style="margin-top:6px"><a href="javascript:void(0)" onclick="openPowerBI()" style="color:var(--ink);font-weight:600;text-decoration:underline">Abrir informe en Power BI ↗</a></p>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-art">
-    <img src="footer.jpg" onerror="this.onerror=null; this.src='footer.jpeg';" alt="Ilustración CARE Colombia">
+    <img src="footer.jpg" onerror="this.onerror=null; this.src='footer.jpeg';" alt="Ilustración ConEsperanza Colombia">
   </div>
 </footer>
 
@@ -1564,18 +1625,18 @@ const TRANSLATIONS = {
     heroAttentions: "Atenciones / Sensibilizaciones",
     heroKits: "Kits CARE entregados",
     heroVbg: "Casos VBG asistidos",
-    p2Eyebrow: "Resumen de Impacto",
-    p2Title: "Despliegue operativo en marcha. Crecimiento en territorio.",
-    p2Desc: "Con corte a Julio de 2026, el proyecto avanza al 40% del tiempo ejecutado, concentrando esfuerzos en atención directa, prevención de VBG y entrega de insumos esenciales.",
-    p3Eyebrow: "Desempeño Territorial",
-    p3Title: "Concentración estratégica en departamentos clave.",
-    p3Desc: "Distribución territorial de atenciones e insumos entregados: focalización operativa del 72.2% en Norte de Santander y consolidación de rutas comunitarias en Cauca (27.6%).",
-    p4Eyebrow: "Análisis Cualitativo MEAL",
-    p4Title: "Protección directa y presencia territorial",
-    p5Eyebrow: "Trayectoria y Proyección al Cierre",
-    p5Title: "La atención avanzó. El impacto se consolida.",
-    p6Eyebrow: "Decisiones y Recomendaciones MEAL",
-    p6Title: "Cuatro acciones clave para los próximos 90 días"
+    p2Eyebrow: "Despliegue territorial",
+    p2Title: "Presencia humanitaria en zonas de alta vulnerabilidad",
+    p2Desc: "Distribución territorial de atenciones e insumos entregados: focalización operativa en Norte de Santander y consolidación de rutas comunitarias en Cauca.",
+    p3Eyebrow: "Sectores de respuesta",
+    p3Title: "Cuatro líneas de acción para la protección y el bienestar",
+    p3Desc: "Respuesta articulada en los cuatro sectores prioritarios de OCHA: VBG, Protección general, Salud primaria y Transferencias monetarias.",
+    p4Eyebrow: "Voces de la comunidad",
+    p4Title: "Evidencia cualitativa y dignidad en la atención",
+    p5Eyebrow: "Rendición de cuentas (AAP)",
+    p5Title: "Mecanismos de escucha, consulta y transparencia",
+    p6Eyebrow: "Aprendizaje y adaptación",
+    p6Title: "Lecciones aprendidas para la sostenibilidad y Fase 2"
   },
   EN: {
     // Header & Subbar
@@ -1598,18 +1659,18 @@ const TRANSLATIONS = {
     heroAttentions: "Assistance / Awareness",
     heroKits: "CARE Kits Delivered",
     heroVbg: "GBV Cases Assisted",
-    p2Eyebrow: "Impact Summary",
-    p2Title: "Operational deployment underway. Field growth.",
-    p2Desc: "As of July 2026, the project has executed 40% of its timeframe, focusing efforts on direct assistance, GBV prevention, and essential supplies delivery.",
-    p3Eyebrow: "Territorial Performance",
-    p3Title: "Strategic focus on key departments.",
-    p3Desc: "Territorial distribution of assistance and supplies: 72.2% operational focus in Norte de Santander and consolidation of community routes in Cauca (27.6%).",
-    p4Eyebrow: "MEAL Qualitative Analysis",
-    p4Title: "Direct protection and field presence",
-    p5Eyebrow: "POA Trajectory & Target Projection",
-    p5Title: "Assistance advanced. Impact consolidated.",
-    p6Eyebrow: "MEAL Decisions & Recommendations",
-    p6Title: "Four key actions for the next 90 days"
+    p2Eyebrow: "Territorial deployment",
+    p2Title: "Humanitarian presence in high-vulnerability areas",
+    p2Desc: "Territorial distribution of assistance and supplies: operational focus in Norte de Santander and consolidation of community routes in Cauca.",
+    p3Eyebrow: "Response sectors",
+    p3Title: "Four lines of action for protection and well-being",
+    p3Desc: "Coordinated response across OCHA priority sectors: GBV, General Protection, Primary Healthcare, and Multi-Purpose Cash.",
+    p4Eyebrow: "Community voices",
+    p4Title: "Qualitative evidence and dignity in assistance",
+    p5Eyebrow: "Accountability (AAP)",
+    p5Title: "Active listening, consultation, and transparency mechanisms",
+    p6Eyebrow: "Learning and adaptation",
+    p6Title: "Lessons learned for sustainability and Phase 2"
   },
   FR: {
     // Header & Subbar
@@ -1632,18 +1693,18 @@ const TRANSLATIONS = {
     heroAttentions: "Assistance / Sensibilisation",
     heroKits: "Kits CARE distribués",
     heroVbg: "Cas de VBG pris en charge",
-    p2Eyebrow: "Résumé de l'Impact",
-    p2Title: "Déploiement opérationnel en cours. Présence renforcée.",
-    p2Desc: "À la date de juillet 2026, le projet a exécuté 40% de son calendrier, concentrant ses efforts sur l'assistance directe, la prévention des VBG et la fourniture de biens essentiels.",
-    p3Eyebrow: "Performance Territoriale",
-    p3Title: "Concentration stratégique dans les départements clés.",
-    p3Desc: "Répartition territoriale de l'assistance et des fournitures : focalisation opérationnelle de 72,2% dans le Norte de Santander et consolidation des relais communautaires dans le Cauca (27,6%).",
-    p4Eyebrow: "Analyse Qualitative MEAL",
-    p4Title: "Protection directe et présence sur le terrain",
-    p5Eyebrow: "Trajectoire et Projection de Clôture",
-    p5Title: "L'assistance a progressé. L'impact se consolide.",
-    p6Eyebrow: "Décisions et Recommandations MEAL",
-    p6Title: "Quatre actions clés pour les 90 prochains jours"
+    p2Eyebrow: "Déploiement territorial",
+    p2Title: "Présence humanitaire dans les zones à haute vulnérabilité",
+    p2Desc: "Répartition territoriale de l'assistance et des fournitures : focalisation opérationnelle dans le Norte de Santander et consolidation des relais communautaires dans le Cauca.",
+    p3Eyebrow: "Secteurs de réponse",
+    p3Title: "Quatre lignes d'action pour la protection et le bien-être",
+    p3Desc: "Réponse coordonnée dans les secteurs prioritaires d'OCHA : VBG, Protection générale, Santé primaire et Transferts monétaires.",
+    p4Eyebrow: "Voix de la communauté",
+    p4Title: "Preuve qualitative et dignité dans l'assistance",
+    p5Eyebrow: "Redevabilité (AAP)",
+    p5Title: "Mécanismes d'écoute active, de consultation et de transparence",
+    p6Eyebrow: "Apprentissage et adaptation",
+    p6Title: "Leçons apprises pour la durabilité et la Phase 2"
   }
 };
 
@@ -1791,6 +1852,19 @@ let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(renderAll,1
     });
   });
 })();
+
+
+// Sincronización dinámica de la altura exacta del header sticky en escritorio
+function syncHeaderHeight() {
+  const topBar = document.querySelector('.top-bar');
+  if (topBar) {
+    const h = topBar.offsetHeight;
+    document.documentElement.style.setProperty('--top-bar-h', `${h}px`);
+  }
+}
+window.addEventListener('resize', syncHeaderHeight);
+window.addEventListener('load', syncHeaderHeight);
+syncHeaderHeight();
 
 </script>
 
