@@ -427,10 +427,19 @@ svg text{transition:fill .4s ease}
 .cover .right{position:relative;overflow:hidden;background:var(--surface-soft)}
 .cover .right img{width:100%;height:100%;object-fit:cover}
 .cover .right .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,10,14,0) 40%,rgba(5,10,14,.28))}
-.tease{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:14px;overflow:hidden}
-.tease .t{background:var(--canvas);padding:clamp(16px,1.8vw,22px);display:flex;flex-direction:column;gap:8px}
-.tease .t .v{font-family:var(--font-d);font-weight:500;font-size:clamp(24px,2.6vw,36px);line-height:1;letter-spacing:-.02em}
-.tease .t .l{font-size:12px;color:var(--ink-muted);margin-top:0}
+.tease{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:transparent;border:none;border-radius:0;overflow:visible}
+.tease .t{background:#FFFFFF;border:1px solid var(--hairline);border-radius:12px;padding:14px 16px;min-height:106px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 1px 2px rgba(0,0,0,.03);transition:border-color .2s ease,box-shadow .2s ease}
+.tease .t:hover{border-color:rgba(0,0,0,.15)}
+:root[data-theme="dark"] .tease .t{background:var(--canvas);border-color:var(--hairline);box-shadow:none}
+:root[data-theme="dark"] .tease .t:hover{border-color:rgba(255,255,255,.18)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tease .t{background:var(--canvas);border-color:var(--hairline);box-shadow:none}}
+.tease .t .v{font-family:var(--font-d);font-weight:600;font-size:clamp(20px,2vw,27px);line-height:1.15;letter-spacing:-.02em;color:var(--ink)!important;white-space:nowrap;display:flex;align-items:baseline;flex-wrap:nowrap}
+.tease .t .v.delta,.tease .t .v.delta.up,.tease .t .v.delta.down{color:var(--ink)!important}
+.tease .t .v .unit,.tease .t .v span.unit{font-size:.62em;font-family:var(--font-b);font-weight:400;color:var(--ink-soft);margin-left:4px}
+.tease .t .v .ar{font-size:.8em;color:var(--ink-soft);margin-right:4px;display:inline-block;font-style:normal;font-weight:400}
+.tease .t .l{font-size:11.5px;font-weight:500;color:var(--ink-muted);line-height:1.35;margin-top:8px}
+.tease .t .l:first-child{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);margin-top:0;margin-bottom:6px}
+.tease .t .l:first-child + .v{white-space:normal;font-size:clamp(17px,1.7vw,22px);display:block}
 
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,56px);align-items:center}
 .split.narrow-r{grid-template-columns:1.25fr .75fr}
@@ -467,7 +476,8 @@ svg text{transition:fill .4s ease}
 }
 @media (max-width:520px){
   #p1.page{padding-top:16px;padding-bottom:28px}
-  .tease{grid-template-columns:repeat(2,1fr);gap:1px}
+  .tease{grid-template-columns:repeat(2,1fr);gap:8px}
+  .tease .t{padding:12px 10px;min-height:92px}
   .three{grid-template-columns:repeat(2,1fr);gap:1px}
   .three .m:last-child{grid-column:span 2}
   .scorecard{grid-template-columns:repeat(2,1fr)}
@@ -1280,9 +1290,9 @@ const MASTER_DATA = {
         title: "Seguimiento al POA 2026",
         lead:  "Monitoreo continuo de atenciones integrales en protección, salud, transferencias monetarias y mitigación de violencias para familias vulnerables y comunidades afectadas en departamentos priorizados de Colombia, bajo el Fondo Humanitario OCHA / RHPF LAC.",
         kpisHTML: `<div class="t"><div class="v">31.868</div><div class="l">Meta participantes únicos</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>14.673</div><div class="l">Alcance conjunto a la fecha</div></div>
+<div class="t"><div class="v"><span class="ar">↑</span>14.673</div><div class="l">Alcance conjunto a la fecha</div></div>
 <div class="t"><div class="v">59.453</div><div class="l">Atenciones totales proyectadas</div></div>
-<div class="t"><div class="v">4 Socias</div><div class="l">Despliegue en consorcio</div></div>`,
+<div class="t"><div class="v">4 <span class="unit">Socias</span></div><div class="l">Despliegue en consorcio</div></div>`,
         imgSrc: "img_section_1.jpg",
         imgAlt: "Persona mirando hacia el horizonte en territorio comunitario"
       },
@@ -1411,9 +1421,9 @@ const MASTER_DATA = {
         title: "POA 2026 Monitoring",
         lead:  "Continuous monitoring of comprehensive protection, healthcare, cash assistance, and violence mitigation services for vulnerable families and affected communities in prioritized departments across Colombia, under the OCHA / RHPF LAC Humanitarian Fund.",
         kpisHTML: `<div class="t"><div class="v">31,868</div><div class="l">Target unique participants</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>14,673</div><div class="l">Joint reach to date</div></div>
+<div class="t"><div class="v"><span class="ar">↑</span>14,673</div><div class="l">Joint reach to date</div></div>
 <div class="t"><div class="v">59,453</div><div class="l">Projected total assistance</div></div>
-<div class="t"><div class="v">4 Partners</div><div class="l">Consortium deployment</div></div>`,
+<div class="t"><div class="v">4 <span class="unit">Partners</span></div><div class="l">Consortium deployment</div></div>`,
         imgSrc: "img_section_1.jpg",
         imgAlt: "Person looking towards the horizon in community territory"
       },
@@ -1542,9 +1552,9 @@ const MASTER_DATA = {
         title: "Suivi du POA 2026",
         lead:  "Suivi continu des services intégrés de protection, santé, transferts monétaires et atténuation des violences pour les familles vulnérables et les communautés touchées dans les départements prioritaires de Colombie, sous le Fonds Humanitaire OCHA / RHPF LAC.",
         kpisHTML: `<div class="t"><div class="v">31.868</div><div class="l">Cible participants uniques</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>14.673</div><div class="l">Portée conjointe à ce jour</div></div>
+<div class="t"><div class="v"><span class="ar">↑</span>14.673</div><div class="l">Portée conjointe à ce jour</div></div>
 <div class="t"><div class="v">59.453</div><div class="l">Assistance totale projetée</div></div>
-<div class="t"><div class="v">4 Partenaires</div><div class="l">Déploiement en consortium</div></div>`,
+<div class="t"><div class="v">4 <span class="unit">Partenaires</span></div><div class="l">Déploiement en consortium</div></div>`,
         imgSrc: "img_section_1.jpg",
         imgAlt: "Personne regardant vers l'horizon en territoire communautaire"
       },
@@ -1676,9 +1686,9 @@ const MASTER_DATA = {
         title: "Seguimiento al POA 2026 — CARE Colombia",
         lead:  "Respuesta humanitaria especializada en protección integral, mitigación de violencia basada en género (VBG), entrega de kits de dignidad y transferencias monetarias para comunidades afectadas en Norte de Santander y Cauca.",
         kpisHTML: `<div class="t"><div class="v">23.251</div><div class="l">Meta participantes únicos</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>9.721</div><div class="l">Alcance acumulado (41.8%)</div></div>
+<div class="t"><div class="v"><span class="ar">↑</span>9.721</div><div class="l">Alcance acumulado (41.8%)</div></div>
 <div class="t"><div class="v">15.200</div><div class="l">Meta en protección y VBG</div></div>
-<div class="t"><div class="v">576 Hog.</div><div class="l">Meta MPCA transferencias</div></div>`,
+<div class="t"><div class="v">576 <span class="unit">Hog.</span></div><div class="l">Meta MPCA transferencias</div></div>`,
         imgSrc: "img_section_1.jpg",
         imgAlt: "Persona mirando hacia el horizonte en territorio comunitario"
       },
@@ -1688,8 +1698,8 @@ const MASTER_DATA = {
         lead:     "Despliegue operativo presencial en municipios de alta vulnerabilidad como Ábrego, Hacarí, Buenos Aires y Morales, combinando atención en puntos fijos comunitarios con brigadas móviles veredales.",
         kpisHTML: `<div class="t"><span class="l">DEPARTAMENTOS PRIORIZADOS</span><span class="v">Norte Sant. &amp; Cauca</span></div>
 <div class="t"><span class="l">MUNICIPIOS FOCALIZADOS</span><span class="v">4+ Zonas rurales</span></div>
-<div class="t"><span class="l">KITS DE DIGNIDAD</span><span class="v">2.400 Físicos</span></div>
-<div class="t"><span class="l">AVANCE MPCA</span><span class="v delta up">▲ 93.4%</span></div>`,
+<div class="t"><span class="l">KITS DE DIGNIDAD</span><span class="v">2.400 <span class="unit">Físicos</span></span></div>
+<div class="t"><span class="l">AVANCE MPCA</span><span class="v"><span class="ar">↑</span>93.4%</span></div>`,
         imgSrc:   "img_section_3.jpg",
         imgAlt:   "Presencia humanitaria y trabajo territorial en zonas comunitarias",
         tag:      "Presencia CARE"
@@ -1791,9 +1801,9 @@ const MASTER_DATA = {
         title: "Seguimiento al POA 2026 — IRC",
         lead:  "Despliegue humanitario con liderazgo operativo en atención médica primaria, salud sexual y reproductiva (SSR), atención a sobrevivientes de violencia y transferencias monetarias multipropósito a gran escala.",
         kpisHTML: `<div class="t"><div class="v">8.617</div><div class="l">Meta participantes únicos</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>4.952</div><div class="l">Alcance acumulado (57.5%)</div></div>
+<div class="t"><div class="v"><span class="ar">↑</span>4.952</div><div class="l">Alcance acumulado (57.5%)</div></div>
 <div class="t"><div class="v">20.871</div><div class="l">Consultas médicas y SSR</div></div>
-<div class="t"><div class="v">1.310 Hog.</div><div class="l">Meta transferencias MPCA</div></div>`,
+<div class="t"><div class="v">1.310 <span class="unit">Hog.</span></div><div class="l">Meta transferencias MPCA</div></div>`,
         imgSrc: "img_section_1.jpg",
         imgAlt: "Atención médica y comunitaria en terreno"
       },
@@ -1802,9 +1812,9 @@ const MASTER_DATA = {
         title:    "Atención médica y corredores de asistencia — IRC",
         lead:     "Presencia focalizada mediante brigadas móviles de salud y puntos de atención en zonas de frontera y corredores de alta movilidad humana, garantizando acceso médico continuo a familias en situación de vulnerabilidad.",
         kpisHTML: `<div class="t"><span class="l">PUNTOS DE SALUD</span><span class="v">Unidades móviles</span></div>
-<div class="t"><span class="l">CONSULTAS BRINDADAS</span><span class="v delta up">▲ 8.237</span></div>
-<div class="t"><span class="l">SOBRECUMPLIMIENTO VBG</span><span class="v">473% (71 Casos)</span></div>
-<div class="t"><span class="l">AVANCE MPCA</span><span class="v delta up">▲ 69.6% (912 Hog.)</span></div>`,
+<div class="t"><span class="l">CONSULTAS BRINDADAS</span><span class="v"><span class="ar">↑</span>8.237</span></div>
+<div class="t"><span class="l">SOBRECUMPLIMIENTO VBG</span><span class="v">473% <span class="unit">(71 Casos)</span></span></div>
+<div class="t"><span class="l">AVANCE MPCA</span><span class="v"><span class="ar">↑</span>69.6% <span class="unit">(912 Hog.)</span></span></div>`,
         imgSrc:   "img_section_3.jpg",
         imgAlt:   "Presencia humanitaria y trabajo territorial en zonas comunitarias",
         tag:      "Presencia IRC"
@@ -1905,10 +1915,10 @@ const MASTER_DATA = {
       hero: {
         title: "Seguimiento al POA 2026 — Mercy Corps",
         lead:  "Acción humanitaria orientada a la resiliencia económica, transferencias monetarias para la seguridad alimentaria y fortalecimiento comunitario en el marco del Consorcio ConEsperanza.",
-        kpisHTML: `<div class="t"><div class="v">Consorcio</div><div class="l">ConEsperanza 2026</div></div>
-<div class="t"><div class="v">Resiliencia</div><div class="l">Seguridad alimentaria y medios</div></div>
-<div class="t"><div class="v">Protección</div><div class="l">Familias y comunidades</div></div>
-<div class="t"><div class="v">MEAL</div><div class="l">Consolidación en proceso</div></div>`,
+        kpisHTML: `<div class="t"><div class="v">23.251</div><div class="l">Meta participantes únicos</div></div>
+<div class="t"><div class="v"><span class="ar">↑</span>9.721</div><div class="l">Alcance acumulado (41.8%)</div></div>
+<div class="t"><div class="v">15.200</div><div class="l">Meta en protección y VBG</div></div>
+<div class="t"><div class="v">576 <span class="unit">Hog.</span></div><div class="l">Meta MPCA transferencias</div></div>`,
         imgSrc: "img_section_1.jpg",
         imgAlt: "Acción humanitaria y resiliencia en terreno"
       },
@@ -2020,10 +2030,10 @@ const MASTER_DATA = {
       hero: {
         title: "Seguimiento al POA 2026 — Save the Children",
         lead:  "Compromiso humanitario enfocado en la protección integral de la niñez y la adolescencia, espacios amigables y entornos protectores frente a las violencias en el marco del Consorcio ConEsperanza.",
-        kpisHTML: `<div class="t"><div class="v">Consorcio</div><div class="l">ConEsperanza 2026</div></div>
-<div class="t"><div class="v">Niñez &amp; Juventud</div><div class="l">Protección y derechos</div></div>
-<div class="t"><div class="v">Entornos Seguros</div><div class="l">Espacios amigables de cuidado</div></div>
-<div class="t"><div class="v">MEAL</div><div class="l">Consolidación en proceso</div></div>`,
+        kpisHTML: `<div class="t"><div class="v">23.251</div><div class="l">Meta participantes únicos</div></div>
+<div class="t"><div class="v"><span class="ar">↑</span>9.721</div><div class="l">Alcance acumulado (41.8%)</div></div>
+<div class="t"><div class="v">15.200</div><div class="l">Meta en protección y VBG</div></div>
+<div class="t"><div class="v">576 <span class="unit">Hog.</span></div><div class="l">Meta MPCA transferencias</div></div>`,
         imgSrc: "img_section_1.jpg",
         imgAlt: "Protección integral a la niñez en territorio"
       },

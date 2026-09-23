@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ConEsperanza | Reporte de Consorcio - Seguimiento al POA 2026</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Custom Config -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            filterbar: '#FEF8D8',
+            brand: {
+              black: '#111827',
+              gray: '#4B5563',
+              muted: '#6B7280',
+              border: '#E5E7EB',
+              softbg: '#F9FAFB'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Typography & Micro-adjustments -->
+<style data-purpose="editorial-typography">
+    .editorial-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.02em;
+    }
+    .metric-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-feature-settings: "tnum" 1;
+      color: #111827 !important;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white border-b border-gray-100 sticky top-0 z-40" data-purpose="primary-navbar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo & Identity -->
+<div class="flex items-center space-x-3" data-purpose="brand-identity">
+<a class="group block" href="#">
+<span class="editorial-heading text-2xl md:text-3xl font-bold tracking-tight text-gray-900 leading-none">ConEsperanza</span>
+<span class="block text-[10px] md:text-[11px] uppercase tracking-[0.24em] text-gray-500 font-semibold mt-1">REPORTE DE CONSORCIO</span>
+</a>
+</div>
+<!-- Header Controls: Languages, Theme Switcher & Power BI Link -->
+<div class="flex items-center space-x-3 sm:space-x-5" data-purpose="utility-nav">
+<!-- Language Switcher -->
+<div aria-label="Selector de idioma" class="inline-flex items-center bg-gray-50 p-1 rounded-lg border border-gray-200 text-xs font-semibold text-gray-600 space-x-1" role="group">
+<button class="px-2.5 py-1 rounded bg-white shadow-xs text-gray-900 font-bold border border-gray-100" type="button">ES</button>
+<button class="px-2 py-1 hover:text-gray-900 transition-colors" type="button">EN</button>
+<button class="px-2 py-1 hover:text-gray-900 transition-colors" type="button">FR</button>
+</div>
+<!-- Mode Toggle Button -->
+<button aria-label="Cambiar tema claro/oscuro" class="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-600 transition-colors" type="button">
+<svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<!-- Power BI Dashboard Action -->
+<a class="inline-flex items-center space-x-2 bg-brand-black text-white hover:bg-black px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-colors shadow-xs" href="#power-bi">
+<svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewbox="0 0 24 24">
+<rect height="9" rx="1" width="4" x="2" y="12"></rect>
+<rect height="14" rx="1" width="4" x="9" y="7"></rect>
+<rect height="18" rx="1" width="4" x="16" y="3"></rect>
+</svg>
+<span>Power BI</span>
+</a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: OrganizationFilterBar -->
+<section class="w-full bg-[#FEF8D8] border-b border-amber-200/60 py-3" data-purpose="organization-filter">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-3">
+<!-- Filter Label -->
+<div class="text-[11px] font-bold tracking-widest text-amber-900/80 uppercase">
+        FILTRAR POR ORGANIZACIÓN:
+      </div>
+<!-- Filter Badges / Pills -->
+<div aria-label="Filtro de Socias del Consorcio" class="flex flex-wrap items-center gap-2" role="tablist">
+<!-- Pill: Todos -->
+<button class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/70 hover:bg-white text-gray-700 border border-amber-300/60 shadow-2xs transition-all" type="button">
+<span class="w-2 h-2 rounded-full bg-blue-500 opacity-80"></span>
+<span>Todos</span>
+</button>
+<!-- Pill: CARE -->
+<button class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/70 hover:bg-white text-gray-700 border border-amber-300/60 shadow-2xs transition-all" type="button">
+<span class="w-2 h-2 rounded-full bg-orange-500 opacity-80"></span>
+<span>CARE</span>
+</button>
+<!-- Pill: IRC (Active State) -->
+<button aria-selected="true" class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white text-gray-900 border-2 border-gray-900 shadow-xs ring-1 ring-black/5" type="button">
+<span class="w-2.5 h-2.5 rounded-sm bg-amber-400 border border-black inline-block flex-shrink-0"></span>
+<span>IRC</span>
+</button>
+<!-- Pill: Mercy Corps -->
+<button class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/70 hover:bg-white text-gray-700 border border-amber-300/60 shadow-2xs transition-all" type="button">
+<span class="w-2 h-2 rounded-full bg-red-600 opacity-80"></span>
+<span>Mercy Corps</span>
+</button>
+<!-- Pill: Save the Children -->
+<button class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/70 hover:bg-white text-gray-700 border border-amber-300/60 shadow-2xs transition-all" type="button">
+<span class="w-2 h-2 rounded-full bg-red-500 opacity-80"></span>
+<span>Save the Children</span>
+</button>
+</div>
+</div>
+</section>
+<!-- END: OrganizationFilterBar -->
+<main class="w-full">
+<!-- BEGIN: HeroSection -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14" data-purpose="hero-overview">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<!-- Left Editorial Block -->
+<div class="lg:col-span-7 flex flex-col justify-between">
+<div>
+<!-- Hero Heading: Harmonized, refined serif scale -->
+<h1 class="editorial-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-gray-900 leading-[1.18] tracking-tight">
+              Seguimiento al <br class="hidden sm:inline"/>POA 2026
+            </h1>
+<!-- Narrative Description -->
+<p class="mt-5 text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl">
+              Monitoreo continuo de atenciones integrales en protección, salud, transferencias monetarias y mitigación de violencias para familias vulnerables y comunidades afectadas en departamentos priorizados de Colombia, bajo el Fondo Humanitario OCHA / RHPF LAC.
+            </p>
+</div>
+<!-- Hero Metrics KPI Strip (Consistently Styled, 100% Black Digits) -->
+<div class="mt-10 pt-6 border-t border-gray-100 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-3" data-purpose="hero-kpis">
+<!-- Metric 1 -->
+<div class="p-3.5 rounded-xl border border-gray-200/80 bg-white shadow-2xs flex flex-col justify-between min-h-[106px]">
+<div class="metric-number text-2xl lg:text-3xl font-semibold tracking-tight leading-none text-brand-black">
+                8.617
+              </div>
+<p class="text-[11px] sm:text-xs text-gray-500 font-medium leading-snug mt-2">
+                Meta participantes únicos
+              </p>
+</div>
+<!-- Metric 2: Refined black digit with subtle neutral trend indicator -->
+<div class="p-3.5 rounded-xl border border-gray-200/80 bg-white shadow-2xs flex flex-col justify-between min-h-[106px]">
+<div class="flex items-center space-x-1">
+<svg aria-hidden="true" class="w-3.5 h-3.5 text-gray-600 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="metric-number text-2xl lg:text-3xl font-semibold tracking-tight leading-none text-brand-black">
+                  4.952
+                </span>
+</div>
+<p class="text-[11px] sm:text-xs text-gray-500 font-medium leading-snug mt-2">
+                Alcance conjunto a la fecha
+              </p>
+</div>
+<!-- Metric 3 -->
+<div class="p-3.5 rounded-xl border border-gray-200/80 bg-white shadow-2xs flex flex-col justify-between min-h-[106px]">
+<div class="metric-number text-2xl lg:text-3xl font-semibold tracking-tight leading-none text-brand-black">
+                20.871
+              </div>
+<p class="text-[11px] sm:text-xs text-gray-500 font-medium leading-snug mt-2">
+                Atenciones totales proyectadas
+              </p>
+</div>
+<!-- Metric 4: Symmetrically balanced line-height and aligned text -->
+<div class="p-3.5 rounded-xl border border-gray-200/80 bg-white shadow-2xs flex flex-col justify-between min-h-[106px]">
+<div class="metric-number text-xl sm:text-2xl lg:text-[26px] font-semibold tracking-tight leading-none text-brand-black whitespace-nowrap">
+                1.310 <span class="text-base lg:text-lg font-serif font-normal text-gray-700">Hog.</span>
+</div>
+<p class="text-[11px] sm:text-xs text-gray-500 font-medium leading-snug mt-2">
+                Meta transferencias MPCA
+              </p>
+</div>
+</div>
+</div>
+<!-- Right Visual Block -->
+<div class="lg:col-span-5 w-full">
+<div class="relative overflow-hidden rounded-2xl shadow-md aspect-[4/3] sm:aspect-[16/11] lg:h-[390px] w-full bg-gray-100">
+<img alt="Comunidades y familias en departamentos priorizados de Colombia" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5P6k-CvOJSuwctwKpXszNRYVpdbp_kvl9hfVUkwY2NFZ6AycVOYq8oPw1nibDlbgJNNQS4EGjlx9sT8dOsWQ7n8JEGFZj1IUIO4_6_wABQKdnB0BsOho-lz7dAT2dFV1X1PaYxY_UJ7Mp_n7LB-kEb_3UtC-yeqTFVoaDCUn3_WFBH24MDjIeAtQSzgHIEXU5oY7xZ7UBnLuAu1eI8cSJPf181vhd_EhPpoB0HUQtS3ATfTumvB1y1Vfqo0Lh5d0d4fI"/>
+<div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl pointer-events-none"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<hr class="border-gray-100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"/>
+<!-- BEGIN: TerritorialDeployment -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" data-purpose="territorial-deployment">
+<!-- Section Tag & Title -->
+<div class="mb-8">
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400">02 DESPLIEGUE TERRITORIAL</span>
+<h2 class="editorial-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-gray-900 mt-2 leading-tight">
+          Presencia humanitaria en zonas de alta vulnerabilidad
+        </h2>
+<p class="mt-3 text-sm sm:text-base text-gray-600 max-w-3xl leading-relaxed">
+          Distribución geográfica de la respuesta humanitaria en departamentos y municipios focalizados: cobertura coordinada en áreas rurales, zonas de difícil acceso y comunidades con mayores brechas de atención humanitaria.
+        </p>
+</div>
+<!-- KPI Grid: Clean Cards with All-Black Typographies -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<!-- Puntos de Salud -->
+<div class="p-5 bg-white rounded-xl border border-gray-200 shadow-2xs hover:border-gray-300 transition-colors">
+<span class="block text-[11px] uppercase font-bold tracking-wider text-gray-400">PUNTOS DE SALUD</span>
+<div class="editorial-heading text-2xl font-bold text-brand-black mt-2 leading-tight">
+            Unidades móviles
+          </div>
+</div>
+<!-- Consultas Brindadas -->
+<div class="p-5 bg-white rounded-xl border border-gray-200 shadow-2xs hover:border-gray-300 transition-colors">
+<span class="block text-[11px] uppercase font-bold tracking-wider text-gray-400">CONSULTAS BRINDADAS</span>
+<div class="flex items-center space-x-1.5 mt-2">
+<svg aria-hidden="true" class="w-3.5 h-3.5 text-gray-600 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="metric-number text-2xl font-bold text-brand-black">8.237</span>
+</div>
+</div>
+<!-- Sobrecumplimiento VBG -->
+<div class="p-5 bg-white rounded-xl border border-gray-200 shadow-2xs hover:border-gray-300 transition-colors">
+<span class="block text-[11px] uppercase font-bold tracking-wider text-gray-400">SOBRECUMPLIMIENTO VBG</span>
+<div class="metric-number text-2xl font-bold text-brand-black mt-2 leading-snug">
+            473% <span class="text-base font-serif font-normal text-gray-600">(71 Casos)</span>
+</div>
+</div>
+<!-- Avance MPCA -->
+<div class="p-5 bg-white rounded-xl border border-gray-200 shadow-2xs hover:border-gray-300 transition-colors">
+<span class="block text-[11px] uppercase font-bold tracking-wider text-gray-400">AVANCE MPCA</span>
+<div class="flex items-center space-x-1.5 mt-2">
+<svg aria-hidden="true" class="w-3.5 h-3.5 text-gray-600 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="metric-number text-2xl font-bold text-brand-black">
+              69.6% <span class="text-base font-serif font-normal text-gray-600">(912 Hog.)</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Panoramic Territory Banner -->
+<div class="w-full h-44 sm:h-64 lg:h-72 rounded-2xl overflow-hidden shadow-xs relative border border-gray-200">
+<img alt="Operación y entrega en territorio con comunidades" class="w-full h-full object-cover object-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9XOV7Ur0skLfvr0QsA34dl0yRma_32xhzCd5X6O93jC67xjNHLwIYzBikSrfiUZn9TalPF6aRQlLgQtI_9Dj0hYCqClHf3hhc7az53ADa6tpSQ27stmfthb06iW_UQu4WUP02PrpDHl8XcNUmgwjovNHBGGRRaXvQciLfmls7o9cc85xg7x9sd6kAQIRximVF506XPGn5XYEKidVkJfy3bZJ0EkAsgsjg9B0dxJbCjvv-KYTpiL3bBPmzLxdOftqVrWQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+</div>
+</section>
+<!-- END: TerritorialDeployment -->
+<hr class="border-gray-100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"/>
+<!-- BEGIN: LinesOfAction -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" data-purpose="lines-of-action">
+<!-- Section Header -->
+<div class="mb-10">
+<h2 class="editorial-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-gray-900 leading-tight">
+          Cuatro líneas de acción para la protección y el bienestar
+        </h2>
+<p class="mt-3 text-sm sm:text-base text-gray-600 max-w-3xl leading-relaxed">
+          La intervención integral del consorcio se estructura en los cuatro sectores prioritarios del marco lógico de OCHA, asegurando que las capacidades de cada socia respondan de manera articulada a las necesidades críticas de las comunidades:
+        </p>
+</div>
+<!-- Four Cards Grid: Balanced & Structured Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Action 01 -->
+<div class="p-6 sm:p-7 rounded-2xl border border-gray-200 bg-white hover:shadow-xs transition-shadow flex flex-col justify-between">
+<div>
+<span class="font-serif text-sm text-gray-400 font-semibold block mb-1">01</span>
+<h3 class="editorial-heading text-xl font-bold text-gray-900 leading-snug">
+              Salud Primaria y SSR (Sector Líder)
+            </h3>
+<p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              Meta masiva de 20.871 consultas de atención primaria y salud sexual y reproductiva, con 8.237 consultas realizadas a agosto y aceleración escalonada hacia noviembre.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100">
+<span class="text-xs font-medium text-gray-500">Atención médica directa y gratuita</span>
+</div>
+</div>
+<!-- Action 02 -->
+<div class="p-6 sm:p-7 rounded-2xl border border-gray-200 bg-white hover:shadow-xs transition-shadow flex flex-col justify-between">
+<div>
+<span class="font-serif text-sm text-gray-400 font-semibold block mb-1">02</span>
+<h3 class="editorial-heading text-xl font-bold text-gray-900 leading-snug">
+              Atención Médica a Sobrevivientes VBG
+            </h3>
+<p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              Meta contractual de 15 superada con 71 personas atendidas (473% de cumplimiento), garantizando manejo clínico oportuno, confidencial y tratamiento médico integral.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100">
+<span class="text-xs font-medium text-gray-500">Hito sobresaliente ante OCHA</span>
+</div>
+</div>
+<!-- Action 03 -->
+<div class="p-6 sm:p-7 rounded-2xl border border-gray-200 bg-white hover:shadow-xs transition-shadow flex flex-col justify-between">
+<div>
+<span class="font-serif text-sm text-gray-400 font-semibold block mb-1">03</span>
+<h3 class="editorial-heading text-xl font-bold text-gray-900 leading-snug">
+              Protección y Gestión de Casos
+            </h3>
+<p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              300 gestiones de caso de alto riesgo (158 a agosto, 53%), 1.562 personas en sensibilizaciones de protección y entrega de cash de protección a 104 personas.
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100">
+<span class="text-xs font-medium text-gray-500">Mitigación oportuna en territorio</span>
+</div>
+</div>
+<!-- Action 04 -->
+<div class="p-6 sm:p-7 rounded-2xl border border-gray-200 bg-white hover:shadow-xs transition-shadow flex flex-col justify-between">
+<div>
+<span class="font-serif text-sm text-gray-400 font-semibold block mb-1">04</span>
+<h3 class="editorial-heading text-xl font-bold text-gray-900 leading-snug">
+              Transferencias Monetarias (MPCA)
+            </h3>
+<p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              1.310 hogares meta con 912 alcanzados a agosto (69.6%), programando superar la meta contractual con 1.337 hogares al cierre de septiembre (102%).
+            </p>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100">
+<span class="text-xs font-medium text-gray-500">Superación de compromisos POA</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: LinesOfAction -->
+<hr class="border-gray-100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"/>
+<!-- BEGIN: AccountabilityAAP -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" data-purpose="accountability-aap">
+<!-- Category Tag -->
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400 block mb-3">
+        05 RENDICIÓN DE CUENTAS (AAP)
+      </span>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Left Photo Container with Badge -->
+<div class="lg:col-span-5">
+<div class="relative rounded-2xl overflow-hidden shadow-sm border border-gray-200 aspect-[4/3] bg-gray-100">
+<img alt="Mecanismos de Monitoreo y Rendición de Cuentas en terreno" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVnQlcEiKBFiWIh0cQpq3Ks7BkOjRx-evPCZkPWXV_vYoHDjIJsBffmd8Vk8tzDzMtFJrU71nuvDmg1aGGssDjVc5XM5pUTiAMWwdaOvVy_P3NiZUhwZv7f-5nAGZ_mbvq3aR68dveul3NHSkfy9-sx38JP2fQjSZdo4hJrey1GsguU6sB8uZJHsE9g8s3arrW_TYl06XoB8CQhJ7vcyE2d7qZozERK18d7MNx-Zd-94vwwmq0WPJLHuMAEWTT3t_Z7n0"/>
+<!-- Overlay Badge -->
+<div class="absolute bottom-3 left-3 bg-black/80 backdrop-blur-xs text-white text-[10px] font-bold px-3 py-1 rounded tracking-wider uppercase">
+              MONITOREO Y AAP
+            </div>
+</div>
+</div>
+<!-- Right Content & Active Channels Callout -->
+<div class="lg:col-span-7">
+<h2 class="editorial-heading text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+            Mecanismos de escucha, consulta y transparencia
+          </h2>
+<p class="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+            Metodología de Programación Receptiva al Cliente (CRP) orientada a la calidad y la dignidad en cada punto de servicio:
+          </p>
+<!-- Vertical Border Channel Box -->
+<div class="mt-6 pl-4 border-l-2 border-gray-900">
+<p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+<strong class="font-semibold text-gray-900">Canales activos de IRC:</strong> Encuestas de percepción y trato digno inmediatamente después de cada consulta médica, buzones confidenciales en unidades de salud y línea telefónica directa para seguimiento de casos.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AccountabilityAAP -->
+<hr class="border-gray-100 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"/>
+<!-- BEGIN: LearningAndAdaptation -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 pb-20" data-purpose="learning-adaptation">
+<span class="text-xs font-bold uppercase tracking-widest text-gray-400 block mb-2">
+        06 APRENDIZAJE Y ADAPTACIÓN
+      </span>
+<h2 class="editorial-heading text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+        Lecciones aprendidas para la sostenibilidad y Fase 2
+      </h2>
+<p class="mt-3 text-sm sm:text-base text-gray-600 max-w-3xl leading-relaxed">
+        Lecciones en gestión de salud de emergencia y articulación con redes de derivación locales para la continuidad asistencial en territorio.
+      </p>
+<!-- Synthesis Points -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+<div class="p-5 bg-brand-softbg rounded-xl border border-gray-200/80">
+<h4 class="font-semibold text-sm text-gray-900">Coordinación Interagencial</h4>
+<p class="mt-1.5 text-xs text-gray-600 leading-normal">Fortalecimiento del mapeo de rutas intersectoriales en tiempo real.</p>
+</div>
+<div class="p-5 bg-brand-softbg rounded-xl border border-gray-200/80">
+<h4 class="font-semibold text-sm text-gray-900">Agilidad Operativa</h4>
+<p class="mt-1.5 text-xs text-gray-600 leading-normal">Optimización de canales de desembolso MPCA en municipios apartados.</p>
+</div>
+<div class="p-5 bg-brand-softbg rounded-xl border border-gray-200/80">
+<h4 class="font-semibold text-sm text-gray-900">Respuesta Centrada en VBG</h4>
+<p class="mt-1.5 text-xs text-gray-600 leading-normal">Protocolos clínicos confidenciales con alta aceptación comunitaria.</p>
+</div>
+</div>
+</section>
+<!-- END: LearningAndAdaptation -->
+</main>
+<!-- BEGIN: MainFooter -->
+<footer class="w-full bg-white border-t border-gray-200 py-8" data-purpose="page-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+<div class="flex items-center space-x-2">
+<span class="editorial-heading font-bold text-gray-900 text-sm">ConEsperanza</span>
+<span>— Fondo Humanitario OCHA / RHPF LAC Colombia</span>
+</div>
+<p>© 2026 Consorcio Humanitario ConEsperanza. Información para uso programático e institucional.</p>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
