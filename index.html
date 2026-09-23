@@ -1031,7 +1031,7 @@ svg text{transition:fill .4s ease}
         <button class="lang-btn" data-lang="EN" onclick="setLanguage('EN')">EN</button>
         <button class="lang-btn" data-lang="FR" onclick="setLanguage('FR')">FR</button>
       </div>
-      <button class="theme-toggle-btn" id="themeBtn" aria-label="Cambiar tema visual" title="Cambiar tema">◑</button>
+      <button class="theme-toggle-btn" id="themeBtn" onclick="toggleCurrentTheme()" aria-label="Cambiar tema visual" title="Cambiar tema">◑</button>
       <button class="pbi-btn-desktop" id="pbiBtn" title="Abrir Informe Power BI">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="#F2C811"><path d="M4 14.5a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0v-5.5zm5.5-4a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V10.5zm5.5-6a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V4.5zM20 9a1.5 1.5 0 00-1.5 1.5V20a1.5 1.5 0 003 0v-9.5A1.5 1.5 0 0020 9z"/></svg>
         <span>Power BI</span>
@@ -2259,22 +2259,17 @@ function openPowerBI() {
   alert("Redirigiendo al informe consolidado de Power BI - Consorcio Humanitario");
 }
 
-// theme toggle
-const btn=document.getElementById("themeBtn");
-function setTheme(t){document.documentElement.setAttribute("data-theme",t);
+// theme management
+function setTheme(t){
+  document.documentElement.setAttribute("data-theme",t);
   try{localStorage.setItem("mide-theme",t);}catch(e){}
-  requestAnimationFrame(renderAll);}
-btn.addEventListener("click",()=>{
-  const cur=document.documentElement.getAttribute("data-theme")
-    || (matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");
-  setTheme(cur==="dark"?"light":"dark");});
+  requestAnimationFrame(renderAll);
+}
 try{const saved=localStorage.getItem("mide-theme");if(saved)document.documentElement.setAttribute("data-theme",saved);}catch(e){}
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",()=>{if(!document.documentElement.getAttribute("data-theme"))renderAll();});
 
 // power bi action
 document.getElementById("pbiBtn")?.addEventListener("click", openPowerBI);
-const themeBtnDesktop = document.getElementById("themeBtn");
-if (themeBtnDesktop) themeBtnDesktop.addEventListener("click", toggleCurrentTheme);
 
 // i18n translation system
 const TRANSLATIONS = {
