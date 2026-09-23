@@ -261,4 +261,58 @@ git -C "C:\Users\JosePabon\Music\proyecto_seguimiento_poa\02_LANDING_STORYTELLIN
 
 ---
 
-*Generado el 23 de septiembre de 2026 en sesión de arquitectura con el usuario.*
+
+---
+
+## 7. Inventario de Assets (Imágenes, Logos, Fuentes)
+
+> **Regla crítica:** Todos los archivos de imagen y SVG deben permanecer en la **misma carpeta** que `index.html`.
+> Las rutas son relativas. El nuevo HTML los llama exactamente igual que el actual. **No mover ni renombrar estos archivos.**
+
+### Imágenes fotográficas (.jpg)
+
+| Archivo | Sección | Descripción |
+|---|---|---|
+| `img_section_1.jpg` | `#p1` Hero | Fotografía vertical — persona mirando al horizonte en territorio comunitario |
+| `img_section_3.jpg` | `#p2` Despliegue territorial | Presencia humanitaria y trabajo territorial en zonas comunitarias |
+| `img_section_5.jpg` | `#p5` Rendición de cuentas (AAP) | Monitoreo y evaluación en campo con KoboToolbox |
+| `footer.jpg` / `footer.jpeg` | Footer | Ilustración ConEsperanza Colombia (con fallback automático: si no carga .jpg, carga .jpeg) |
+
+### Logos de socias (.svg)
+
+| Archivo | Socia | Dónde aparece |
+|---|---|---|
+| `onu_logo.svg` | Todos (Consorcio / OCHA) | Subbarra escritorio + bottom nav móvil |
+| `care_logo.svg` | CARE Colombia | Subbarra escritorio + bottom nav móvil |
+| `irc_logo.svg` | IRC | Subbarra escritorio + bottom nav móvil |
+| `mercy_corps.svg` | Mercy Corps | Subbarra escritorio + bottom nav móvil |
+| `stc_logo.svg` | Save the Children | Subbarra escritorio + bottom nav móvil |
+
+Nota: cada logo aparece dos veces en el HTML (una en escritorio, una en móvil). El nuevo HTML debe mantener esta estructura.
+
+### Fuentes (incrustadas en base64 — sin dependencia de internet)
+
+| Fuente | Rol | Cómo está cargada |
+|---|---|---|
+| **Besley** | Serif editorial — titulares H1, H2, displays | `@font-face` con base64 dentro del `<style>` |
+| **Inter** | Sans-serif funcional — cuerpo de texto, botones, etiquetas | `@font-face` con base64 dentro del `<style>` |
+
+> Las fuentes están **completamente incrustadas** en el HTML. No dependen de Google Fonts ni de conexión a internet.
+> Esto es intencional para garantizar carga instantánea en zonas rurales con conectividad limitada.
+> Al migrar, los bloques `@font-face` se copian íntegros al inicio del nuevo `<style>`.
+
+### Íconos
+
+| Tipo | Qué son | Cómo están implementados |
+|---|---|---|
+| Íconos del drawer móvil | 🌐 (idioma) y 🌓 (tema) | Emojis Unicode — no requieren librería |
+| Ícono Power BI | Gráfico de barras amarillo | SVG inline directo en el HTML |
+| Íconos de navegación | Hamburguesa, chevrons, etc. | SVG inline directo en el HTML |
+
+> No hay dependencias externas de íconos (no Font Awesome, Lucide, Heroicons, etc.).
+> Todo está incrustado. Al migrar, se copian los SVGs inline tal cual están.
+
+
+---
+
+*Generado el 23 de septiembre de 2026 en sesión de arquitectura con el usuario. Actualizado con inventario de assets.*
