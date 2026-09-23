@@ -162,149 +162,248 @@ Cualquier cambio usa el mismo patrón:
 
 ---
 
-## 3. Plan de Ejecución — Fases en Orden
+## 3. Plan de Ejecución — Fases y Sub-pasos
 
-> **Concepto clave:** Construir primero la "columna vertebral" (estructura vacía pero funcional),
-> y solo después ir llenando el contenido. Cada fase produce algo verificable antes de pasar a la siguiente.
+> ### 🔴 PROTOCOLO OBLIGATORIO PARA GEMINI — LEER ANTES DE EMPEZAR
+>
+> **Regla de oro: UN sub-paso a la vez.**
+>
+> 1. Ejecutar **solo** el sub-paso que el usuario indica.
+> 2. Al terminar ese sub-paso, **PARAR** y reportar:
+>    - Qué se hizo.
+>    - Qué archivo(s) se modificaron.
+>    - La verificación que el usuario debe hacer.
+> 3. **Esperar la aprobación explícita del usuario** antes de continuar al siguiente sub-paso.
+> 4. Nunca adelantar sub-pasos ni fases aunque parezca lógico hacerlo.
+> 5. Si algo no está claro en el plan, preguntar antes de actuar.
+>
+> Esta regla existe para proteger la integridad del código, reducir el riesgo de alucinaciones
+> y garantizar que el usuario tenga control total en cada punto del proceso.
 
 ---
 
 ### FASE 0: Preparación
-**Objetivo:** Dejar el entorno listo sin tocar el código actual.
 
-- [ ] Leer este documento completo antes de escribir una sola línea.
-- [ ] Verificar que `git status` está limpio en rama `main`.
-- [ ] Crear el backup del original: `git tag backup-pre-migracion`
-- [ ] Crear el archivo de trabajo: `index_nuevo.html` en la misma carpeta que `index.html`.
-- [ ] **El original `index.html` NO se toca hasta el deploy final.**
+#### Sub-paso 0.1 — Backup y archivo de trabajo
+- [ ] Ejecutar: `git tag backup-pre-migracion`
+- [ ] Crear `index_nuevo.html` (vacío) en la misma carpeta que `index.html`.
+- [ ] Verificar que `git status` esté limpio.
+- [ ] **PARAR. Reportar al usuario y esperar aprobación.**
 
 ---
 
-### FASE 1: Columna Vertebral (Esqueleto + CSS + JS vacío)
-**Objetivo:** Tener un archivo funcional con navegación operativa pero secciones vacías.
-Al terminar esta fase: el header, botones de idioma, botón de tema, subbarra de socias y nav móvil
-deben funcionar correctamente aunque las secciones no tengan contenido aún.
+### FASE 1: Columna Vertebral
 
-#### 1a. CSS completo
-- [ ] Copiar los bloques `@font-face` de Besley e Inter **íntegros** del `index.html` actual (L8–L9).
-- [ ] Copiar y migrar el CSS existente (L4–L1013) como base del nuevo `<style>`.
-- [ ] Agregar al inicio de `:root` los nuevos tokens centralizados (ver §8.1):
-  - Tipografía: `--text-display`, `--text-h1`, `--text-h2`, `--text-h3`, `--text-body`, `--text-small`, `--text-micro`
-  - Espaciado: `--space-section`, `--space-card`, `--space-inner`
-  - Bordes: `--radius-card`, `--radius-btn`, `--radius-pill`
-- [ ] Copiar íntegro el bloque de ambientación de socias (L702–L812) — no reescribir.
-- [ ] **Confirmar con el usuario los ajustes de tamaño de H1, H2, H3 antes de fijar los tokens.**
+> La columna vertebral es el esqueleto completo del nuevo archivo: CSS, HTML vacío y JS motor.
+> Al terminar esta fase el archivo carga en el navegador, el tema funciona, la subbarra cambia de color,
+> los botones de idioma se activan — todo sin tener contenido aún en las secciones.
 
-#### 1b. HTML Esqueleto (secciones vacías)
-- [ ] `<header>` con: logo/marca, botones `ES/EN/FR` con `onclick="setState({lang:'ES'})"`, botón tema `◑`, botón Power BI.
-- [ ] Subbarra `.org-subbar-desktop` con los 5 tabs de socias y sus logos SVG (`onu_logo.svg`, `care_logo.svg`, etc.).
-- [ ] `<main>` con 6 `<section>` vacías: `#p1` a `#p6` (el JS las llenará).
-- [ ] `<footer id="site-footer">` vacío (el JS lo llenará).
-- [ ] Drawer móvil `#mobileDrawer` con `#drawerBackdrop`.
-- [ ] Bottom nav `.bottom-nav-mobile` con los 5 tabs de socias y sus logos.
+#### Sub-paso 1.1 — Fuentes base64 (`@font-face`)
+- [ ] Leer las líneas L8–L9 del `index.html` actual (los dos bloques `@font-face` de Besley e Inter).
+- [ ] Copiarlos **íntegros y sin modificar** como las primeras líneas del `<style>` del nuevo archivo.
+- [ ] **PARAR. Reportar al usuario: "Fuentes copiadas. ¿Continúo con el sub-paso 1.2?"**
 
-#### 1c. JS — Motor sin datos
-- [ ] Definir `MASTER_DATA = {}` (vacío por ahora).
-- [ ] Definir `AppState = { org: 'todos', lang: 'ES', theme: 'light' }`.
-- [ ] Definir `setState(patch)` (ver §8.4 para código exacto).
-- [ ] Definir `renderApp()` con todos los selectores preparados (ver §8.6).
-- [ ] Definir `restoreState()` con claves `ce-theme`, `ce-lang`, `ce-org`.
-- [ ] Definir `toggleDrawer()` y `openPowerBI()`.
+#### Sub-paso 1.2 — Variables CSS (tokens de tema + nuevos tokens)
+- [ ] Escribir el bloque `:root` con:
+  - Variables de tema claro (existentes, ver §8.1): `--ink`, `--canvas`, `--hairline`, `--font-d`, `--font-b`, `--wrap`, etc.
+  - Bloque `[data-theme="dark"]` con sus valores (ver §8.1).
+  - Nuevos tokens tipográficos: `--text-display` a `--text-micro`.
+  - Nuevos tokens de espaciado: `--space-section`, `--space-card`, `--space-inner`.
+  - Nuevos tokens de bordes: `--radius-card`, `--radius-btn`, `--radius-pill`.
+- [ ] **PARAR. Reportar al usuario: "Variables CSS escritas. ¿Continúo con 1.3?"**
+
+#### Sub-paso 1.3 — CSS de ambientación de socias
+- [ ] Leer el bloque de ambientación de socias del `index.html` actual (L702–L812).
+- [ ] Copiarlo **íntegro y sin modificar** al `<style>` del nuevo archivo.
+- [ ] **PARAR. Reportar al usuario: "Ambientación de socias copiada. ¿Continúo con 1.4?"**
+
+#### Sub-paso 1.4 — CSS de layout y componentes
+- [ ] Migrar el resto del CSS (L57–L700 aprox.) del `index.html` actual:
+  header, subbarra, secciones, tarjetas, testimonios, footer, drawer, bottom nav, responsive.
+- [ ] Usar los nuevos tokens (`--text-h2`, `--space-section`, `--radius-card`, etc.) en lugar de valores hardcodeados donde aplique.
+- [ ] **PARAR. Reportar al usuario: "CSS de layout copiado. ¿Continúo con 1.5?"**
+
+#### Sub-paso 1.5 — HTML esqueleto (secciones vacías)
+- [ ] Escribir el `<body>` completo con contenedores vacíos (ver §8.3):
+  - `<header>` con marca, botones de idioma (`onclick="setState({lang:'ES'})"`), botón tema, botón Power BI.
+  - `.org-subbar-desktop` con los 5 tabs de socias y sus `<img src="onu_logo.svg">`, etc.
+  - `<main>` con `<section id="p1">` a `<section id="p6">` vacías.
+  - `<footer id="site-footer">` vacío.
+  - `#mobileDrawer` con `#drawerBackdrop`.
+  - `.bottom-nav-mobile` con los 5 tabs de socias.
+- [ ] **PARAR. Reportar al usuario: "HTML esqueleto escrito. ¿Continúo con 1.6?"**
+
+#### Sub-paso 1.6 — JS: AppState y setState
+- [ ] Escribir en el `<script>`:
+  - `const MASTER_DATA = {};` (vacío por ahora).
+  - `const AppState = { org: 'todos', lang: 'ES', theme: 'light' };`
+  - Función `setState(patch)` completa (ver §8.4).
+  - Función `restoreState()` con claves `ce-theme`, `ce-lang`, `ce-org`.
+- [ ] **PARAR. Reportar al usuario: "AppState y setState escritos. ¿Continúo con 1.7?"**
+
+#### Sub-paso 1.7 — JS: renderApp (motor vacío)
+- [ ] Escribir la función `renderApp()` completa con todos los selectores (ver §8.6).
+  Por ahora no pinta contenido porque `MASTER_DATA` está vacío — no es un error.
+- [ ] Escribir funciones auxiliares: `toggleDrawer()`, `openPowerBI()`.
 - [ ] Al final del script: `restoreState(); renderApp();`
+- [ ] **PARAR. Reportar al usuario y pedir que abra `index_nuevo.html` en el navegador.**
 
-**✅ Verificar antes de continuar a Fase 2:**
-- El botón `◑` cambia entre modo claro y oscuro.
-- La subbarra cambia de color al hacer clic en cada socia (`data-active-org` funciona).
-- Los botones `ES/EN/FR` se marcan `.active` al hacer clic.
-- El drawer móvil abre y cierra.
-- No hay errores en la consola del navegador.
+#### ✅ Verificación de la Fase 1 (el usuario hace esto)
+Abrir `index_nuevo.html` en el navegador y verificar:
+- [ ] El botón `◑` cambia entre modo claro y oscuro.
+- [ ] Al hacer clic en cada socia, la subbarra cambia de color institucional.
+- [ ] Los botones `ES/EN/FR` se marcan activos al hacer clic.
+- [ ] El drawer móvil abre y cierra (en mobile o reduciendo la ventana).
+- [ ] No hay errores rojos en la consola del navegador (F12).
+- **Solo si todo pasa → aprobar Fase 2.**
 
 ---
 
 ### FASE 2: Datos de "Todos" en Español (ES)
-**Objetivo:** La vista principal del consorcio funciona completa en español.
 
-- [ ] Leer el bloque `todos` del `index.html` actual (L1698–L1793).
-- [ ] Migrar todo su contenido a `MASTER_DATA.todos.ES` con la nueva estructura (ver §9.4).
-- [ ] Incluir el objeto `global` (brandSub, subbarFilter, orgTodos, pbiBtnText, drawerTitle, etc.)
-      tomando los textos de `TRANSLATIONS.ES` actual (L2275–L2309).
-- [ ] Incluir el contenido del `footer` en ES (leer HTML del footer actual L1309–~L1390).
-- [ ] Conectar `renderApp()` para que pinte cada sección con los datos reales.
+#### Sub-paso 2.1 — Objeto `global` en ES
+- [ ] Leer `TRANSLATIONS.ES` del `index.html` actual (L2275–L2309).
+- [ ] Crear `MASTER_DATA.todos = { ES: { global: {...} } }` con los campos:
+  `brandSub`, `subbarFilter`, `orgTodos`, `pbiBtnText`, `drawerTitle`, `drawerLangLabel`,
+  `drawerLangSub`, `drawerThemeLabel`, `drawerThemeSub`, `drawerPbiBtn`.
+- [ ] Conectar `renderApp()` para que pinte los elementos del header y drawer con `data.global`.
+- [ ] **PARAR. Reportar al usuario: "Objeto global ES creado. ¿Continúo con 2.2?"**
 
-**✅ Verificar antes de continuar a Fase 3:**
-- La vista "Todos" muestra todo el contenido en español.
-- Las 4 tarjetas de `#p3` aparecen (VBG, Protección, Salud, MPCA).
-- Los 4 testimonios de `#p4` aparecen.
-- El footer tiene contenido en las 4 columnas.
+#### Sub-paso 2.2 — Sección Hero (`#p1`) en ES
+- [ ] Leer `PARTNERS_DATA.todos.hero` del `index.html` actual (L1699–L1708).
+- [ ] Añadir `MASTER_DATA.todos.ES.hero` con: `title`, `lead`, `kpisHTML`, `imgSrc`, `imgAlt`.
+- [ ] Conectar `renderApp()` para que pinte `#p1`.
+- [ ] **PARAR. Reportar: "Hero ES listo. ¿Continúo con 2.3?"**
+
+#### Sub-paso 2.3 — Sección Territorial (`#p2`) en ES
+- [ ] Leer `PARTNERS_DATA.todos.p2` (L1709–L1718).
+- [ ] Añadir `MASTER_DATA.todos.ES.p2` con: `eyebrow`, `title`, `lead`, `kpisHTML`, `imgSrc`, `imgAlt`.
+- [ ] Conectar en `renderApp()`.
+- [ ] **PARAR. Reportar: "#p2 ES listo. ¿Continúo con 2.4?"**
+
+#### Sub-paso 2.4 — Sección Sectores (`#p3`) en ES — 4 tarjetas
+- [ ] Leer `PARTNERS_DATA.todos.p3` (L1719–L1748).
+- [ ] Añadir `MASTER_DATA.todos.ES.p3` con: `eyebrow`, `title`, `lead`, `recsHTML`.
+- [ ] Conectar en `renderApp()`.
+- [ ] **PARAR. Reportar: "#p3 ES con 4 tarjetas listo. ¿Continúo con 2.5?"**
+
+#### Sub-paso 2.5 — Sección Testimonios (`#p4`) en ES — 4 citas
+- [ ] Leer `PARTNERS_DATA.todos.p4` (L1749–L1770).
+- [ ] Añadir `MASTER_DATA.todos.ES.p4` con: `eyebrow`, `title`, `lead`, `quotesHTML`.
+- [ ] Conectar en `renderApp()`.
+- [ ] **PARAR. Reportar: "#p4 ES con 4 testimonios listo. ¿Continúo con 2.6?"**
+
+#### Sub-paso 2.6 — Secciones AAP y Aprendizaje (`#p5` y `#p6`) en ES
+- [ ] Leer `PARTNERS_DATA.todos.p5` (L1771–L1775) y `p6` (L1776–L1793).
+- [ ] Añadir `MASTER_DATA.todos.ES.p5` y `.p6` con sus campos.
+- [ ] Conectar en `renderApp()`.
+- [ ] **PARAR. Reportar: "#p5 y #p6 ES listos. ¿Continúo con 2.7?"**
+
+#### Sub-paso 2.7 — Footer en ES
+- [ ] Leer el HTML del footer del `index.html` actual (L1309–~L1390).
+- [ ] Escribir `MASTER_DATA.todos.ES.footer` con los 4 columnas como objetos de texto.
+- [ ] Conectar `renderFooter()` en `renderApp()`.
+- [ ] **PARAR. Reportar: "Footer ES listo. ¿Continúo con verificación?"**
+
+#### ✅ Verificación de la Fase 2 (el usuario hace esto)
+- [ ] La vista "Todos" muestra TODO el contenido en español.
+- [ ] Las 4 tarjetas de sectores (`#p3`) aparecen (VBG, Protección, Salud, MPCA).
+- [ ] Los 4 testimonios (`#p4`) aparecen.
+- [ ] El footer tiene contenido en las 4 columnas.
+- [ ] No hay errores en consola.
+- **Solo si todo pasa → aprobar Fase 3.**
 
 ---
 
-### FASE 3: Datos de "Todos" en Inglés y Francés (EN / FR)
-**Objetivo:** El cambio de idioma traduce TODA la página en la vista "Todos".
+### FASE 3: Datos de "Todos" en Inglés y Francés
 
-- [ ] Crear `MASTER_DATA.todos.EN`:
-  - Campos `global`, eyebrows, H2, lead → copiar de `TRANSLATIONS.EN` (L2310–L2342) y expandir.
-  - Campos profundos (tarjetas `#p3`, testimonios `#p4`, callout `#p5`, cards `#p6`, footer) → **escribir traducción nueva** (ver §9.5).
-- [ ] Crear `MASTER_DATA.todos.FR` — ídem con `TRANSLATIONS.FR` (L2344–L2376).
+#### Sub-paso 3.1 — `global` + `hero` + `p2` en EN
+- [ ] Leer `TRANSLATIONS.EN` (L2310–L2342) para los campos existentes.
+- [ ] Crear `MASTER_DATA.todos.EN` con `global`, `hero`, `p2`.
+- [ ] **PARAR. Reportar: "EN parcial (global+hero+p2) listo. ¿Continúo con 3.2?"**
 
-**✅ Verificar antes de continuar a Fase 4:**
-- Clic en `EN`: toda la vista "Todos" cambia a inglés (header, secciones, tarjetas, testimonios, footer).
-- Clic en `FR`: toda la vista "Todos" cambia a francés.
-- Clic en `ES`: regresa al español sin errores.
-- El idioma persiste al recargar la página (localStorage `ce-lang`).
+#### Sub-paso 3.2 — `p3` (tarjetas) + `p4` (testimonios) en EN
+- [ ] Escribir la traducción al inglés de `recsHTML` (4 tarjetas) y `quotesHTML` (4 testimonios).
+  No existe en el archivo actual — hay que escribirlo nuevo en inglés.
+- [ ] **PARAR. Reportar: "Tarjetas y testimonios EN listos. ¿Continúo con 3.3?"**
+
+#### Sub-paso 3.3 — `p5`, `p6` y `footer` en EN
+- [ ] Traducir callout de `#p5`, cards de `#p6` y footer al inglés.
+- [ ] **PARAR. Reportar: "EN completo. ¿Continúo con 3.4 (FR)?"**
+
+#### Sub-paso 3.4 — Todos los campos en FR
+- [ ] Ídem al proceso EN pero en francés, usando `TRANSLATIONS.FR` (L2344–L2376) como base.
+- [ ] **PARAR. Reportar: "FR completo. ¿Continúo con verificación?"**
+
+#### ✅ Verificación de la Fase 3
+- [ ] Clic en `EN`: toda la vista "Todos" en inglés (header, tarjetas, testimonios, footer).
+- [ ] Clic en `FR`: toda la vista "Todos" en francés.
+- [ ] Clic en `ES`: regresa al español sin errores.
+- [ ] Idioma persiste al recargar (localStorage `ce-lang`).
+- **Solo si todo pasa → aprobar Fase 4.**
 
 ---
 
 ### FASE 4: Datos de las 4 Socias en Español
-**Objetivo:** Al cambiar de socia, su contenido específico aparece correctamente en la vista activa.
 
-- [ ] Migrar `MASTER_DATA.care.ES` del `PARTNERS_DATA.care` actual (L1794–L1889).
-- [ ] Migrar `MASTER_DATA.irc.ES` (L1890–L1985).
-- [ ] Migrar `MASTER_DATA.mercy_corps.ES` (L1986–L2081).
-- [ ] Migrar `MASTER_DATA.stc.ES` (L2082–L2177).
-- [ ] Establecer `care.EN = null`, `care.FR = null` (y lo mismo para irc, mercy_corps, stc).
-      Esto activa el fallback automático a ES para esas socias.
+#### Sub-paso 4.1 — CARE Colombia
+- [ ] Leer `PARTNERS_DATA.care` (L1794–L1889).
+- [ ] Crear `MASTER_DATA.care = { ES: {...}, EN: null, FR: null }`.
+- [ ] **PARAR. Reportar: "CARE ES listo. ¿Continúo con 4.2?"**
 
-**✅ Verificar antes de continuar a Fase 5:**
-- Cada socia muestra su contenido específico en español.
-- Estando en `EN` y cambiando a una socia: el contenido aparece en español (fallback correcto, sin errores).
-- La ambientación de color de la subbarra cambia correctamente al cambiar de socia.
-- Volver a "Todos" estando en inglés → muestra el contenido en inglés.
+#### Sub-paso 4.2 — IRC
+- [ ] Leer `PARTNERS_DATA.irc` (L1890–L1985). Crear `MASTER_DATA.irc`.
+- [ ] **PARAR. Reportar: "IRC ES listo. ¿Continúo con 4.3?"**
+
+#### Sub-paso 4.3 — Mercy Corps
+- [ ] Leer `PARTNERS_DATA.mercy_corps` (L1986–L2081). Crear `MASTER_DATA.mercy_corps`.
+- [ ] **PARAR. Reportar: "Mercy Corps ES listo. ¿Continúo con 4.4?"**
+
+#### Sub-paso 4.4 — Save the Children
+- [ ] Leer `PARTNERS_DATA.stc` (L2082–L2177). Crear `MASTER_DATA.stc`.
+- [ ] **PARAR. Reportar: "STC ES listo. ¿Continúo con verificación?"**
+
+#### ✅ Verificación de la Fase 4
+- [ ] Cada socia muestra su contenido específico en español.
+- [ ] Estando en `EN` y cambiando a una socia: aparece en español (fallback correcto, sin error).
+- [ ] La ambientación de color de subbarra cambia al cambiar de socia.
+- [ ] Volver a "Todos" en inglés → muestra contenido en inglés.
+- **Solo si todo pasa → aprobar Fase 5.**
 
 ---
 
-### FASE 5: Gráficas y Visualizaciones
-**Objetivo:** Todas las gráficas funcionan igual que en el `index.html` original.
+### FASE 5: Gráficas
 
-- [ ] Copiar íntegramente las funciones de gráficas del `index.html` actual (L1390–L1696):
-  `renderAll`, `drawTrend`, `drawDiverge`, `drawBubble`, `drawDonut`, `drawIndex`, `drawRev`,
-  y auxiliares: `E`, `cvar`, `swatch`, `showTip`, `hideTip`, `move`, `ring`.
-- [ ] **No modificar estas funciones.** Solo copiarlas al nuevo `<script>`.
+#### Sub-paso 5.1 — Copiar funciones de charts
+- [ ] Leer las funciones de gráficas del `index.html` actual (L1390–L1696).
+- [ ] Copiarlas **íntegras y sin modificar** al nuevo `<script>`.
 - [ ] Verificar que `renderApp()` llame `requestAnimationFrame(renderAll)` al final.
-- [ ] Copiar el event listener de `resize` que re-renderiza las gráficas (original: al final del script).
+- [ ] Copiar el event listener de `resize` del original.
+- [ ] **PARAR. Reportar: "Gráficas migradas. ¿Continúo con verificación?"**
 
-**✅ Verificar antes de continuar a Fase 6:**
-- Las gráficas aparecen en la vista "Todos" y en cada socia.
-- Las gráficas se adaptan al redimensionar la ventana.
-- Las gráficas se actualizan al cambiar de socia o idioma.
+#### ✅ Verificación de la Fase 5
+- [ ] Las gráficas aparecen en la vista "Todos" y en cada socia.
+- [ ] Las gráficas responden al redimensionar la ventana.
+- **Solo si todo pasa → aprobar Fase 6.**
 
 ---
 
-### FASE 6: Pruebas Finales y Deploy
-**Objetivo:** Validar todo y reemplazar el archivo original con el nuevo.
+### FASE 6: Deploy Final
 
-- [ ] Ejecutar el checklist completo de la §9.7 (15 ítems).
-- [ ] Si todo pasa:
-  - Renombrar `index.html` → `index_backup.html` (respaldo del original)
+#### Sub-paso 6.1 — Checklist final
+- [ ] Ejecutar todos los ítems de la §9.7 (15 verificaciones).
+- [ ] **PARAR. Reportar resultado del checklist al usuario.**
+
+#### Sub-paso 6.2 — Reemplazo del archivo
+- [ ] Solo si el usuario aprueba el checklist:
+  - Renombrar `index.html` → `index_backup.html`
   - Renombrar `index_nuevo.html` → `index.html`
-- [ ] Deploy siguiendo el protocolo §5:
-  ```bash
-  git add index.html index_backup.html
-  git commit -m "feat: migracion a arquitectura modular con i18n completo"
-  git push origin main
-  # luego merge a gh-pages
-  ```
+- [ ] **PARAR. Reportar: "Archivos renombrados. ¿Procedo con el deploy?"**
+
+#### Sub-paso 6.3 — Deploy (doble rama)
+- [ ] Ejecutar el protocolo de deploy de la §5.
 - [ ] Verificar el sitio en vivo: https://jalfredopabon.github.io/care-conesperanza-seguimiento-meal/
+- [ ] **Concluir con: "Listo para que revises."**
 
 ## 4. Reglas de Diseño Obligatorias (Preservar del original)
 
