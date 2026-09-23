@@ -313,6 +313,552 @@ Nota: cada logo aparece dos veces en el HTML (una en escritorio, una en móvil).
 > Todo está incrustado. Al migrar, se copian los SVGs inline tal cual están.
 
 
+
 ---
 
-*Generado el 23 de septiembre de 2026 en sesión de arquitectura con el usuario. Actualizado con inventario de assets.*
+## 8. Guía Técnica de Implementación para Gemini
+
+> Esta sección es el manual de ejecución. Contiene los patrones exactos de CSS, HTML y JS que debes usar.
+> **No improvises nombres ni estructuras.** Si algo no está aquí, pregunta antes de inventar.
+
+---
+
+### 8.1. CSS — Variables y Tokens
+
+#### Cómo está hoy (preservar exactamente estos nombres y valores)
+El CSS usa `data-theme` en el elemento `:root` para manejar temas. Estos son los tokens existentes:
+
+```css
+/* TEMA CLARO (default) */
+:root, :root[data-theme="light"] {
+  --ink:         #050A0E;     /* Texto principal */
+  --ink-soft:    #3D3D3D;     /* Texto secundario */
+  --ink-muted:   #717171;     /* Texto terciario / etiquetas */
+  --canvas:      #F8FAFC;     /* Fondo principal de página */
+  --canvas-muted:#F1F5F9;     /* Fondo de secciones alternas */
+  --surface-soft:#E2E8F0;     /* Fondo de tarjetas */
+  --hairline:    #E2E8F0;     /* Borde divisor principal */
+  --hairline-soft:#EDF2F7;    /* Borde divisor suave */
+  --on-ink:      #FFFFFF;     /* Texto sobre fondos oscuros */
+  --on-ink-muted:#A6A6A6;
+  --c-up:        #2E6B38;     /* Color positivo (charts) */
+  --c-down:      #C0392B;     /* Color negativo (charts) */
+  --c-accent:    #6E120B;     /* Acento */
+  --grid:        #E2E8F0;     /* Líneas de grilla de charts */
+  --axis:        #9A9A94;     /* Ejes de charts */
+  --font-d: "Besley", Georgia, serif;      /* Display / Titulares */
+  --font-b: "Inter", -apple-system, sans-serif; /* Body / Funcional */
+  --wrap:   1240px;           /* Max-width del contenedor */
+}
+
+/* TEMA OSCURO */
+:root[data-theme="dark"] {
+  --ink:         #F3F4F6;
+  --ink-soft:    #D1D5DB;
+  --ink-muted:   #9CA3AF;
+  --canvas:      #14171A;
+  --canvas-muted:#1B1E23;
+  --surface-soft:#23272E;
+  --hairline:    #2C313A;
+  --hairline-soft:#22262E;
+  --on-ink:      #14171A;
+  --c-up:        #4EAF61;
+  --c-down:      #E74C3C;
+  --c-accent:    #D96A61;
+  --grid:        #2C313A;
+  --axis:        #6B7280;
+}
+```
+
+#### Tokens NUEVOS que debes agregar (tipografía y espaciado centralizado)
+Agrégalos dentro de `:root` en la sección de variables:
+
+```css
+:root {
+  /* --- TIPOGRAFÍA CENTRALIZADA --- */
+  --text-display: 3.25rem;   /* Hero H1 */
+  --text-h1:      2.25rem;   /* H1 de secciones */
+  --text-h2:      1.65rem;   /* H2 subtítulos */
+  --text-h3:      1.1rem;    /* H3 tarjetas */
+  --text-body:    1rem;      /* Cuerpo de texto */
+  --text-small:   0.875rem;  /* Etiquetas y badges */
+  --text-micro:   0.75rem;   /* Meta info */
+
+  /* --- ESPACIADO CENTRALIZADO --- */
+  --space-section: 72px;     /* Padding vertical entre secciones */
+  --space-card:    24px;     /* Padding interno de tarjetas */
+  --space-inner:   16px;     /* Espaciado interno menor */
+
+  /* --- BORDES Y RADIOS --- */
+  --radius-card:   14px;     /* Border-radius de tarjetas */
+  --radius-btn:    8px;      /* Border-radius de botones */
+  --radius-pill:   999px;    /* Border-radius de pills/badges */
+}
+```
+
+#### Regla "No-Line": Cómo separar secciones SIN bordes
+**PROHIBIDO:** `border: 1px solid` para separar secciones de contenido.
+**CORRECTO:** Usar cambio de `background-color` entre secciones:
+
+```css
+/* Alternancia de fondo entre secciones */
+.page { background: var(--canvas); }
+.page.alt { background: var(--canvas-muted); }
+```
+
+La **única excepción** permitida para bordes visibles es el `border-top` de la subbarra de socias, que usa `--subbar-border`.
+
+---
+
+### 8.2. CSS — Ambientación de Socias (NO modificar)
+
+El sistema de color institucional funciona con dos atributos en el `<html>`:
+- `data-theme="light"` o `"dark"`
+- `data-active-org="todos"` | `"care"` | `"irc"` | `"mercy_corps"` | `"stc"`
+
+La combinación de ambos define las variables de la subbarra:
+
+```css
+/* Ejemplo de patrón (copiar exactamente del original, NO reescribir): */
+:root[data-theme="light"][data-active-org="todos"] {
+  --subbar-bg:        #F0F6FA;
+  --subbar-border:    rgba(65, 143, 222, 0.20);
+  --subbar-bg-mobile: rgba(240, 246, 250, 0.94);
+}
+:root[data-theme="light"][data-active-org="care"] {
+  --subbar-bg:        #FFF7ED;
+  --subbar-border:    rgba(243, 112, 33, 0.22);
+  --subbar-bg-mobile: rgba(255, 247, 237, 0.94);
+}
+/* ... idem para irc, mercy_corps, stc en light y dark */
+```
+
+Estos bloques ya existen en el CSS actual. **Cópialos tal cual al nuevo `<style>`.**
+
+La subbarra los consume así:
+```css
+.org-subbar-desktop {
+  background:  var(--subbar-bg,     var(--canvas-muted));
+  border-top:  1px solid var(--subbar-border, var(--hairline));
+  border-bottom: 1px solid var(--subbar-border, var(--hairline));
+  /* Transición fluida al cambiar de socia: */
+  transition: background .4s ease, border-color .4s ease;
+}
+```
+
+---
+
+### 8.3. HTML — Esqueleto Body (contenedores vacíos que JS llena)
+
+El `<body>` debe tener **solo la estructura**, sin contenido de texto. El JS lo inyecta.
+
+```html
+<body>
+  <!-- HEADER -->
+  <header class="top-bar">
+    <div class="header-main-bar">
+      <div class="wrap-bar">
+        <!-- Marca (izquierda) -->
+        <a href="#" class="brand-identity">
+          <div class="brand-meta">
+            <div class="brand-title">ConEsperanza</div>
+            <div class="brand-sub"><!-- JS inyecta el texto según idioma --></div>
+          </div>
+        </a>
+        <!-- Controles escritorio (>= 900px) -->
+        <div class="top-controls-desktop">
+          <div class="lang-segment">
+            <button class="lang-btn active" data-lang="ES" onclick="setState({lang:'ES'})">ES</button>
+            <button class="lang-btn" data-lang="EN" onclick="setState({lang:'EN'})">EN</button>
+            <button class="lang-btn" data-lang="FR" onclick="setState({lang:'FR'})">FR</button>
+          </div>
+          <button class="theme-toggle-btn" id="themeBtn" onclick="setState({theme: AppState.theme==='dark'?'light':'dark'})" aria-label="Cambiar tema">◑</button>
+          <button class="pbi-btn-desktop" id="pbiBtn" onclick="openPowerBI()">
+            <!-- SVG inline del ícono de Power BI aquí -->
+            <span id="pbiBtnLabel">Power BI</span>
+          </button>
+        </div>
+        <!-- Botón menú móvil (< 900px) -->
+        <button class="menu-btn-mobile" onclick="toggleDrawer(true)">
+          <!-- SVG hamburguesa inline -->
+        </button>
+      </div>
+    </div>
+    <!-- Subbarra de socias (escritorio) -->
+    <div class="org-subbar-desktop">
+      <div class="subbar-inner">
+        <span class="subbar-label" id="subbarLabel"><!-- JS inyecta --></span>
+        <!-- Tabs de socias: el JS las genera, o van en HTML estático -->
+        <button class="org-tab active" data-org="todos" onclick="setState({org:'todos'})">
+          <img src="onu_logo.svg" alt="Todos" class="org-icon">
+          <span>Todos</span>
+        </button>
+        <!-- ... care, irc, mercy_corps, stc igual -->
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIONES PRINCIPALES (vacías, JS las llena) -->
+  <main>
+    <section id="p1" class="page"></section>
+    <section id="p2" class="page alt"></section>
+    <section id="p3" class="page"></section>
+    <section id="p4" class="page alt"></section>
+    <section id="p5" class="page"></section>
+    <section id="p6" class="page alt"></section>
+  </main>
+
+  <!-- FOOTER (vacío, JS lo llena) -->
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <!-- DRAWER MÓVIL -->
+  <div id="drawerBackdrop" class="drawer-backdrop" onclick="toggleDrawer(false)"></div>
+  <div id="mobileDrawer" class="mobile-drawer">
+    <!-- Contenido del drawer: idioma, tema, Power BI -->
+    <!-- JS inyecta los labels según idioma -->
+  </div>
+
+  <!-- BOTTOM NAV MÓVIL -->
+  <nav class="bottom-nav-mobile">
+    <!-- 5 tabs de socias para móvil -->
+  </nav>
+</body>
+```
+
+---
+
+### 8.4. JavaScript — AppState (el corazón del sistema)
+
+```javascript
+/* ============================================================
+   BLOQUE B: ESTADO GLOBAL DE LA APP
+   ============================================================ */
+const AppState = {
+  org:   'todos',  // 'todos' | 'care' | 'irc' | 'mercy_corps' | 'stc'
+  lang:  'ES',     // 'ES' | 'EN' | 'FR'
+  theme: 'light'   // 'light' | 'dark'
+};
+
+function setState(patch) {
+  Object.assign(AppState, patch);
+  // Aplicar tema al DOM si cambió
+  if (patch.theme !== undefined) {
+    document.documentElement.setAttribute('data-theme', AppState.theme);
+    try { localStorage.setItem('ce-theme', AppState.theme); } catch(e) {}
+  }
+  // Aplicar org al DOM si cambió
+  if (patch.org !== undefined) {
+    document.documentElement.setAttribute('data-active-org', AppState.org);
+    try { localStorage.setItem('ce-org', AppState.org); } catch(e) {}
+  }
+  // Guardar idioma
+  if (patch.lang !== undefined) {
+    try { localStorage.setItem('ce-lang', AppState.lang); } catch(e) {}
+  }
+  renderApp();
+}
+
+// Restaurar estado guardado al cargar
+(function restoreState() {
+  try {
+    const savedTheme = localStorage.getItem('ce-theme');
+    const savedOrg   = localStorage.getItem('ce-org');
+    const savedLang  = localStorage.getItem('ce-lang');
+    if (savedTheme) AppState.theme = savedTheme;
+    if (savedOrg && MASTER_DATA[savedOrg]) AppState.org = savedOrg;
+    if (savedLang && ['ES','EN','FR'].includes(savedLang)) AppState.lang = savedLang;
+  } catch(e) {}
+  document.documentElement.setAttribute('data-theme', AppState.theme);
+  document.documentElement.setAttribute('data-active-org', AppState.org);
+})();
+```
+
+**Nota importante:** Las claves de localStorage cambian de `mide-theme`, `conesperanza-lang`, `selected-org` a `ce-theme`, `ce-lang`, `ce-org` para evitar conflictos con la versión anterior.
+
+---
+
+### 8.5. JavaScript — MASTER_DATA (estructura exacta)
+
+```javascript
+/* ============================================================
+   BLOQUE A: DATOS MAESTROS
+   Estructura: MASTER_DATA[org][lang][seccion][campo]
+   ============================================================ */
+const MASTER_DATA = {
+
+  todos: {
+    ES: {
+      // Header global (estos campos afectan a elementos fuera de las secciones)
+      global: {
+        brandSub:     "Reporte de Consorcio",
+        subbarFilter: "Filtrar por Organización:",
+        orgTodos:     "Todos",
+        pbiBtnText:   "Power BI",
+        // Drawer móvil
+        drawerTitle:     "Ajustes & Acceso",
+        drawerLangLabel: "Idioma",
+        drawerLangSub:   "Preferencia de idioma",
+        drawerThemeLabel:"Tema Visual",
+        drawerThemeSub:  "Alternar modo claro / oscuro",
+        drawerPbiBtn:    "Abrir Power BI",
+      },
+      // Sección 1 (#p1 — Hero)
+      hero: {
+        title: "Seguimiento al POA 2026",
+        lead:  "Monitoreo continuo...",
+        kpisHTML: `<div class="t">...</div>`, // HTML de los KPIs
+        imgSrc: "img_section_1.jpg",
+        imgAlt: "Persona en territorio comunitario"
+      },
+      // Sección 2 (#p2 — Despliegue territorial)
+      p2: {
+        eyebrow: "Despliegue territorial",
+        title:   "Presencia humanitaria en zonas de alta vulnerabilidad",
+        lead:    "...",
+        kpisHTML: `...`,  // HTML de los 4 KPIs territoriales
+        imgSrc: "img_section_3.jpg",
+        imgAlt: "Trabajo territorial en zonas comunitarias"
+      },
+      // Sección 3 (#p3 — Sectores de respuesta) — SIEMPRE 4 tarjetas
+      p3: {
+        eyebrow:  "Sectores de respuesta",
+        title:    "Cuatro líneas de acción...",
+        lead:     "...",
+        recsHTML: `...`   // HTML de las 4 tarjetas sectoriales (.rec)
+      },
+      // Sección 4 (#p4 — Voces de la comunidad) — SIEMPRE 4 testimonios
+      p4: {
+        eyebrow:    "Voces de la comunidad",
+        title:      "Evidencia cualitativa...",
+        lead:       "...",
+        quotesHTML: `...` // HTML de los 4 blockquotes
+      },
+      // Sección 5 (#p5 — AAP)
+      p5: {
+        eyebrow:    "Rendición de cuentas (AAP)",
+        title:      "Mecanismos de escucha...",
+        lead:       "...",
+        callout:    "...", // Texto del bloque callout
+        imgSrc:     "img_section_5.jpg",
+        imgAlt:     "Monitoreo con KoboToolbox"
+      },
+      // Sección 6 (#p6 — Aprendizaje)
+      p6: {
+        eyebrow:   "Aprendizaje y adaptación",
+        title:     "Lecciones aprendidas...",
+        lead:      "...",
+        cardsHTML: `...`  // HTML de las 2 tarjetas en split
+      },
+      // Footer
+      footer: {
+        col1Title:    "ConEsperanza",
+        col1Body:     "...",
+        col2Title:    "Navegación",
+        col2Links:    [...],  // Array de {label, href}
+        col3Title:    "Socias implementadoras",
+        col4Title:    "Datos del reporte",
+        col4Date:     "Corte: 30 de septiembre de 2026",
+        col4PbiLabel: "Abrir informe Power BI"
+      }
+    },
+    EN: { /* misma estructura, textos en inglés */ },
+    FR: { /* misma estructura, textos en francés */ }
+  },
+
+  care: {
+    ES: { /* misma estructura, contenido específico de CARE */ },
+    EN: null,  // fallback a ES automáticamente
+    FR: null
+  },
+
+  irc:         { ES: { /* ... */ }, EN: null, FR: null },
+  mercy_corps: { ES: { /* ... */ }, EN: null, FR: null },
+  stc:         { ES: { /* ... */ }, EN: null, FR: null }
+};
+```
+
+---
+
+### 8.6. JavaScript — renderApp() (motor único)
+
+```javascript
+/* ============================================================
+   BLOQUE C: MOTOR ÚNICO DE RENDER
+   ============================================================ */
+function renderApp() {
+  const { org, lang } = AppState;
+
+  // Fallback: si el idioma no existe para esa socia, usar ES
+  const data = (MASTER_DATA[org][lang]) || MASTER_DATA[org]['ES'];
+  const g    = data.global;
+
+  // --- HEADER GLOBAL ---
+  const brandSub = document.querySelector('.brand-sub');
+  if (brandSub) brandSub.textContent = g.brandSub;
+
+  const subbarLabel = document.querySelector('#subbarLabel');
+  if (subbarLabel) subbarLabel.textContent = g.subbarFilter;
+
+  const pbiBtnLabel = document.querySelector('#pbiBtnLabel');
+  if (pbiBtnLabel) pbiBtnLabel.textContent = g.pbiBtnText;
+
+  // Botones de idioma: marcar activo
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Tabs de socias: marcar activo
+  document.querySelectorAll('[data-org]').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.org === org);
+  });
+
+  // Drawer móvil
+  const drawerTitle = document.querySelector('#mobileDrawer .drawer-title');
+  if (drawerTitle) drawerTitle.textContent = g.drawerTitle;
+  // ... resto del drawer
+
+  // --- SECCIÓN 1: HERO (#p1) ---
+  const p1 = document.querySelector('#p1');
+  if (p1) {
+    p1.querySelector('h1').textContent         = data.hero.title;
+    p1.querySelector('p.lead').textContent     = data.hero.lead;
+    p1.querySelector('.tease').innerHTML       = data.hero.kpisHTML;
+    p1.querySelector('.hero-img').src          = data.hero.imgSrc;
+    p1.querySelector('.hero-img').alt          = data.hero.imgAlt;
+  }
+
+  // --- SECCIÓN 2: TERRITORIAL (#p2) ---
+  const p2 = document.querySelector('#p2');
+  if (p2) {
+    p2.querySelector('.eyebrow').textContent   = data.p2.eyebrow;
+    p2.querySelector('h2').textContent         = data.p2.title;
+    p2.querySelector('p.lead').textContent     = data.p2.lead;
+    p2.querySelector('.tease').innerHTML       = data.p2.kpisHTML;
+  }
+
+  // --- SECCIÓN 3: SECTORES (#p3) — SIEMPRE 4 tarjetas ---
+  const p3 = document.querySelector('#p3');
+  if (p3) {
+    p3.querySelector('.eyebrow').textContent   = data.p3.eyebrow;
+    p3.querySelector('h2').textContent         = data.p3.title;
+    p3.querySelector('p.lead').textContent     = data.p3.lead;
+    p3.querySelector('.recs').innerHTML        = data.p3.recsHTML;
+  }
+
+  // --- SECCIÓN 4: VOCES (#p4) — SIEMPRE 4 testimonios ---
+  const p4 = document.querySelector('#p4');
+  if (p4) {
+    p4.querySelector('.eyebrow').textContent   = data.p4.eyebrow;
+    p4.querySelector('h2').textContent         = data.p4.title;
+    p4.querySelector('.quotes-box').innerHTML  = data.p4.quotesHTML;
+  }
+
+  // --- SECCIÓN 5: AAP (#p5) ---
+  const p5 = document.querySelector('#p5');
+  if (p5) {
+    p5.querySelector('.eyebrow').textContent   = data.p5.eyebrow;
+    p5.querySelector('h2').textContent         = data.p5.title;
+    p5.querySelector('p.lead').textContent     = data.p5.lead;
+    p5.querySelector('.callout p').textContent = data.p5.callout;
+  }
+
+  // --- SECCIÓN 6: APRENDIZAJE (#p6) ---
+  const p6 = document.querySelector('#p6');
+  if (p6) {
+    p6.querySelector('.eyebrow').textContent   = data.p6.eyebrow;
+    p6.querySelector('h2').textContent         = data.p6.title;
+    p6.querySelector('.split').innerHTML       = data.p6.cardsHTML;
+  }
+
+  // --- FOOTER ---
+  renderFooter(data.footer);
+
+  // --- RE-RENDERIZAR GRÁFICAS ---
+  if (typeof renderAll === 'function') requestAnimationFrame(renderAll);
+
+  // Transición suave
+  document.querySelector('main').style.opacity = '1';
+}
+```
+
+---
+
+### 8.7. JavaScript — Funciones auxiliares críticas
+
+```javascript
+// Abrir/cerrar drawer móvil
+function toggleDrawer(open) {
+  const drawer   = document.getElementById('mobileDrawer');
+  const backdrop = document.getElementById('drawerBackdrop');
+  const willOpen = open !== undefined ? open : !drawer.classList.contains('open');
+  drawer.classList.toggle('open', willOpen);
+  backdrop.classList.toggle('open', willOpen);
+}
+
+// Power BI (placeholder)
+function openPowerBI() {
+  alert('Redirigiendo al informe consolidado de Power BI - Consorcio Humanitario');
+}
+```
+
+---
+
+### 8.8. Qué NO hacer (Reglas de Gemini)
+
+| ❌ PROHIBIDO | ✅ CORRECTO |
+|---|---|
+| Crear archivos `.js`, `.css` separados | Todo dentro de `index.html` |
+| Usar `addEventListener` en el botón de tema | Usar `onclick="setState({theme:...})"` |
+| Llamar `renderOrgContent()` o `applyTranslations()` | Solo llamar `setState()` o `renderApp()` |
+| Usar `border: 1px solid` para separar secciones | Usar cambio de `background-color` |
+| Inventar nombres de variables CSS | Usar los `--` definidos en §8.1 |
+| Inventar nombres de clases HTML | Respetar las clases existentes del original |
+| Crear más de 1 bloque `<script>` | Un solo `<script>` al final del `<body>` |
+| Usar librerías externas (jQuery, Bootstrap, etc.) | Solo JS vanilla |
+| Usar Google Fonts via `<link>` | Las fuentes ya están en base64 en el `<style>` |
+| Hardcodear textos en el HTML body | Todo texto va en `MASTER_DATA` |
+| Eliminar el fallback a ES en socias | El fallback `|| MASTER_DATA[org]['ES']` es obligatorio |
+
+---
+
+### 8.9. Orden de ejecución al iniciar la página
+
+Al cargar la página, el JS debe ejecutarse en este orden exacto:
+
+1. Definir `MASTER_DATA` (los datos).
+2. Definir `AppState` con valores default.
+3. Definir todas las funciones: `setState`, `renderApp`, `renderFooter`, `toggleDrawer`, `openPowerBI`, funciones de gráficas.
+4. Llamar `restoreState()` para leer localStorage.
+5. Llamar `renderApp()` una sola vez para pintar el estado inicial.
+6. Llamar `renderAll()` para inicializar las gráficas.
+
+```javascript
+// Al final del <script>, después de todas las definiciones:
+restoreState();
+renderApp();
+```
+
+---
+
+### 8.10. Breakpoints y responsive
+
+```css
+/* Móvil: < 900px — se ocultan controles de escritorio */
+@media (max-width: 900px) {
+  .top-controls-desktop { display: none; }
+  .menu-btn-mobile       { display: flex; }
+  .org-subbar-desktop    { display: none; }
+  .bottom-nav-mobile     { display: flex; }
+}
+
+/* Escritorio: >= 900px */
+@media (min-width: 901px) {
+  .menu-btn-mobile    { display: none; }
+  .bottom-nav-mobile  { display: none; }
+  .org-subbar-desktop { display: flex; }
+}
+```
+
+---
+
+*Sección técnica añadida el 23 de septiembre de 2026 para facilitar la ejecución por Gemini.*
