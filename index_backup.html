@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
 <meta charset="utf-8">
 <title>ConEsperanza — Proyecto CARE Colombia | Seguimiento MEAL</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,245 +11,50 @@
 /* ============================================================
    TOKENS — light (the primary brand experience)
    ============================================================ */
-:root {
-  --ink: #050A0E;
-  --ink-soft: #3D3D3D;
-  --ink-muted: #717171;
-  --canvas: #F8FAFC;
-  --canvas-muted: #F1F5F9;
-  --surface-soft: #E2E8F0;
-  --hairline: #E2E8F0;
-  --hairline-soft: #EDF2F7;
-  --on-ink: #FFFFFF;
-  --on-ink-muted: #A6A6A6;
-  --inverse: #050A0E;
+:root{
+  --ink:#050A0E; --ink-soft:#3D3D3D; --ink-muted:#717171;
+  --canvas:#F8FAFC; --canvas-muted:#F1F5F9; --surface-soft:#E2E8F0;
+  --hairline:#E2E8F0; --hairline-soft:#EDF2F7;
+  --on-ink:#FFFFFF; --on-ink-muted:#A6A6A6; --inverse:#050A0E;
   /* chart roles (validated) */
-  --c-cy: #102F47;
-  --c-py: #B7B7B2;
-  --c-paid: #BD6C27;
-  --c-earned: #102F47;
-  --c-up: #2E6B38;
-  --c-down: #C0392B;
-  --c-accent: #6E120B;
-  --grid: #E2E8F0;
-  --axis: #9A9A94;
-  --wash: .10;
-  --font-d: "Besley", Georgia, "Times New Roman", serif;
-  --font-b: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --wrap: 1240px;
-  --rail: 0px;
-  color-scheme: light;
-
-  /* --- TIPOGRAFÍA CENTRALIZADA (§8.1) --- */
-  --text-display: 3.25rem;   /* Hero H1 */
-  --text-h1:      2.25rem;   /* H1 de secciones */
-  --text-h2:      1.65rem;   /* H2 subtítulos */
-  --text-h3:      1.1rem;    /* H3 tarjetas */
-  --text-body:    1rem;      /* Cuerpo de texto */
-  --text-small:   0.875rem;  /* Etiquetas y badges */
-  --text-micro:   0.75rem;   /* Meta info */
-
-  /* --- ESPACIADO CENTRALIZADO (§8.1) --- */
-  --space-section: 72px;     /* Padding vertical entre secciones */
-  --space-card:    24px;     /* Padding interno de tarjetas */
-  --space-inner:   16px;     /* Espaciado interno menor */
-
-  /* --- BORDES Y RADIOS (§8.1) --- */
-  --radius-card:   14px;     /* Border-radius de tarjetas */
-  --radius-btn:    8px;      /* Border-radius de botones */
-  --radius-pill:   999px;    /* Border-radius de pills/badges */
+  --c-cy:#102F47; --c-py:#B7B7B2; --c-paid:#BD6C27; --c-earned:#102F47;
+  --c-up:#2E6B38; --c-down:#C0392B; --c-accent:#6E120B;
+  --grid:#E2E8F0; --axis:#9A9A94; --wash:.10;
+  --font-d:"Besley",Georgia,"Times New Roman",serif;
+  --font-b:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --wrap:1240px; --rail:0px;
+  color-scheme:light;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #F3F4F6;
-    --ink-soft: #D1D5DB;
-    --ink-muted: #9CA3AF;
-    --canvas: #14171A;
-    --canvas-muted: #1B1E23;
-    --surface-soft: #23272E;
-    --hairline: #2C313A;
-    --hairline-soft: #22262E;
-    --on-ink: #14171A;
-    --on-ink-muted: #6B7280;
-    --inverse: #F3F4F6;
-    --c-cy: #729AB9;
-    --c-py: #5C5C58;
-    --c-paid: #E0A54B;
-    --c-earned: #729AB9;
-    --c-up: #4EAF61;
-    --c-down: #E74C3C;
-    --c-accent: #D96A61;
-    --grid: #2C313A;
-    --axis: #6B7280;
-    --wash: .14;
-    color-scheme: dark;
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#F3F4F6; --ink-soft:#D1D5DB; --ink-muted:#9CA3AF;
+    --canvas:#14171A; --canvas-muted:#1B1E23; --surface-soft:#23272E;
+    --hairline:#2C313A; --hairline-soft:#22262E;
+    --on-ink:#14171A; --on-ink-muted:#6B7280; --inverse:#F3F4F6;
+    --c-cy:#729AB9; --c-py:#5C5C58; --c-paid:#E0A54B; --c-earned:#729AB9;
+    --c-up:#4EAF61; --c-down:#E74C3C; --c-accent:#D96A61;
+    --grid:#2C313A; --axis:#6B7280; --wash:.14;
+    color-scheme:dark;
   }
 }
-
-:root[data-theme="light"] {
-  --ink: #050A0E;
-  --ink-soft: #3D3D3D;
-  --ink-muted: #717171;
-  --canvas: #F8FAFC;
-  --canvas-muted: #F1F5F9;
-  --surface-soft: #E2E8F0;
-  --hairline: #E2E8F0;
-  --hairline-soft: #EDF2F7;
-  --on-ink: #FFFFFF;
-  --on-ink-muted: #A6A6A6;
-  --inverse: #050A0E;
-  --c-cy: #102F47;
-  --c-py: #B7B7B2;
-  --c-paid: #BD6C27;
-  --c-earned: #102F47;
-  --c-up: #2E6B38;
-  --c-down: #C0392B;
-  --c-accent: #6E120B;
-  --grid: #E2E8F0;
-  --axis: #9A9A94;
-  --wash: .10;
-  color-scheme: light;
+:root[data-theme="light"]{
+  --ink:#050A0E; --ink-soft:#3D3D3D; --ink-muted:#717171;
+  --canvas:#F8FAFC; --canvas-muted:#F1F5F9; --surface-soft:#E2E8F0;
+  --hairline:#E2E8F0; --hairline-soft:#EDF2F7;
+  --on-ink:#FFFFFF; --on-ink-muted:#A6A6A6; --inverse:#050A0E;
+  --c-cy:#102F47; --c-py:#B7B7B2; --c-paid:#BD6C27; --c-earned:#102F47;
+  --c-up:#2E6B38; --c-down:#C0392B; --c-accent:#6E120B;
+  --grid:#E2E8F0; --axis:#9A9A94; --wash:.10; color-scheme:light;
 }
-
-:root[data-theme="dark"] {
-  --ink: #F3F4F6;
-  --ink-soft: #D1D5DB;
-  --ink-muted: #9CA3AF;
-  --canvas: #14171A;
-  --canvas-muted: #1B1E23;
-  --surface-soft: #23272E;
-  --hairline: #2C313A;
-  --hairline-soft: #22262E;
-  --on-ink: #14171A;
-  --on-ink-muted: #6B7280;
-  --inverse: #F3F4F6;
-  --c-cy: #729AB9;
-  --c-py: #5C5C58;
-  --c-paid: #E0A54B;
-  --c-earned: #729AB9;
-  --c-up: #4EAF61;
-  --c-down: #E74C3C;
-  --c-accent: #D96A61;
-  --grid: #2C313A;
-  --axis: #6B7280;
-  --wash: .14;
-  color-scheme: dark;
+:root[data-theme="dark"]{
+  --ink:#F3F4F6; --ink-soft:#D1D5DB; --ink-muted:#9CA3AF;
+  --canvas:#14171A; --canvas-muted:#1B1E23; --surface-soft:#23272E;
+  --hairline:#2C313A; --hairline-soft:#22262E;
+  --on-ink:#14171A; --on-ink-muted:#6B7280; --inverse:#F3F4F6;
+  --c-cy:#729AB9; --c-py:#5C5C58; --c-paid:#E0A54B; --c-earned:#729AB9;
+  --c-up:#4EAF61; --c-down:#E74C3C; --c-accent:#D96A61;
+  --grid:#2C313A; --axis:#6B7280; --wash:.14; color-scheme:dark;
 }
-
-/* ============================================================
-   NGO SUBBAR AMBIENT TINT THEMES (LUXURY SUBTLE ACCENTS)
-   ============================================================ */
-:root,
-:root[data-active-org="todos"] {
-  --subbar-bg: #F0F6FA;
-  --subbar-border: rgba(65, 143, 222, 0.20);
-  --subbar-bg-mobile: rgba(240, 246, 250, 0.94);
-}
-:root[data-active-org="care"] {
-  --subbar-bg: #FFF7ED;
-  --subbar-border: rgba(243, 112, 33, 0.22);
-  --subbar-bg-mobile: rgba(255, 247, 237, 0.94);
-}
-:root[data-active-org="irc"] {
-  --subbar-bg: #FEF7CD;
-  --subbar-border: rgba(234, 179, 8, 0.35);
-  --subbar-bg-mobile: rgba(254, 247, 205, 0.95);
-}
-:root[data-active-org="mercy_corps"] {
-  --subbar-bg: #FFF1F2;
-  --subbar-border: rgba(227, 24, 55, 0.20);
-  --subbar-bg-mobile: rgba(255, 241, 242, 0.94);
-}
-:root[data-active-org="stc"] {
-  --subbar-bg: #FEF2F2;
-  --subbar-border: rgba(218, 41, 28, 0.20);
-  --subbar-bg-mobile: rgba(254, 242, 242, 0.94);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root,
-  :root[data-active-org="todos"] {
-    --subbar-bg: rgba(65, 143, 222, 0.12);
-    --subbar-border: rgba(65, 143, 222, 0.25);
-    --subbar-bg-mobile: rgba(20, 26, 32, 0.92);
-  }
-  :root[data-active-org="care"] {
-    --subbar-bg: rgba(243, 112, 33, 0.12);
-    --subbar-border: rgba(243, 112, 33, 0.25);
-    --subbar-bg-mobile: rgba(33, 22, 17, 0.92);
-  }
-  :root[data-active-org="irc"] {
-    --subbar-bg: rgba(255, 195, 37, 0.14);
-    --subbar-border: rgba(255, 195, 37, 0.30);
-    --subbar-bg-mobile: rgba(36, 30, 16, 0.92);
-  }
-  :root[data-active-org="mercy_corps"] {
-    --subbar-bg: rgba(227, 24, 55, 0.11);
-    --subbar-border: rgba(227, 24, 55, 0.25);
-    --subbar-bg-mobile: rgba(33, 18, 22, 0.92);
-  }
-  :root[data-active-org="stc"] {
-    --subbar-bg: rgba(218, 41, 28, 0.11);
-    --subbar-border: rgba(218, 41, 28, 0.25);
-    --subbar-bg-mobile: rgba(33, 18, 18, 0.92);
-  }
-}
-
-:root[data-theme="light"],
-:root[data-theme="light"][data-active-org="todos"] {
-  --subbar-bg: #F0F6FA;
-  --subbar-border: rgba(65, 143, 222, 0.20);
-  --subbar-bg-mobile: rgba(240, 246, 250, 0.94);
-}
-:root[data-theme="light"][data-active-org="care"] {
-  --subbar-bg: #FFF7ED;
-  --subbar-border: rgba(243, 112, 33, 0.22);
-  --subbar-bg-mobile: rgba(255, 247, 237, 0.94);
-}
-:root[data-theme="light"][data-active-org="irc"] {
-  --subbar-bg: #FEF7CD;
-  --subbar-border: rgba(234, 179, 8, 0.35);
-  --subbar-bg-mobile: rgba(254, 247, 205, 0.95);
-}
-:root[data-theme="light"][data-active-org="mercy_corps"] {
-  --subbar-bg: #FFF1F2;
-  --subbar-border: rgba(227, 24, 55, 0.20);
-  --subbar-bg-mobile: rgba(255, 241, 242, 0.94);
-}
-:root[data-theme="light"][data-active-org="stc"] {
-  --subbar-bg: #FEF2F2;
-  --subbar-border: rgba(218, 41, 28, 0.20);
-  --subbar-bg-mobile: rgba(254, 242, 242, 0.94);
-}
-
-:root[data-theme="dark"],
-:root[data-theme="dark"][data-active-org="todos"] {
-  --subbar-bg: rgba(65, 143, 222, 0.12);
-  --subbar-border: rgba(65, 143, 222, 0.25);
-  --subbar-bg-mobile: rgba(20, 26, 32, 0.92);
-}
-:root[data-theme="dark"][data-active-org="care"] {
-  --subbar-bg: rgba(243, 112, 33, 0.12);
-  --subbar-border: rgba(243, 112, 33, 0.25);
-  --subbar-bg-mobile: rgba(33, 22, 17, 0.92);
-}
-:root[data-theme="dark"][data-active-org="irc"] {
-  --subbar-bg: rgba(255, 195, 37, 0.14);
-  --subbar-border: rgba(255, 195, 37, 0.30);
-  --subbar-bg-mobile: rgba(36, 30, 16, 0.92);
-}
-:root[data-theme="dark"][data-active-org="mercy_corps"] {
-  --subbar-bg: rgba(227, 24, 55, 0.11);
-  --subbar-border: rgba(227, 24, 55, 0.25);
-  --subbar-bg-mobile: rgba(33, 18, 22, 0.92);
-}
-:root[data-theme="dark"][data-active-org="stc"] {
-  --subbar-bg: rgba(218, 41, 28, 0.11);
-  --subbar-border: rgba(218, 41, 28, 0.25);
-  --subbar-bg-mobile: rgba(33, 18, 18, 0.92);
-}
-
 
 /* ============================================================
    BASE
@@ -413,7 +215,7 @@ svg text{transition:fill .4s ease}
 
 /* reveal motion */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-.reveal.in, .reveal.visible { opacity: 1 !important; transform: none !important; }
+.reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.06s}.reveal.d2{transition-delay:.12s}.reveal.d3{transition-delay:.18s}.reveal.d4{transition-delay:.24s}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto} *{animation:none!important}}
@@ -893,7 +695,118 @@ svg text{transition:fill .4s ease}
 /* ============================================================
    NGO SELECTION NAVIGATION (DESKTOP SUBBAR & MOBILE BOTTOM BAR)
    ============================================================ */
+/* ============================================================
+   NGO SUBBAR AMBIENT TINT THEMES (LUXURY SUBTLE ACCENTS)
+   ============================================================ */
+:root,
+:root[data-active-org="todos"] {
+  --subbar-bg: #F0F6FA;
+  --subbar-border: rgba(65, 143, 222, 0.20);
+  --subbar-bg-mobile: rgba(240, 246, 250, 0.94);
+}
+:root[data-active-org="care"] {
+  --subbar-bg: #FFF7ED;
+  --subbar-border: rgba(243, 112, 33, 0.22);
+  --subbar-bg-mobile: rgba(255, 247, 237, 0.94);
+}
+:root[data-active-org="irc"] {
+  --subbar-bg: #FEF7CD;
+  --subbar-border: rgba(234, 179, 8, 0.35);
+  --subbar-bg-mobile: rgba(254, 247, 205, 0.95);
+}
+:root[data-active-org="mercy_corps"] {
+  --subbar-bg: #FFF1F2;
+  --subbar-border: rgba(227, 24, 55, 0.20);
+  --subbar-bg-mobile: rgba(255, 241, 242, 0.94);
+}
+:root[data-active-org="stc"] {
+  --subbar-bg: #FEF2F2;
+  --subbar-border: rgba(218, 41, 28, 0.20);
+  --subbar-bg-mobile: rgba(254, 242, 242, 0.94);
+}
 
+@media (prefers-color-scheme: dark) {
+  :root,
+  :root[data-active-org="todos"] {
+    --subbar-bg: rgba(65, 143, 222, 0.12);
+    --subbar-border: rgba(65, 143, 222, 0.25);
+    --subbar-bg-mobile: rgba(20, 26, 32, 0.92);
+  }
+  :root[data-active-org="care"] {
+    --subbar-bg: rgba(243, 112, 33, 0.12);
+    --subbar-border: rgba(243, 112, 33, 0.25);
+    --subbar-bg-mobile: rgba(33, 22, 17, 0.92);
+  }
+  :root[data-active-org="irc"] {
+    --subbar-bg: rgba(255, 195, 37, 0.14);
+    --subbar-border: rgba(255, 195, 37, 0.30);
+    --subbar-bg-mobile: rgba(36, 30, 16, 0.92);
+  }
+  :root[data-active-org="mercy_corps"] {
+    --subbar-bg: rgba(227, 24, 55, 0.11);
+    --subbar-border: rgba(227, 24, 55, 0.25);
+    --subbar-bg-mobile: rgba(33, 18, 22, 0.92);
+  }
+  :root[data-active-org="stc"] {
+    --subbar-bg: rgba(218, 41, 28, 0.11);
+    --subbar-border: rgba(218, 41, 28, 0.25);
+    --subbar-bg-mobile: rgba(33, 18, 18, 0.92);
+  }
+}
+
+:root[data-theme="light"],
+:root[data-theme="light"][data-active-org="todos"] {
+  --subbar-bg: #F0F6FA;
+  --subbar-border: rgba(65, 143, 222, 0.20);
+  --subbar-bg-mobile: rgba(240, 246, 250, 0.94);
+}
+:root[data-theme="light"][data-active-org="care"] {
+  --subbar-bg: #FFF7ED;
+  --subbar-border: rgba(243, 112, 33, 0.22);
+  --subbar-bg-mobile: rgba(255, 247, 237, 0.94);
+}
+:root[data-theme="light"][data-active-org="irc"] {
+  --subbar-bg: #FEF7CD;
+  --subbar-border: rgba(234, 179, 8, 0.35);
+  --subbar-bg-mobile: rgba(254, 247, 205, 0.95);
+}
+:root[data-theme="light"][data-active-org="mercy_corps"] {
+  --subbar-bg: #FFF1F2;
+  --subbar-border: rgba(227, 24, 55, 0.20);
+  --subbar-bg-mobile: rgba(255, 241, 242, 0.94);
+}
+:root[data-theme="light"][data-active-org="stc"] {
+  --subbar-bg: #FEF2F2;
+  --subbar-border: rgba(218, 41, 28, 0.20);
+  --subbar-bg-mobile: rgba(254, 242, 242, 0.94);
+}
+
+:root[data-theme="dark"],
+:root[data-theme="dark"][data-active-org="todos"] {
+  --subbar-bg: rgba(65, 143, 222, 0.12);
+  --subbar-border: rgba(65, 143, 222, 0.25);
+  --subbar-bg-mobile: rgba(20, 26, 32, 0.92);
+}
+:root[data-theme="dark"][data-active-org="care"] {
+  --subbar-bg: rgba(243, 112, 33, 0.12);
+  --subbar-border: rgba(243, 112, 33, 0.25);
+  --subbar-bg-mobile: rgba(33, 22, 17, 0.92);
+}
+:root[data-theme="dark"][data-active-org="irc"] {
+  --subbar-bg: rgba(255, 195, 37, 0.14);
+  --subbar-border: rgba(255, 195, 37, 0.30);
+  --subbar-bg-mobile: rgba(36, 30, 16, 0.92);
+}
+:root[data-theme="dark"][data-active-org="mercy_corps"] {
+  --subbar-bg: rgba(227, 24, 55, 0.11);
+  --subbar-border: rgba(227, 24, 55, 0.25);
+  --subbar-bg-mobile: rgba(33, 18, 22, 0.92);
+}
+:root[data-theme="dark"][data-active-org="stc"] {
+  --subbar-bg: rgba(218, 41, 28, 0.11);
+  --subbar-border: rgba(218, 41, 28, 0.25);
+  --subbar-bg-mobile: rgba(33, 18, 18, 0.92);
+}
 
 .org-subbar-desktop {
   display: block;
@@ -1097,1391 +1010,384 @@ svg text{transition:fill .4s ease}
   }
 }
 
-
 </style>
-</head>
 
-<body>
-  <!-- ================= TOP APP BAR (STITCH DESIGN) ================= -->
-  <header class="top-bar">
-    <div class="header-main-bar">
-      <div class="wrap-bar">
-        <!-- Identidad Consorcio (Izquierda) -->
-        <a href="#" class="brand-identity" title="Consorcio ConEsperanza">
-          <div class="brand-meta">
-            <div class="brand-title">ConEsperanza</div>
-            <div class="brand-sub" id="brandSub">Reporte de Consorcio</div>
-          </div>
-        </a>
-
-        <!-- Controles Desktop (>= 900px) -->
-        <div class="top-controls-desktop">
-          <div class="lang-segment">
-            <button class="lang-btn active" data-lang="ES" onclick="setState({lang:'ES'})">ES</button>
-            <button class="lang-btn" data-lang="EN" onclick="setState({lang:'EN'})">EN</button>
-            <button class="lang-btn" data-lang="FR" onclick="setState({lang:'FR'})">FR</button>
-          </div>
-          <button class="theme-toggle-btn" id="themeBtn" onclick="setState({theme: AppState.theme==='dark'?'light':'dark'})" aria-label="Cambiar tema visual" title="Cambiar tema">◑</button>
-          <button class="pbi-btn-desktop" id="pbiBtn" onclick="openPowerBI()" title="Abrir Informe Power BI">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="#F2C811"><path d="M4 14.5a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0v-5.5zm5.5-4a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0v-5.5zm5.5-6a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V10.5zm5.5-6a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V4.5zM20 9a1.5 1.5 0 00-1.5 1.5V20a1.5 1.5 0 003 0v-9.5A1.5 1.5 0 0020 9z"/></svg>
-            <span id="pbiBtnLabel">Power BI</span>
-          </button>
-        </div>
-
-        <!-- Botón Menú Móvil (< 900px, Derecha) -->
-        <button class="menu-btn-mobile" id="menuBtn" onclick="toggleDrawer(true)" aria-label="Abrir menú de opciones">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
+<!-- ================= TOP APP BAR (STITCH DESIGN) ================= -->
+<header class="top-bar">
+  <div class="header-main-bar">
+    <div class="wrap-bar">
+    <!-- Identidad Consorcio (Izquierda) -->
+    <a href="#" class="brand-identity" title="Consorcio ConEsperanza">
+      <div class="brand-meta">
+        <div class="brand-title">ConEsperanza</div>
+        <div class="brand-sub">Reporte de Consorcio</div>
       </div>
+    </a>
+
+    <!-- Controles Desktop (>= 900px) -->
+    <div class="top-controls-desktop">
+      <div class="lang-segment">
+        <button class="lang-btn active" data-lang="ES" onclick="setLanguage('ES')">ES</button>
+        <button class="lang-btn" data-lang="EN" onclick="setLanguage('EN')">EN</button>
+        <button class="lang-btn" data-lang="FR" onclick="setLanguage('FR')">FR</button>
+      </div>
+      <button class="theme-toggle-btn" id="themeBtn" onclick="toggleCurrentTheme()" aria-label="Cambiar tema visual" title="Cambiar tema">◑</button>
+      <button class="pbi-btn-desktop" id="pbiBtn" title="Abrir Informe Power BI">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#F2C811"><path d="M4 14.5a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0v-5.5zm5.5-4a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V10.5zm5.5-6a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V4.5zM20 9a1.5 1.5 0 00-1.5 1.5V20a1.5 1.5 0 003 0v-9.5A1.5 1.5 0 0020 9z"/></svg>
+        <span>Power BI</span>
+      </button>
     </div>
+
+    <!-- Botón Menú Móvil (< 900px, Derecha) -->
+    <button class="menu-btn-mobile" id="menuBtn" onclick="toggleMobileDrawer(true)" aria-label="Abrir menú de opciones">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+  </div>
 
     <!-- ==================== DESKTOP NGO BOTONERA (Sub-header >= 900px) ==================== -->
     <div class="org-subbar-desktop">
       <div class="wrap-subbar">
-        <span class="subbar-label" id="subbarLabel">Filtrar por Organización:</span>
+        <span class="subbar-label">Filtrar por Organización:</span>
         <nav class="org-nav-desktop" aria-label="Selector de Organización Desktop">
-          <button class="org-tab active" data-org="todos" onclick="setState({org:'todos'})">
+          <button class="org-tab active" data-org="todos" onclick="selectOrg('todos')">
             <img src="onu_logo.svg" alt="Todos" class="org-icon">
             <span>Todos</span>
           </button>
-          <button class="org-tab" data-org="care" onclick="setState({org:'care'})">
+          <button class="org-tab" data-org="care" onclick="selectOrg('care')">
             <img src="care_logo.svg" alt="CARE" class="org-icon">
             <span>CARE</span>
           </button>
-          <button class="org-tab" data-org="irc" onclick="setState({org:'irc'})">
+          <button class="org-tab" data-org="irc" onclick="selectOrg('irc')">
             <img src="irc_logo.svg" alt="IRC" class="org-icon">
             <span>IRC</span>
           </button>
-          <button class="org-tab" data-org="mercy_corps" onclick="setState({org:'mercy_corps'})">
+          <button class="org-tab" data-org="mercy_corps" onclick="selectOrg('mercy_corps')">
             <img src="mercy_corps.svg" alt="Mercy Corps" class="org-icon">
             <span>Mercy Corps</span>
           </button>
-          <button class="org-tab" data-org="stc" onclick="setState({org:'stc'})">
+          <button class="org-tab" data-org="stc" onclick="selectOrg('stc')">
             <img src="stc_logo.svg" alt="Save the Children" class="org-icon">
             <span>Save the Children</span>
           </button>
         </nav>
       </div>
     </div>
-  </header>
+</header>
 
-  <!-- SECCIONES PRINCIPALES (vacías, JS las llena) -->
-  <main>
-    <section id="p1" class="page"></section>
-    <section id="p2" class="page alt"></section>
-    <section id="p3" class="page"></section>
-    <section id="p4" class="page alt"></section>
-    <section id="p5" class="page"></section>
-    <section id="p6" class="page alt"></section>
-  </main>
+<!-- Backdrop del Menú Móvil -->
+<div class="mobile-drawer-backdrop" id="drawerBackdrop" onclick="toggleMobileDrawer(false)"></div>
 
-  <!-- FOOTER (vacío, JS lo llena) -->
-  <footer class="site-footer" id="site-footer"></footer>
-
-  <!-- DRAWER MÓVIL Y BACKDROP -->
-  <div class="mobile-drawer-backdrop" id="drawerBackdrop" onclick="toggleDrawer(false)"></div>
-  <div class="mobile-drawer" id="mobileDrawer">
-    <div class="drawer-head">
-      <div class="drawer-title-group">
-        <span class="pulse-dot"></span>
-        <span class="drawer-title" id="drawerTitle">Ajustes &amp; Acceso</span>
-      </div>
-      <button class="drawer-close" onclick="toggleDrawer(false)" aria-label="Cerrar menú">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
+<!-- Panel Desplegable Móvil -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-head">
+    <div class="drawer-title-group">
+      <span class="pulse-dot"></span>
+      <span class="drawer-title">Ajustes &amp; Acceso</span>
     </div>
-    <div class="drawer-body">
-      <!-- Fila Idioma -->
-      <div class="drawer-row">
-        <div class="drawer-label-group">
-          <div class="drawer-icon-box">🌐</div>
-          <div>
-            <div class="drawer-label" id="drawerLangLabel">Idioma</div>
-            <div class="drawer-sublabel" id="drawerLangSub">Preferencia de idioma</div>
-          </div>
-        </div>
-        <div class="lang-segment">
-          <button class="lang-btn active" data-lang="ES" onclick="setState({lang:'ES'})">ES</button>
-          <button class="lang-btn" data-lang="EN" onclick="setState({lang:'EN'})">EN</button>
-          <button class="lang-btn" data-lang="FR" onclick="setState({lang:'FR'})">FR</button>
+    <button class="drawer-close" onclick="toggleMobileDrawer(false)" aria-label="Cerrar menú">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+    <!-- Fila Idioma -->
+    <div class="drawer-row">
+      <div class="drawer-label-group">
+        <div class="drawer-icon-box">🌐</div>
+        <div>
+          <div class="drawer-label">Idioma</div>
+          <div class="drawer-sublabel">Language preference</div>
         </div>
       </div>
-
-      <!-- Fila Tema -->
-      <div class="drawer-row">
-        <div class="drawer-label-group">
-          <div class="drawer-icon-box">🌓</div>
-          <div>
-            <div class="drawer-label" id="drawerThemeLabel">Tema Visual</div>
-            <div class="drawer-sublabel" id="drawerThemeSub">Alternar modo claro / oscuro</div>
-          </div>
-        </div>
-        <button class="theme-toggle-btn" id="themeBtnDrawer" onclick="setState({theme: AppState.theme==='dark'?'light':'dark'})" aria-label="Cambiar tema">◑</button>
+      <div class="lang-segment">
+        <button class="lang-btn active" data-lang="ES" onclick="setLanguage('ES')">ES</button>
+        <button class="lang-btn" data-lang="EN" onclick="setLanguage('EN')">EN</button>
+        <button class="lang-btn" data-lang="FR" onclick="setLanguage('FR')">FR</button>
       </div>
+    </div>
 
-      <!-- Botón Power BI Prominente -->
-      <button class="pbi-btn-drawer" id="pbiBtnDrawer" onclick="openPowerBI()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#F2C811"><path d="M4 14.5a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0v-5.5zm5.5-4a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V10.5zm5.5-6a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V4.5zM20 9a1.5 1.5 0 00-1.5 1.5V20a1.5 1.5 0 003 0v-9.5A1.5 1.5 0 0020 9z"/></svg>
-        <span id="pbiBtnDrawerLabel">Abrir Power BI</span>
-      </button>
+    <!-- Fila Tema -->
+    <div class="drawer-row">
+      <div class="drawer-label-group">
+        <div class="drawer-icon-box">🌓</div>
+        <div>
+          <div class="drawer-label">Tema Visual</div>
+          <div class="drawer-sublabel">Alternar modo claro / oscuro</div>
+        </div>
+      </div>
+      <button class="theme-toggle-btn" id="themeBtnDrawer" onclick="toggleCurrentTheme()" aria-label="Cambiar tema">◑</button>
+    </div>
+
+    <!-- Botón Power BI Prominente -->
+    <button class="pbi-btn-drawer" id="pbiBtnDrawer" onclick="openPowerBI()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#F2C811"><path d="M4 14.5a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0v-5.5zm5.5-4a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V10.5zm5.5-6a1.5 1.5 0 013 0V20a1.5 1.5 0 01-3 0V4.5zM20 9a1.5 1.5 0 00-1.5 1.5V20a1.5 1.5 0 003 0v-9.5A1.5 1.5 0 0020 9z"/></svg>
+      <span>Abrir Power BI</span>
+    </button>
+  </div>
+</div>
+
+<main>
+
+<!-- ================= 01 · COVER ================= -->
+<section class="page" id="p1" style="position:relative;overflow:hidden;padding:0;padding-left:clamp(24px,4vw,64px)">
+  <div class="wrap grid" style="position:relative;z-index:2;height:100%;max-width:none;margin:0">
+    <div class="split narrow-r" style="gap:clamp(24px,3vw,48px);align-items:stretch;height:100%">
+      <!-- COLUMNA IZQUIERDA: Distribución vertical balanceada -->
+      <div class="stack hero-content-stack" style="justify-content:space-between;height:100%;gap:24px;padding:clamp(24px,3.5vh,44px) 0;max-width:calc(var(--wrap) * 0.6)">
+        <div class="stack" style="gap:14px;max-width:680px">
+          <h1 class="claim reveal d1">Seguimiento al POA 2026</h1>
+          <p class="lead reveal d2" style="margin-top:4px">Monitoreo continuo de atenciones integrales en protección, salud, transferencias monetarias y mitigación de violencias para familias vulnerables y comunidades afectadas en departamentos priorizados de Colombia, bajo el Fondo Humanitario OCHA / RHPF LAC.</p>
+        </div>
+        <div class="tease reveal d3" style="width:100%">
+          <div class="t"><div class="v">31.868</div><div class="l">Meta participantes únicos</div></div>
+          <div class="t"><div class="v delta up"><span class="ar">▲</span>14.673</div><div class="l">Alcance conjunto a la fecha</div></div>
+          <div class="t"><div class="v">59.453</div><div class="l">Atenciones totales proyectadas</div></div>
+          <div class="t"><div class="v">4 Socias</div><div class="l">Despliegue en consorcio</div></div>
+        </div>
+      </div>
+      <!-- COLUMNA DERECHA: Foto Full Height al ras de pantalla en escritorio -->
+      <div class="photo hero-photo-full reveal d2" style="height:100%;width:100%;border-radius:0">
+        <img src="img_section_1.jpg" alt="Persona mirando hacia el horizonte en territorio comunitario" style="width:100%;height:100%;object-fit:cover">
+      </div>
     </div>
   </div>
+</section>
+<!-- ================= 02 · DESPLIEGUE TERRITORIAL ================= -->
+<section class="page" id="p2">
+  <div class="wrap grid" style="gap:clamp(24px,2.6vw,42px)">
+    <div class="page-head reveal">
+      <span class="page-num">02</span><span class="eyebrow">Despliegue territorial</span>
+    </div>
+    <div class="stack" style="gap:16px;width:100%">
+      <h2 class="d-lg reveal" style="max-width:none">Presencia humanitaria en zonas de alta vulnerabilidad</h2>
+      <p class="lead reveal d1" style="max-width:none">Distribución geográfica de la respuesta humanitaria en departamentos y municipios focalizados: cobertura coordinada en áreas rurales, zonas de difícil acceso y comunidades con mayores brechas de atención humanitaria.</p>
+    </div>
 
-  <!-- ==================== MOBILE BOTTOM NAVIGATION (< 900px) ==================== -->
-  <nav class="bottom-nav-mobile" id="mobileBottomNav" aria-label="Navegación Móvil de Organizaciones">
-    <button class="bottom-tab active" data-org="todos" onclick="setState({org:'todos'})" title="Todos">
-      <img src="onu_logo.svg" alt="Todos" class="org-icon">
-      <span class="tab-label">Todos</span>
-    </button>
-    <button class="bottom-tab" data-org="care" onclick="setState({org:'care'})" title="CARE">
-      <img src="care_logo.svg" alt="CARE" class="org-icon">
-      <span class="tab-label">CARE</span>
-    </button>
-    <button class="bottom-tab" data-org="irc" onclick="setState({org:'irc'})" title="IRC">
-      <img src="irc_logo.svg" alt="IRC" class="org-icon">
-      <span class="tab-label">IRC</span>
-    </button>
-    <button class="bottom-tab" data-org="mercy_corps" onclick="setState({org:'mercy_corps'})" title="Mercy Corps">
-      <img src="mercy_corps.svg" alt="Mercy Corps" class="org-icon">
-      <span class="tab-label">Mercy Corps</span>
-    </button>
-    <button class="bottom-tab" data-org="stc" onclick="setState({org:'stc'})" title="Save the Children">
-      <img src="stc_logo.svg" alt="Save the Children" class="org-icon">
-      <span class="tab-label">Save the Children</span>
-    </button>
-  </nav>
+    <!-- TARJETAS DE IMPACTO TERRITORIAL (4 KPI grid responsive integrado) -->
+    <div class="tease reveal d1">
+      <div class="t"><span class="l">DEPARTAMENTOS FOCALIZADOS</span><span class="v">Priorizados</span></div>
+      <div class="t"><span class="l">COBERTURA MUNICIPAL</span><span class="v">Rural y veredal</span></div>
+      <div class="t"><span class="l">MODALIDAD DE ATENCIÓN</span><span class="v">Presencial y móvil</span></div>
+      <div class="t"><span class="l">VENTANA OPERATIVA</span><span class="v">Junio – Noviembre</span></div>
+    </div>
 
+    <!-- FOTOGRAFÍA EDITORIAL DE CAMPO TERRITORIAL -->
+    <div class="photo reveal d2" style="aspect-ratio:21/9;max-height:260px;width:100%">
+      <img src="img_section_3.jpg" alt="Presencia humanitaria y trabajo territorial en zonas comunitarias">
+      <span class="tag">Presencia Territorial</span>
+    </div>
+  </div>
+</section>
 
+<!-- ================= 03 · SECTORES DE RESPUESTA ================= -->
+<section class="page" id="p3">
+  <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
+    <div class="page-head reveal">
+      <span class="page-num">03</span><span class="eyebrow">Sectores de respuesta</span>
+    </div>
+    <div class="stack" style="gap:16px;width:100%">
+      <h2 class="d-lg reveal">Cuatro líneas de acción para la protección y el bienestar</h2>
+      <p class="lead reveal d1">La intervención integral del consorcio se estructura en los cuatro sectores prioritarios del marco lógico de OCHA, asegurando que las capacidades de cada socia respondan de manera articulada a las necesidades críticas de las comunidades:</p>
+    </div>
+
+    <!-- CUADRÍCULA 2x2 DE 4 TARJETAS UNIDAS -->
+    <div class="recs reveal d1">
+      <div class="rec">
+        <span class="rn">01</span>
+        <h3>VBG (Violencia Basada en Género)</h3>
+        <p class="body" style="color:var(--ink-soft)">Sensibilización comunitaria, prevención, mitigación de riesgos y entrega de kits de dignidad para mujeres, adolescentes y población en riesgo.</p>
+        <span class="sub" style="color:var(--ink-muted)">Prevención y mitigación comunitaria</span>
+      </div>
+      <div class="rec">
+        <span class="rn">02</span>
+        <h3>Protección General y Especializada</h3>
+        <p class="body" style="color:var(--ink-soft)">Gestión de casos de alto riesgo, acompañamiento psicosocial integral, asistencia monetaria de emergencia (cash de protección) y espacios seguros.</p>
+        <span class="sub" style="color:var(--ink-muted)">Acompañamiento a personas afectadas</span>
+      </div>
+      <div class="rec">
+        <span class="rn">03</span>
+        <h3>Salud Primaria y SSR</h3>
+        <p class="body" style="color:var(--ink-soft)">Consultas de atención primaria en salud, salud sexual y reproductiva, suministro de insumos esenciales y atención clínica especializada a sobrevivientes.</p>
+        <span class="sub" style="color:var(--ink-muted)">Atención en salud esencial</span>
+      </div>
+      <div class="rec">
+        <span class="rn">04</span>
+        <h3>Transferencias Monetarias (MPCA)</h3>
+        <p class="body" style="color:var(--ink-soft)">Asistencia en efectivo multipropósito para cobertura de necesidades alimentarias y vitales inmediatas con plena autonomía para las familias.</p>
+        <span class="sub" style="color:var(--ink-muted)">Autonomía y dignidad para los hogares</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 · VOCES DE LA COMUNIDAD ================= -->
+<section class="page" id="p4">
+  <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
+    <div class="page-head reveal">
+      <span class="page-num">04</span><span class="eyebrow">Voces de la comunidad</span>
+    </div>
+    <div class="stack" style="gap:16px;width:100%">
+      <h2 class="d-lg reveal" style="max-width:none">Evidencia cualitativa y dignidad en la atención</h2>
+      <p class="lead reveal d1" style="max-width:none">Relatos de vida, percepciones y testimonios protegidos que dan cuenta del impacto humano, la pertinencia y la oportunidad de la respuesta humanitaria bajo el principio de Acción sin Daño:</p>
+    </div>
+
+    <!-- VIÑETAS CON BARRA VERTICAL (4 CALLOUTS COMPLETOS) -->
+    <div class="stack" style="gap:18px;width:100%">
+      <div class="callout reveal d1">
+        <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El apoyo y los insumos recibidos nos permitieron afrontar momentos críticos con tranquilidad. Sentir el respaldo en el territorio devuelve la esperanza y la dignidad a nuestras familias.»</p>
+        <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante comunitaria (Testimonio protegido — Sector VBG)</p>
+      </div>
+
+      <div class="callout reveal d2">
+        <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Las jornadas de orientación y los espacios comunitarios fortalecieron la confianza en nuestras comunidades. Ahora conocemos nuestros derechos y las rutas de atención seguras.»</p>
+        <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa comunitaria (Testimonio protegido — Sector Protección)</p>
+      </div>
+
+      <div class="callout reveal d3">
+        <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La llegada oportuna de los equipos de salud y los insumos esenciales a nuestras veredas marcó una diferencia vital en momentos de mayor aislamiento.»</p>
+        <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Promotor comunitario de salud en terreno (Sector Salud)</p>
+      </div>
+
+      <div class="callout reveal d4">
+        <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La asistencia en efectivo nos dio la autonomía para priorizar la alimentación de nuestros hijos y cubrir necesidades urgentes del hogar con total dignidad.»</p>
+        <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Jefe de hogar participante (Testimonio protegido — Sector MPCA)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 · RENDICIÓN DE CUENTAS (AAP) ================= -->
+<section class="page" id="p5">
+  <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
+    <div class="page-head reveal">
+      <span class="page-num">05</span><span class="eyebrow">Rendición de cuentas (AAP)</span>
+    </div>
+    <div class="split narrow-l" style="align-items:center;gap:clamp(24px,3vw,52px)">
+      <div class="photo reveal" style="aspect-ratio:5/4;max-height:400px">
+        <img src="img_section_5.jpg" alt="Monitoreo y evaluación en campo KoboToolbox">
+        <span class="tag">Monitoreo y AAP</span>
+      </div>
+      <div class="stack" style="gap:16px">
+        <h2 class="d-lg reveal">Mecanismos de escucha, consulta y transparencia</h2>
+        <p class="lead reveal d1">La rendición de cuentas a las poblaciones afectadas es el compromiso ético transversal del consorcio: garantizar que cada persona atendida conozca sus derechos, reciba un trato digno y cuente con canales accesibles, confidenciales y seguros para ser escuchada.</p>
+        <div class="callout reveal d2" style="border-left-color:var(--green)">
+          <p class="body" style="color:var(--ink)">Canales de retroalimentación habilitados: líneas telefónicas de atención gratuita, buzones comunitarios y puntos focales en terreno para la recepción y trámite oportuno de peticiones, quejas y sugerencias registradas en KoboToolbox.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 · APRENDIZAJE Y ADAPTACIÓN ================= -->
+<section class="page" id="p6">
+  <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
+    <div class="page-head reveal">
+      <span class="page-num">06</span><span class="eyebrow">Aprendizaje y adaptación</span>
+    </div>
+    <div class="stack" style="gap:16px;width:100%">
+      <h2 class="d-lg reveal">Lecciones aprendidas para la sostenibilidad y Fase 2</h2>
+      <p class="lead reveal d1">Sistematización de aprendizajes operativos, resolución de retos en terreno y consolidación de la capacidad comunitaria instalada para la continuidad y sostenibilidad de la respuesta humanitaria:</p>
+    </div>
+
+    <div class="split" style="gap:clamp(20px,2.5vw,36px);align-items:stretch">
+      <div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+        <div class="badge" style="width:fit-content">Adaptación Operativa</div>
+        <h3 style="font-family:var(--font-d);font-size:18px">Estrategias flexibles ante retos de acceso</h3>
+        <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La concertación comunitaria previa, la mediación humanitaria y el trabajo coordinado con liderazgos locales permitieron garantizar la continuidad en la entrega de suministros y atenciones aun ante restricciones de movilidad o seguridad en los territorios.</p>
+      </div>
+      <div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+        <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
+        <h3 style="font-family:var(--font-d);font-size:18px">Capacidad comunitaria instalada</h3>
+        <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Las lideresas, comités comunitarios y promotores formados en esta etapa constituyen una red comunitaria sólida sobre la cual se desplegarán las acciones escaladas de la Fase 2, asegurando apropiación local y sostenibilidad del impacto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-pad">
+    <div class="footer-content">
+      <!-- Columna 1: Identidad del Consorcio -->
+      <div class="footer-col">
+        <div class="brand-title" style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px">ConEsperanza</div>
+        <div class="footer-body">
+          <p class="brand-desc">Consorcio Humanitario en Colombia financiado por el Fondo Humanitario (OCHA / RHPF LAC).<br>Sistema de Monitoreo, Evaluación, Rendición de Cuentas y Aprendizaje (MEAL).</p>
+        </div>
+      </div>
+
+      <!-- Columna 2: Navegación -->
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#p1">01. Panorama general</a></li>
+          <li><a href="#p2">02. Despliegue territorial</a></li>
+          <li><a href="#p3">03. Sectores de respuesta</a></li>
+          <li><a href="#p4">04. Voces de la comunidad</a></li>
+          <li><a href="#p5">05. Rendición de cuentas (AAP)</a></li>
+          <li><a href="#p6">06. Aprendizaje y adaptación</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Socias Implementadoras -->
+      <div class="footer-col">
+        <h4>Socias implementadoras</h4>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="selectOrg('care')">CARE Colombia</a></li>
+          <li><a href="javascript:void(0)" onclick="selectOrg('irc')">International Rescue Committee (IRC)</a></li>
+          <li><a href="javascript:void(0)" onclick="selectOrg('mercy_corps')">Mercy Corps</a></li>
+          <li><a href="javascript:void(0)" onclick="selectOrg('stc')">Save the Children</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Datos del Reporte -->
+      <div class="footer-col">
+        <h4>Datos del reporte</h4>
+        <div class="footer-body">
+          <p class="credit-tag">Donante: OCHA / RHPF LAC</p>
+          <p class="credit-tag">Corte oficial: 30 de septiembre de 2026</p>
+          <p class="credit-tag">Periodo: Junio – Noviembre 2026</p>
+          <p class="credit-tag" style="margin-top:6px"><a href="javascript:void(0)" onclick="openPowerBI()" style="color:var(--ink);font-weight:600;text-decoration:underline">Abrir informe en Power BI ↗</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-art">
+    <img src="footer.jpg" onerror="this.onerror=null; this.src='footer.jpeg';" alt="Ilustración ConEsperanza Colombia">
+  </div>
+</footer>
+
+</main>
 
 <div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+
+<!-- ==================== MOBILE BOTTOM NAVIGATION (< 900px) ==================== -->
+<nav class="bottom-nav-mobile" id="mobileBottomNav" aria-label="Navegación Móvil de Organizaciones">
+  <button class="bottom-tab active" data-org="todos" title="Todos">
+    <img src="onu_logo.svg" alt="Todos" class="org-icon">
+    <span class="tab-label">Todos</span>
+  </button>
+  <button class="bottom-tab" data-org="care" title="CARE">
+    <img src="care_logo.svg" alt="CARE" class="org-icon">
+    <span class="tab-label">CARE</span>
+  </button>
+  <button class="bottom-tab" data-org="irc" title="IRC">
+    <img src="irc_logo.svg" alt="IRC" class="org-icon">
+    <span class="tab-label">IRC</span>
+  </button>
+  <button class="bottom-tab" data-org="mercy_corps" title="Mercy Corps">
+    <img src="mercy_corps.svg" alt="Mercy Corps" class="org-icon">
+    <span class="tab-label">Mercy Corps</span>
+  </button>
+  <button class="bottom-tab" data-org="stc" title="Save the Children">
+    <img src="stc_logo.svg" alt="Save the Children" class="org-icon">
+    <span class="tab-label">Save the Children</span>
+  </button>
+</nav>
+
 <script>
-/* ============================================================
-   BLOQUE A: MASTER DATA (Diccionario Central de Contenidos)
-   (Se poblará en Fase 2 a Fase 4)
-   ============================================================ */
-const MASTER_DATA = {
-  todos: {
-    ES: {
-      global: {
-        brandSub:         "Reporte de Consorcio",
-        subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
-        pbiBtnText:       "Power BI",
-        drawerTitle:      "Ajustes & Acceso",
-        drawerLangLabel:  "Idioma",
-        drawerLangSub:    "Preferencia de idioma",
-        drawerThemeLabel: "Tema Visual",
-        drawerThemeSub:   "Alternar modo claro / oscuro",
-        drawerPbiBtn:     "Abrir Power BI"
-      },
-      hero: {
-        title: "Seguimiento al POA 2026",
-        lead:  "Monitoreo continuo de atenciones integrales en protección, salud, transferencias monetarias y mitigación de violencias para familias vulnerables y comunidades afectadas en departamentos priorizados de Colombia, bajo el Fondo Humanitario OCHA / RHPF LAC.",
-        kpisHTML: `<div class="t"><div class="v">31.868</div><div class="l">Meta participantes únicos</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>14.673</div><div class="l">Alcance conjunto a la fecha</div></div>
-<div class="t"><div class="v">59.453</div><div class="l">Atenciones totales proyectadas</div></div>
-<div class="t"><div class="v">4 Socias</div><div class="l">Despliegue en consorcio</div></div>`,
-        imgSrc: "img_section_1.jpg",
-        imgAlt: "Persona mirando hacia el horizonte en territorio comunitario"
-      },
-      p2: {
-        eyebrow:  "Despliegue territorial",
-        title:    "Presencia humanitaria en zonas de alta vulnerabilidad",
-        lead:     "Distribución geográfica de la respuesta humanitaria en departamentos y municipios focalizados: cobertura coordinada en áreas rurales, zonas de difícil acceso y comunidades con mayores brechas de atención humanitaria.",
-        kpisHTML: `<div class="t"><span class="l">DEPARTAMENTOS FOCALIZADOS</span><span class="v">Priorizados</span></div>
-<div class="t"><span class="l">COBERTURA MUNICIPAL</span><span class="v">Rural y veredal</span></div>
-<div class="t"><span class="l">MODALIDAD DE ATENCIÓN</span><span class="v">Presencial y móvil</span></div>
-<div class="t"><span class="l">VENTANA OPERATIVA</span><span class="v">Junio – Noviembre</span></div>`,
-        imgSrc:   "img_section_3.jpg",
-        imgAlt:   "Presencia humanitaria y trabajo territorial en zonas comunitarias",
-        tag:      "Presencia Territorial"
-      },
-      p3: {
-        eyebrow:  "Sectores de respuesta",
-        title:    "Cuatro líneas de acción para la protección y el bienestar",
-        lead:     "La intervención integral del consorcio se estructura en los cuatro sectores prioritarios del marco lógico de OCHA, asegurando que las capacidades de cada socia respondan de manera articulada a las necesidades críticas de las comunidades:",
-        recsHTML: `<div class="rec">
-  <span class="rn">01</span>
-  <h3>VBG (Violencia Basada en Género)</h3>
-  <p class="body" style="color:var(--ink-soft)">Sensibilización comunitaria, prevención, mitigación de riesgos y entrega de kits de dignidad para mujeres, adolescentes y población en riesgo.</p>
-  <span class="sub" style="color:var(--ink-muted)">Prevención y mitigación comunitaria</span>
-</div>
-<div class="rec">
-  <span class="rn">02</span>
-  <h3>Protección General y Especializada</h3>
-  <p class="body" style="color:var(--ink-soft)">Gestión de casos de alto riesgo, acompañamiento psicosocial integral, asistencia monetaria de emergencia (cash de protección) y espacios seguros.</p>
-  <span class="sub" style="color:var(--ink-muted)">Acompañamiento a personas afectadas</span>
-</div>
-<div class="rec">
-  <span class="rn">03</span>
-  <h3>Salud Primaria y SSR</h3>
-  <p class="body" style="color:var(--ink-soft)">Consultas de atención primaria en salud, salud sexual y reproductiva, suministro de insumos esenciales y atención clínica especializada a sobrevivientes.</p>
-  <span class="sub" style="color:var(--ink-muted)">Atención en salud esencial</span>
-</div>
-<div class="rec">
-  <span class="rn">04</span>
-  <h3>Transferencias Monetarias (MPCA)</h3>
-  <p class="body" style="color:var(--ink-soft)">Asistencia en efectivo multipropósito para cobertura de necesidades alimentarias y vitales inmediatas con plena autonomía para las familias.</p>
-  <span class="sub" style="color:var(--ink-muted)">Autonomía y dignidad para los hogares</span>
-</div>`
-      },
-      p4: {
-        eyebrow:    "Voces de la comunidad",
-        title:      "Evidencia cualitativa y dignidad en la atención",
-        lead:       "Relatos de vida, percepciones y testimonios protegidos que dan cuenta del impacto humano, la pertinencia y la oportunidad de la respuesta humanitaria bajo el principio de Acción sin Daño:",
-        quotesHTML: `<div class="callout reveal d1">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El apoyo y los insumos recibidos nos permitieron afrontar momentos críticos con tranquilidad. Sentir el respaldo en el territorio devuelve la esperanza y la dignidad a nuestras familias.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante comunitaria (Testimonio protegido — Sector VBG)</p>
-</div>
-<div class="callout reveal d2">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Las jornadas de orientación y los espacios comunitarios fortalecieron la confianza en nuestras comunidades. Ahora conocemos nuestros derechos y las rutas de atención seguras.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa comunitaria (Testimonio protegido — Sector Protección)</p>
-</div>
-<div class="callout reveal d3">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La llegada oportuna de los equipos de salud y los insumos esenciales a nuestras veredas marcó una diferencia vital en momentos de mayor aislamiento.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Promotor comunitario de salud en terreno (Sector Salud)</p>
-</div>
-<div class="callout reveal d4">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La asistencia en efectivo nos dio la autonomía para priorizar la alimentación de nuestros hijos y cubrir necesidades urgentes del hogar con total dignidad.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Jefe de hogar participante (Testimonio protegido — Sector MPCA)</p>
-</div>`
-      },
-      p5: {
-        eyebrow:  "Rendición de cuentas (AAP)",
-        title:    "Mecanismos de escucha, consulta y transparencia",
-        lead:     "La rendición de cuentas a las poblaciones afectadas es el compromiso ético transversal del consorcio: garantizar que cada persona atendida conozca sus derechos, reciba un trato digno y cuente con canales accesibles, confidenciales y seguros para ser escuchada.",
-        callout:  "Canales de retroalimentación habilitados: líneas telefónicas de atención gratuita, buzones comunitarios y puntos focales en terreno para la recepción y trámite oportuno de peticiones, quejas y sugerencias registradas en KoboToolbox.",
-        imgSrc:   "img_section_5.jpg",
-        imgAlt:   "Monitoreo y evaluación en campo KoboToolbox",
-        tag:      "Monitoreo y AAP"
-      },
-      p6: {
-        eyebrow:   "Aprendizaje y adaptación",
-        title:     "Lecciones aprendidas para la sostenibilidad y Fase 2",
-        lead:      "Sistematización de aprendizajes operativos, resolución de retos en terreno y consolidación de la capacidad comunitaria instalada para la continuidad y sostenibilidad de la respuesta humanitaria:",
-        cardsHTML: `<div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Adaptación Operativa</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Estrategias flexibles ante retos de acceso</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La concertación comunitaria previa, la mediación humanitaria y el trabajo coordinado con liderazgos locales permitieron garantizar la continuidad en la entrega de suministros y atenciones aun ante restricciones de movilidad o seguridad en los territorios.</p>
-</div>
-<div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Capacidad comunitaria instalada</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Las lideresas, comités comunitarios y promotores formados en esta etapa constituyen una red comunitaria sólida sobre la cual se desplegarán las acciones escaladas de la Fase 2, asegurando apropiación local y sostenibilidad del impacto.</p>
-</div>`
-      },
-      footer: {
-        col1Title:    "ConEsperanza",
-        col1Body:     "Consorcio Humanitario en Colombia financiado por el Fondo Humanitario (OCHA / RHPF LAC).<br>Sistema de Monitoreo, Evaluación, Rendición de Cuentas y Aprendizaje (MEAL).",
-        col2Title:    "Navegación",
-        col2Links:    [
-          { label: "01. Panorama general", href: "#p1" },
-          { label: "02. Despliegue territorial", href: "#p2" },
-          { label: "03. Sectores de respuesta", href: "#p3" },
-          { label: "04. Voces de la comunidad", href: "#p4" },
-          { label: "05. Rendición de cuentas (AAP)", href: "#p5" },
-          { label: "06. Aprendizaje y adaptación", href: "#p6" }
-        ],
-        col3Title:    "Socias implementadoras",
-        col4Title:    "Datos del reporte",
-        col4Donor:    "Donante: OCHA / RHPF LAC",
-        col4Date:     "Corte oficial: 30 de septiembre de 2026",
-        col4Period:   "Periodo: Junio – Noviembre 2026",
-        col4PbiLabel: "Abrir informe en Power BI ↗",
-        artImg:       "footer.jpg",
-        artAlt:       "Ilustración ConEsperanza Colombia"
-      }
-    },
-    EN: {
-      global: {
-        brandSub:         "Consortium Report",
-        subbarFilter:     "Filter by Organization:",
-        orgTodos:         "All",
-        pbiBtnText:       "Power BI",
-        drawerTitle:      "Settings & Access",
-        drawerLangLabel:  "Language",
-        drawerLangSub:    "Language preference",
-        drawerThemeLabel: "Visual Theme",
-        drawerThemeSub:   "Toggle light / dark mode",
-        drawerPbiBtn:     "Open Power BI"
-      },
-      hero: {
-        title: "POA 2026 Monitoring",
-        lead:  "Continuous monitoring of comprehensive protection, healthcare, cash assistance, and violence mitigation services for vulnerable families and affected communities in prioritized departments across Colombia, under the OCHA / RHPF LAC Humanitarian Fund.",
-        kpisHTML: `<div class="t"><div class="v">31,868</div><div class="l">Target unique participants</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>14,673</div><div class="l">Joint reach to date</div></div>
-<div class="t"><div class="v">59,453</div><div class="l">Projected total assistance</div></div>
-<div class="t"><div class="v">4 Partners</div><div class="l">Consortium deployment</div></div>`,
-        imgSrc: "img_section_1.jpg",
-        imgAlt: "Person looking towards the horizon in community territory"
-      },
-      p2: {
-        eyebrow:  "Territorial deployment",
-        title:    "Humanitarian presence in high-vulnerability areas",
-        lead:     "Geographic distribution of the humanitarian response across targeted departments and municipalities: coordinated coverage in rural areas, hard-to-reach zones, and underserved communities.",
-        kpisHTML: `<div class="t"><span class="l">TARGETED DEPARTMENTS</span><span class="v">Prioritized</span></div>
-<div class="t"><span class="l">MUNICIPAL COVERAGE</span><span class="v">Rural and remote</span></div>
-<div class="t"><span class="l">DELIVERY MODALITY</span><span class="v">In-person & mobile</span></div>
-<div class="t"><span class="l">OPERATIONAL WINDOW</span><span class="v">June – November</span></div>`,
-        imgSrc:   "img_section_3.jpg",
-        imgAlt:   "Humanitarian presence and community field work",
-        tag:      "Territorial Presence"
-      },
-      p3: {
-        eyebrow:  "Response sectors",
-        title:    "Four lines of action for protection and well-being",
-        lead:     "The consortium's comprehensive response is structured around OCHA's four priority sectors, ensuring that each partner's strengths address critical community needs:",
-        recsHTML: `<div class="rec">
-  <span class="rn">01</span>
-  <h3>GBV (Gender-Based Violence)</h3>
-  <p class="body" style="color:var(--ink-soft)">Community awareness, risk mitigation, prevention, and distribution of dignity kits for women, adolescent girls, and vulnerable populations.</p>
-  <span class="sub" style="color:var(--ink-muted)">Community-based prevention & mitigation</span>
-</div>
-<div class="rec">
-  <span class="rn">02</span>
-  <h3>General & Specialized Protection</h3>
-  <p class="body" style="color:var(--ink-soft)">High-risk case management, comprehensive psychosocial support, emergency protection cash assistance, and safe spaces.</p>
-  <span class="sub" style="color:var(--ink-muted)">Comprehensive support for affected individuals</span>
-</div>
-<div class="rec">
-  <span class="rn">03</span>
-  <h3>Primary Healthcare & SRH</h3>
-  <p class="body" style="color:var(--ink-soft)">Primary health consultations, sexual and reproductive healthcare, essential medical supply distribution, and clinical care for survivors.</p>
-  <span class="sub" style="color:var(--ink-muted)">Essential healthcare provision</span>
-</div>
-<div class="rec">
-  <span class="rn">04</span>
-  <h3>Multipurpose Cash Assistance (MPCA)</h3>
-  <p class="body" style="color:var(--ink-soft)">Direct emergency cash assistance enabling vulnerable households to meet urgent food and vital needs with autonomy and dignity.</p>
-  <span class="sub" style="color:var(--ink-muted)">Autonomy and dignity for households</span>
-</div>`
-      },
-      p4: {
-        eyebrow:    "Community voices",
-        title:      "Qualitative evidence and dignity in assistance",
-        lead:       "Life stories, perceptions, and protected testimonies reflecting human impact, timeliness, and adherence to the Do No Harm principle across operations:",
-        quotesHTML: `<div class="callout reveal d1">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">"The support and supplies we received allowed us to get through critical moments with peace of mind. Feeling supported in our territory restores hope and dignity to our families."</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Community participant (Protected testimony — GBV Sector)</p>
-</div>
-<div class="callout reveal d2">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">"The orientation sessions and safe spaces strengthened trust within our communities. We now know our rights and safe protection referral pathways."</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Community female leader (Protected testimony — Protection Sector)</p>
-</div>
-<div class="callout reveal d3">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">"The timely arrival of mobile medical teams and essential medications to our rural communities made a vital difference during our most isolated periods."</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Community health promoter in the field (Health Sector)</p>
-</div>
-<div class="callout reveal d4">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">"Cash assistance gave us the autonomy to prioritize food for our children and cover urgent household necessities with complete dignity."</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Head of household participant (Protected testimony — MPCA Sector)</p>
-</div>`
-      },
-      p5: {
-        eyebrow:  "Accountability (AAP)",
-        title:    "Active listening, consultation, and transparency mechanisms",
-        lead:     "Accountability to Affected Populations (AAP) is the consortium's cross-cutting ethical commitment: ensuring that every participant knows their rights, is treated with dignity, and has access to safe, confidential, and accessible channels to be heard.",
-        callout:  "Active feedback channels: toll-free telephone lines, community suggestion boxes, and field focal points for the timely reception and processing of community feedback recorded via KoboToolbox.",
-        imgSrc:   "img_section_5.jpg",
-        imgAlt:   "Field monitoring and evaluation with KoboToolbox",
-        tag:      "Monitoring & AAP"
-      },
-      p6: {
-        eyebrow:   "Learning and adaptation",
-        title:     "Lessons learned for sustainability and Phase 2",
-        lead:      "Systematization of operational learnings, resolution of field challenges, and consolidation of local community capacities to ensure the sustainability of the humanitarian response:",
-        cardsHTML: `<div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Operational Adaptation</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Flexible strategies for access constraints</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Prior community dialogue, humanitarian mediation, and coordination with local leaders ensured the uninterrupted delivery of aid and essential services despite movement or security restrictions in the territories.</p>
-</div>
-<div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Bridge to Phase 2</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Community capacity established</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Female leaders, community committees, and promoters trained during this phase form a solid community network for scaling up Phase 2 actions, fostering local ownership and long-term impact sustainability.</p>
-</div>`
-      },
-      footer: {
-        col1Title:    "ConEsperanza",
-        col1Body:     "Humanitarian Consortium in Colombia funded by the Humanitarian Fund (OCHA / RHPF LAC).<br>Monitoring, Evaluation, Accountability, and Learning (MEAL) System.",
-        col2Title:    "Navigation",
-        col2Links:    [
-          { label: "01. Executive Overview", href: "#p1" },
-          { label: "02. Territorial Deployment", href: "#p2" },
-          { label: "03. Response Sectors", href: "#p3" },
-          { label: "04. Community Voices", href: "#p4" },
-          { label: "05. Accountability (AAP)", href: "#p5" },
-          { label: "06. Learning & Adaptation", href: "#p6" }
-        ],
-        col3Title:    "Implementing Partners",
-        col4Title:    "Report Information",
-        col4Donor:    "Donor: OCHA / RHPF LAC",
-        col4Date:     "Official cutoff: September 30, 2026",
-        col4Period:   "Reporting window: June – November 2026",
-        col4PbiLabel: "Open Power BI report ↗",
-        artImg:       "footer.jpg",
-        artAlt:       "ConEsperanza Colombia Illustration"
-      }
-    },
-    FR: {
-      global: {
-        brandSub:         "Rapport de Consortium",
-        subbarFilter:     "Filtrer par Organisation :",
-        orgTodos:         "Tous",
-        pbiBtnText:       "Power BI",
-        drawerTitle:      "Paramètres & Accès",
-        drawerLangLabel:  "Langue",
-        drawerLangSub:    "Préférence linguistique",
-        drawerThemeLabel: "Thème Visuel",
-        drawerThemeSub:   "Basculer mode clair / sombre",
-        drawerPbiBtn:     "Ouvrir Power BI"
-      },
-      hero: {
-        title: "Suivi du POA 2026",
-        lead:  "Suivi continu des services intégrés de protection, santé, transferts monétaires et atténuation des violences pour les familles vulnérables et les communautés touchées dans les départements prioritaires de Colombie, sous le Fonds Humanitaire OCHA / RHPF LAC.",
-        kpisHTML: `<div class="t"><div class="v">31.868</div><div class="l">Cible participants uniques</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>14.673</div><div class="l">Portée conjointe à ce jour</div></div>
-<div class="t"><div class="v">59.453</div><div class="l">Assistance totale projetée</div></div>
-<div class="t"><div class="v">4 Partenaires</div><div class="l">Déploiement en consortium</div></div>`,
-        imgSrc: "img_section_1.jpg",
-        imgAlt: "Personne regardant vers l'horizon en territoire communautaire"
-      },
-      p2: {
-        eyebrow:  "Déploiement territorial",
-        title:    "Présence humanitaire dans les zones à haute vulnérabilité",
-        lead:     "Répartition géographique de la réponse humanitaire dans les départements et municipalités ciblés : couverture coordonnée dans les zones rurales et difficiles d'accès.",
-        kpisHTML: `<div class="t"><span class="l">DÉPARTEMENTS CIBLÉS</span><span class="v">Priorisés</span></div>
-<div class="t"><span class="l">COUVERTURE MUNICIPALE</span><span class="v">Rurale et isolée</span></div>
-<div class="t"><span class="l">MODALITÉ DE PRISE EN CHARGE</span><span class="v">En présentiel & mobile</span></div>
-<div class="t"><span class="l">FENÊTRE OPÉRATIONNELLE</span><span class="v">Juin – Novembre</span></div>`,
-        imgSrc:   "img_section_3.jpg",
-        imgAlt:   "Présence humanitaire et travail de terrain communautaire",
-        tag:      "Présence Territoriale"
-      },
-      p3: {
-        eyebrow:  "Secteurs de réponse",
-        title:    "Quatre lignes d'action pour la protection et le bien-être",
-        lead:     "L'intervention intégrée du consortium s'articule autour des quatre secteurs prioritaires d'OCHA, garantissant une réponse adaptée aux besoins vitaux des communautés :",
-        recsHTML: `<div class="rec">
-  <span class="rn">01</span>
-  <h3>VBG (Violence Basée sur le Genre)</h3>
-  <p class="body" style="color:var(--ink-soft)">Sensibilisation communautaire, prévention, atténuation des risques et distribution de kits de dignité pour les femmes, adolescentes et populations à risque.</p>
-  <span class="sub" style="color:var(--ink-muted)">Prévention et atténuation communautaire</span>
-</div>
-<div class="rec">
-  <span class="rn">02</span>
-  <h3>Protection Générale et Spécialisée</h3>
-  <p class="body" style="color:var(--ink-soft)">Gestion des cas à haut risque, soutien psychosocial global, assistance monétaire d'urgence (cash de protection) et espaces sûrs.</p>
-  <span class="sub" style="color:var(--ink-muted)">Accompagnement des personnes affectées</span>
-</div>
-<div class="rec">
-  <span class="rn">03</span>
-  <h3>Santé Primaire et SSR</h3>
-  <p class="body" style="color:var(--ink-soft)">Consultations de soins de santé primaires, santé sexuelle et reproductive, approvisionnement en intrants essentiels et soins cliniques spécialisés aux survivantes.</p>
-  <span class="sub" style="color:var(--ink-muted)">Prestation de soins de santé essentiels</span>
-</div>
-<div class="rec">
-  <span class="rn">04</span>
-  <h3>Transferts Monétaires (MPCA)</h3>
-  <p class="body" style="color:var(--ink-soft)">Assistance en espèces polyvalente pour la couverture des besoins alimentaires et vitaux immédiats, garantissant pleine autonomie aux ménages.</p>
-  <span class="sub" style="color:var(--ink-muted)">Autonomie et dignité pour les familles</span>
-</div>`
-      },
-      p4: {
-        eyebrow:    "Voix de la communauté",
-        title:      "Preuve qualitative et dignité dans l'assistance",
-        lead:       "Récits de vie, perceptions et témoignages protégés témoignant de l'impact humain, de la pertinence et du respect du principe d'Action sans Dommage :",
-        quotesHTML: `<div class="callout reveal d1">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">« Le soutien et les fournitures reçus nous ont permis de traverser des moments critiques avec sérénité. Se sentir soutenu sur le terrain redonne espoir et dignité à nos familles. »</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante communautaire (Témoignage protégé — Secteur VBG)</p>
-</div>
-<div class="callout reveal d2">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">« Les séances d'orientation et les espaces sûrs ont renforcé la confiance dans nos communautés. Nous connaissons désormais nos droits et les circuits d'orientation sécurisés. »</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Leader communautaire (Témoignage protégé — Secteur Protection)</p>
-</div>
-<div class="callout reveal d3">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">« L'arrivée opportune des équipes médicales et des médicaments essentiels dans nos zones rurales a fait une différence vitale lors des périodes d'isolement. »</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Promoteur de santé communautaire sur le terrain (Secteur Santé)</p>
-</div>
-<div class="callout reveal d4">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">« L'assistance monétaire nous a donné l'autonomie nécessaire pour prioriser l'alimentation de nos enfants et couvrir les besoins urgents avec dignité. »</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Chef de ménage participant (Témoignage protégé — Secteur MPCA)</p>
-</div>`
-      },
-      p5: {
-        eyebrow:  "Redevabilité (AAP)",
-        title:    "Mécanismes d'écoute active, de consultation et de transparence",
-        lead:     "La redevabilité envers les populations affectées est l'engagement éthique transversal du consortium : veiller à ce que chaque personne connaisse ses droits, soit traitée avec dignité et dispose de canaux accessibles, confidentiels et sûrs pour être entendue.",
-        callout:  "Canaux de rétroaction disponibles : lignes téléphoniques d'assistance gratuite, boîtes à suggestions communautaires et points focaux sur le terrain pour la réception et le traitement des retours enregistrés via KoboToolbox.",
-        imgSrc:   "img_section_5.jpg",
-        imgAlt:   "Suivi et évaluation sur le terrain KoboToolbox",
-        tag:      "Suivi et AAP"
-      },
-      p6: {
-        eyebrow:   "Apprentissage et adaptation",
-        title:     "Leçons apprises pour la durabilité et la Phase 2",
-        lead:      "Systématisation des apprentissages opérationnels, résolution des défis sur le terrain et consolidation des capacités communautaires pour la pérennité de l'action humanitaire :",
-        cardsHTML: `<div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Adaptation Opérationnelle</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Stratégies flexibles face aux défis d'accès</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La concertation préalable, la médiation humanitaire et la coordination avec les leaders locaux ont permis d'assurer la continuité des livraisons et des services malgré les restrictions de circulation ou de sécurité.</p>
-</div>
-<div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Passerelle vers la Phase 2</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Capacité communautaire installée</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Les leaders, comités et promoteurs formés constituent un réseau communautaire solide sur lequel se déploieront les actions de la Phase 2, garantissant l'appropriation locale et la durabilité de l'impact.</p>
-</div>`
-      },
-      footer: {
-        col1Title:    "ConEsperanza",
-        col1Body:     "Consortium Humanitaire en Colombie financé par le Fonds Humanitaire (OCHA / RHPF LAC).<br>Système de Suivi, Évaluation, Redevabilité et Apprentissage (MEAL).",
-        col2Title:    "Navigation",
-        col2Links:    [
-          { label: "01. Vue d'ensemble", href: "#p1" },
-          { label: "02. Déploiement territorial", href: "#p2" },
-          { label: "03. Secteurs de réponse", href: "#p3" },
-          { label: "04. Voix de la communauté", href: "#p4" },
-          { label: "05. Redevabilité (AAP)", href: "#p5" },
-          { label: "06. Apprentissage & Adaptation", href: "#p6" }
-        ],
-        col3Title:    "Partenaires de mise en œuvre",
-        col4Title:    "Informations du rapport",
-        col4Donor:    "Bailleur : OCHA / RHPF LAC",
-        col4Date:     "Date de clôture : 30 septembre 2026",
-        col4Period:   "Période : Juin – Novembre 2026",
-        col4PbiLabel: "Ouvrir le rapport Power BI ↗",
-        artImg:       "footer.jpg",
-        artAlt:       "Illustration ConEsperanza Colombie"
-      }
-    }
-  },
-
-  care: {
-    ES: {
-      global: {
-        brandSub:         "CARE Colombia — Reporte POA 2026",
-        subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
-        pbiBtnText:       "Power BI",
-        drawerTitle:      "Ajustes & Acceso",
-        drawerLangLabel:  "Idioma",
-        drawerLangSub:    "Preferencia de idioma",
-        drawerThemeLabel: "Tema Visual",
-        drawerThemeSub:   "Alternar modo claro / oscuro",
-        drawerPbiBtn:     "Abrir Power BI"
-      },
-      hero: {
-        title: "Seguimiento al POA 2026 — CARE Colombia",
-        lead:  "Respuesta humanitaria especializada en protección integral, mitigación de violencia basada en género (VBG), entrega de kits de dignidad y transferencias monetarias para comunidades afectadas en Norte de Santander y Cauca.",
-        kpisHTML: `<div class="t"><div class="v">23.251</div><div class="l">Meta participantes únicos</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>9.721</div><div class="l">Alcance acumulado (41.8%)</div></div>
-<div class="t"><div class="v">15.200</div><div class="l">Meta en protección y VBG</div></div>
-<div class="t"><div class="v">576 Hog.</div><div class="l">Meta MPCA transferencias</div></div>`,
-        imgSrc: "img_section_1.jpg",
-        imgAlt: "Persona mirando hacia el horizonte en territorio comunitario"
-      },
-      p2: {
-        eyebrow:  "Despliegue territorial — CARE",
-        title:    "Focalización en Norte de Santander y Cauca",
-        lead:     "Despliegue operativo presencial en municipios de alta vulnerabilidad como Ábrego, Hacarí, Buenos Aires y Morales, combinando atención en puntos fijos comunitarios con brigadas móviles veredales.",
-        kpisHTML: `<div class="t"><span class="l">DEPARTAMENTOS PRIORIZADOS</span><span class="v">Norte Sant. &amp; Cauca</span></div>
-<div class="t"><span class="l">MUNICIPIOS FOCALIZADOS</span><span class="v">4+ Zonas rurales</span></div>
-<div class="t"><span class="l">KITS DE DIGNIDAD</span><span class="v">2.400 Físicos</span></div>
-<div class="t"><span class="l">AVANCE MPCA</span><span class="v delta up">▲ 93.4%</span></div>`,
-        imgSrc:   "img_section_3.jpg",
-        imgAlt:   "Presencia humanitaria y trabajo territorial en zonas comunitarias",
-        tag:      "Presencia CARE"
-      },
-      p3: {
-        eyebrow:  "Sectores de respuesta — CARE",
-        title:    "Líneas de respuesta humanitaria — CARE Colombia",
-        lead:     "Liderazgo operativo en prevención de VBG, activación masiva de Espacios Seguros comunitarios y atención integral con enfoque de género e interseccionalidad:",
-        recsHTML: `<div class="rec">
-  <span class="rn">01</span>
-  <h3>VBG y Mitigación de Riesgos (Líder)</h3>
-  <p class="body" style="color:var(--ink-soft)">Meta de 15.200 personas: 8.000 en sensibilizaciones comunitarias y entrega de 2.400 kits de dignidad física beneficiando a 7.200 personas con enfoque de género.</p>
-  <span class="sub" style="color:var(--ink-muted)">7.589 personas alcanzadas (50% de avance)</span>
-</div>
-<div class="rec">
-  <span class="rn">02</span>
-  <h3>Protección y Espacios Seguros</h3>
-  <p class="body" style="color:var(--ink-soft)">1.152 personas en gestión de casos especializada (497 atendidas a agosto) y activación masiva de 5.400 participantes en Espacios Seguros en oct/nov.</p>
-  <span class="sub" style="color:var(--ink-muted)">Meta sectorial: 6.552 personas protegidas</span>
-</div>
-<div class="rec">
-  <span class="rn">03</span>
-  <h3>Salud Sexual y Reproductiva (SSR)</h3>
-  <p class="body" style="color:var(--ink-soft)">2.690 consultas médicas y de SSR brindadas (1.179 a agosto), entrega de 140 kits post-parto y 576 atenciones médicas de emergencia en VBG programadas.</p>
-  <span class="sub" style="color:var(--ink-muted)">Atención en salud esencial para mujeres y jóvenes</span>
-</div>
-<div class="rec">
-  <span class="rn">04</span>
-  <h3>Transferencias Monetarias (MPCA)</h3>
-  <p class="body" style="color:var(--ink-soft)">576 hogares meta con 538 alcanzados a agosto (93.4%), cerrando al 100% de cumplimiento con los últimos 38 hogares en septiembre.</p>
-  <span class="sub" style="color:var(--ink-muted)">Cumplimiento anticipado de meta MPCA</span>
-</div>`
-      },
-      p4: {
-        eyebrow:    "Voces de la comunidad — CARE",
-        title:      "Voces desde las comunidades acompañadas por CARE",
-        lead:       "Testimonios directos de participantes en Norte de Santander y Cauca sobre el impacto de las acciones en VBG, protección y transferencias:",
-        quotesHTML: `<div class="callout reveal d1">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Recibir el kit de dignidad y la orientación del equipo de CARE en nuestra vereda nos devolvió la seguridad y el cuidado en los momentos más difíciles de la emergencia.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante comunitaria, Ábrego (Testimonio protegido — CARE VBG)</p>
-</div>
-<div class="callout reveal d2">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Los Espacios Seguros han sido el único lugar donde podemos reunirnos a hablar de nuestros derechos sin temor y aprender a cuidarnos colectivamente entre nosotras.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa de comité de mujeres, Buenos Aires (Testimonio protegido — CARE)</p>
-</div>
-<div class="callout reveal d3">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El kit post-parto y el chequeo médico llegaron justo a tiempo cuando el camino hacia el hospital municipal estaba bloqueado por las lluvias.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Madre gestante acompañada en brigada veredal (CARE Salud)</p>
-</div>
-<div class="callout reveal d4">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El apoyo en efectivo nos permitió comprar alimentos y medicinas sin endeudarnos en el pueblo. La entrega fue transparente, ágil y muy respetuosa.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Jefe de hogar participante MPCA, Morales (Cauca)</p>
-</div>`
-      },
-      p5: {
-        eyebrow:  "Rendición de Cuentas (AAP) — CARE",
-        title:    "Rendición de Cuentas y Escucha Activa — CARE Colombia",
-        lead:     "Mecanismos institucionales de transparencia y rendición de cuentas que garantizan la participación segura y confidencial de las comunidades atendidas:",
-        callout:  "Canales habilitados por CARE: Línea gratuita nacional 018000, canal seguro de WhatsApp para protección, buzones físicos en puntos de entrega y encuestas de satisfacción registradas en KoboToolbox para seguimiento continuo.",
-        imgSrc:   "img_section_5.jpg",
-        imgAlt:   "Monitoreo y evaluación en campo KoboToolbox",
-        tag:      "Monitoreo CARE"
-      },
-      p6: {
-        eyebrow:   "Aprendizaje y adaptación — CARE",
-        title:     "Aprendizajes Operativos y Puente a Fase 2 — CARE",
-        lead:      "Lecciones metodológicas sistematizadas durante el despliegue territorial y consolidación de la capacidad instalada para la siguiente etapa:",
-        cardsHTML: `<div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Adaptación Operativa</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Concertación comunitaria y acceso rural</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La articulación estrecha con juntas de acción comunal y cabildos indígenas permitió establecer corredores humanitarios confiables para el ingreso seguro del equipo a veredas con restricciones de movilidad.</p>
-</div>
-<div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Redes de protección comunitaria instaladas</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Las lideresas y comités formados en prevención de VBG y espacios seguros quedan plenamente capacitados para articularse de inmediato con las metas de escalamiento previstas en la Fase 2.</p>
-</div>`
-      }
-    },
-    EN: null,
-    FR: null
-  },
-
-  irc: {
-    ES: {
-      global: {
-        brandSub:         "IRC — Reporte POA 2026",
-        subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
-        pbiBtnText:       "Power BI",
-        drawerTitle:      "Ajustes & Acceso",
-        drawerLangLabel:  "Idioma",
-        drawerLangSub:    "Preferencia de idioma",
-        drawerThemeLabel: "Tema Visual",
-        drawerThemeSub:   "Alternar modo claro / oscuro",
-        drawerPbiBtn:     "Abrir Power BI"
-      },
-      hero: {
-        title: "Seguimiento al POA 2026 — IRC",
-        lead:  "Despliegue humanitario con liderazgo operativo en atención médica primaria, salud sexual y reproductiva (SSR), atención a sobrevivientes de violencia y transferencias monetarias multipropósito a gran escala.",
-        kpisHTML: `<div class="t"><div class="v">8.617</div><div class="l">Meta participantes únicos</div></div>
-<div class="t"><div class="v delta up"><span class="ar">▲</span>4.952</div><div class="l">Alcance acumulado (57.5%)</div></div>
-<div class="t"><div class="v">20.871</div><div class="l">Consultas médicas y SSR</div></div>
-<div class="t"><div class="v">1.310 Hog.</div><div class="l">Meta transferencias MPCA</div></div>`,
-        imgSrc: "img_section_1.jpg",
-        imgAlt: "Atención médica y comunitaria en terreno"
-      },
-      p2: {
-        eyebrow:  "Despliegue territorial — IRC",
-        title:    "Atención médica y corredores de asistencia — IRC",
-        lead:     "Presencia focalizada mediante brigadas móviles de salud y puntos de atención en zonas de frontera y corredores de alta movilidad humana, garantizando acceso médico continuo a familias en situación de vulnerabilidad.",
-        kpisHTML: `<div class="t"><span class="l">PUNTOS DE SALUD</span><span class="v">Unidades móviles</span></div>
-<div class="t"><span class="l">CONSULTAS BRINDADAS</span><span class="v delta up">▲ 8.237</span></div>
-<div class="t"><span class="l">SOBRECUMPLIMIENTO VBG</span><span class="v">473% (71 Casos)</span></div>
-<div class="t"><span class="l">AVANCE MPCA</span><span class="v delta up">▲ 69.6% (912 Hog.)</span></div>`,
-        imgSrc:   "img_section_3.jpg",
-        imgAlt:   "Presencia humanitaria y trabajo territorial en zonas comunitarias",
-        tag:      "Presencia IRC"
-      },
-      p3: {
-        eyebrow:  "Sectores de respuesta — IRC",
-        title:    "Líneas de respuesta humanitaria — IRC",
-        lead:     "Especialización en atención sanitaria de emergencia, protocolos clínicos para sobrevivientes de violencia y apoyo socioeconómico inmediato:",
-        recsHTML: `<div class="rec">
-  <span class="rn">01</span>
-  <h3>Salud Primaria y SSR (Sector Líder)</h3>
-  <p class="body" style="color:var(--ink-soft)">Meta masiva de 20.871 consultas de atención primaria y salud sexual y reproductiva, con 8.237 consultas realizadas a agosto y aceleración escalonada hacia noviembre.</p>
-  <span class="sub" style="color:var(--ink-muted)">Atención médica directa y gratuita</span>
-</div>
-<div class="rec">
-  <span class="rn">02</span>
-  <h3>Atención Médica a Sobrevivientes VBG</h3>
-  <p class="body" style="color:var(--ink-soft)">Meta contractual de 15 superada con 71 personas atendidas (473% de cumplimiento), garantizando manejo clínico oportuno, confidencial y tratamiento médico integral.</p>
-  <span class="sub" style="color:var(--ink-muted)">Hito sobresaliente ante OCHA</span>
-</div>
-<div class="rec">
-  <span class="rn">03</span>
-  <h3>Protección y Gestión de Casos</h3>
-  <p class="body" style="color:var(--ink-soft)">300 gestiones de caso de alto riesgo (158 a agosto, 53%), 1.562 personas en sensibilizaciones de protección y entrega de cash de protección a 104 personas.</p>
-  <span class="sub" style="color:var(--ink-muted)">Acompañamiento psicosocial individualizado</span>
-</div>
-<div class="rec">
-  <span class="rn">04</span>
-  <h3>Transferencias Monetarias (MPCA)</h3>
-  <p class="body" style="color:var(--ink-soft)">1.310 hogares meta con 912 alcanzados a agosto (69.6%), programando superar la meta contractual con 1.337 hogares al cierre de septiembre (102%).</p>
-  <span class="sub" style="color:var(--ink-muted)">Superación de meta en septiembre</span>
-</div>`
-      },
-      p4: {
-        eyebrow:    "Voces de la comunidad — IRC",
-        title:      "Voces desde las comunidades atendidas por IRC",
-        lead:       "Testimonios de pacientes y familias beneficiarias de las consultas médicas, tratamientos y transferencias monetarias de IRC:",
-        quotesHTML: `<div class="callout reveal d1">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La consulta médica y los medicamentos gratuitos fueron un alivio inmenso. No teníamos cómo pagar una cita particular ni el transporte hacia la ciudad.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Paciente atendido en brigada móvil de salud (IRC Salud)</p>
-</div>
-<div class="callout reveal d2">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El trato del personal médico fue completamente respetuoso y confidencial. Me explicaron cada paso con paciencia y me dieron el tratamiento que necesitaba con urgencia.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Sobreviviente asistida en consulta clínica (IRC VBG)</p>
-</div>
-<div class="callout reveal d3">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Con la transferencia monetaria pudimos asegurar el arriendo y la alimentación de nuestros hijos durante los meses más difíciles de la emergencia.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Beneficiario de MPCA (Testimonio protegido — IRC)</p>
-</div>
-<div class="callout reveal d4">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El acompañamiento en la gestión de caso nos ayudó a acceder a las rutas de protección que requeríamos para salir de una situación de alto riesgo familiar.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante de protección individual (IRC)</p>
-</div>`
-      },
-      p5: {
-        eyebrow:  "Rendición de Cuentas (AAP) — IRC",
-        title:    "Rendición de Cuentas y Programación Receptiva — IRC",
-        lead:     "Metodología de Programación Receptiva al Cliente (CRP) orientada a la calidad y la dignidad en cada punto de servicio:",
-        callout:  "Canales activos de IRC: Encuestas de percepción y trato digno inmediatamente después de cada consulta médica, buzones confidenciales en unidades de salud y línea telefónica directa para seguimiento de casos.",
-        imgSrc:   "img_section_5.jpg",
-        imgAlt:   "Monitoreo y evaluación en campo KoboToolbox",
-        tag:      "Monitoreo IRC"
-      },
-      p6: {
-        eyebrow:   "Aprendizaje y adaptación — IRC",
-        title:     "Aprendizajes Operativos y Puente a Fase 2 — IRC",
-        lead:      "Lecciones en gestión de salud de emergencia y articulación con redes de derivación locales:",
-        cardsHTML: `<div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Adaptación Operativa</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Modelo ágil de brigadas móviles de salud</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La implementación de protocolos clínicos estandarizados y equipos móviles polivalentes permitió duplicar la capacidad de atención diaria sin comprometer la confidencialidad ni la calidad médica.</p>
-</div>
-<div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Rutas de derivación articuladas con la red pública</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La coordinación con hospitales y centros de salud locales asegura que los casos que requieren atención de mayor complejidad cuenten con rutas expeditas y sostenibles durante la Fase 2.</p>
-</div>`
-      }
-    },
-    EN: null,
-    FR: null
-  },
-
-  mercy_corps: {
-    ES: {
-      global: {
-        brandSub:         "Mercy Corps — Reporte POA 2026",
-        subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
-        pbiBtnText:       "Power BI",
-        drawerTitle:      "Ajustes & Acceso",
-        drawerLangLabel:  "Idioma",
-        drawerLangSub:    "Preferencia de idioma",
-        drawerThemeLabel: "Tema Visual",
-        drawerThemeSub:   "Alternar modo claro / oscuro",
-        drawerPbiBtn:     "Abrir Power BI"
-      },
-      hero: {
-        title: "Seguimiento al POA 2026 — Mercy Corps",
-        lead:  "Acción humanitaria orientada a la resiliencia económica, transferencias monetarias para la seguridad alimentaria y fortalecimiento comunitario en el marco del Consorcio ConEsperanza.",
-        kpisHTML: `<div class="t"><div class="v">Consorcio</div><div class="l">ConEsperanza 2026</div></div>
-<div class="t"><div class="v">Resiliencia</div><div class="l">Seguridad alimentaria y medios</div></div>
-<div class="t"><div class="v">Protección</div><div class="l">Familias y comunidades</div></div>
-<div class="t"><div class="v">MEAL</div><div class="l">Consolidación en proceso</div></div>`,
-        imgSrc: "img_section_1.jpg",
-        imgAlt: "Acción humanitaria y resiliencia en terreno"
-      },
-      p2: {
-        eyebrow:  "Despliegue territorial — Mercy Corps",
-        title:    "Cobertura territorial y resiliencia comunitaria",
-        lead:     "Intervención en territorios priorizados fortaleciendo la capacidad de respuesta de los hogares frente a choques económicos y emergencias humanitarias prolongadas.",
-        kpisHTML: `<div class="t"><span class="l">TERRITORIOS CLAVE</span><span class="v">Áreas priorizadas</span></div>
-<div class="t"><span class="l">HOGARES RURALES</span><span class="v">Seguridad alimentaria</span></div>
-<div class="t"><span class="l">TRANSFERENCIAS</span><span class="v">Asistencia multipropósito</span></div>
-<div class="t"><span class="l">FASE TÉCNICA</span><span class="v">Reporte MEAL en curso</span></div>`,
-        imgSrc:   "img_section_3.jpg",
-        imgAlt:   "Presencia humanitaria y trabajo territorial en zonas comunitarias",
-        tag:      "Presencia Mercy Corps"
-      },
-      p3: {
-        eyebrow:  "Sectores de respuesta — Mercy Corps",
-        title:    "Líneas de respuesta humanitaria — Mercy Corps",
-        lead:     "Especialización en transferencias monetarias multipropósito, dinamización de economías locales y protección comunitaria:",
-        recsHTML: `<div class="rec">
-  <span class="rn">01</span>
-  <h3>Transferencias Monetarias (MPCA)</h3>
-  <p class="body" style="color:var(--ink-soft)">Entrega de asistencia en efectivo para dinamizar comercios locales y permitir a las familias priorizar sus necesidades alimentarias y vitales más urgentes.</p>
-  <span class="sub" style="color:var(--ink-muted)">Autonomía y recuperación económica</span>
-</div>
-<div class="rec">
-  <span class="rn">02</span>
-  <h3>Seguridad Alimentaria y Nutrición</h3>
-  <p class="body" style="color:var(--ink-soft)">Acompañamiento a hogares con alta vulnerabilidad para mitigar el deterioro nutricional y evitar estrategias negativas de afrontamiento económico.</p>
-  <span class="sub" style="color:var(--ink-muted)">Protección del bienestar familiar</span>
-</div>
-<div class="rec">
-  <span class="rn">03</span>
-  <h3>Fortalecimiento Comunitario</h3>
-  <p class="body" style="color:var(--ink-soft)">Promoción de capacidades organizativas locales y alianzas con redes de comercio para optimizar el alcance de la respuesta humanitaria.</p>
-  <span class="sub" style="color:var(--ink-muted)">Tejido social y resiliencia territorial</span>
-</div>
-<div class="rec">
-  <span class="rn">04</span>
-  <h3>Consolidación Técnica MEAL</h3>
-  <p class="body" style="color:var(--ink-soft)"><em>La matriz sectorial y el desglose contractual de metas e indicadores se encuentran en proceso de consolidación técnica con el equipo de coordinación del consorcio.</em></p>
-  <span class="sub" style="color:var(--ink-muted)">Enfoque sectorial en preparación</span>
-</div>`
-      },
-      p4: {
-        eyebrow:    "Voces de la comunidad — Mercy Corps",
-        title:      "Voces desde el territorio — Mercy Corps",
-        lead:       "Percepciones y testimonios de participantes y liderazgos comunitarios en zonas de intervención de Mercy Corps:",
-        quotesHTML: `<div class="callout reveal d1">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El apoyo en efectivo nos permitió reactivar las compras en los pequeños comercios de la vereda, dinamizando no solo a mi familia sino a toda la comunidad.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante comunitario (Mercy Corps)</p>
-</div>
-<div class="callout reveal d2">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Aprender a gestionar mejor los recursos de emergencia nos dio la tranquilidad de planificar los meses venideros frente a las crisis de la región.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa comunitaria (Testimonio protegido)</p>
-</div>
-<div class="callout reveal d3">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El diálogo constante del equipo de campo con las organizaciones locales facilitó que la ayuda llegara con rapidez y sin contratiempos a las familias más necesitadas.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Representante comunitario en territorio</p>
-</div>
-<div class="callout reveal d4">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La orientación recibida nos permitió tomar decisiones acertadas para asegurar la nutrición de nuestros niños durante la temporada de emergencia.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Jefe de hogar participante (Mercy Corps)</p>
-</div>`
-      },
-      p5: {
-        eyebrow:  "Rendición de Cuentas (AAP) — Mercy Corps",
-        title:    "Rendición de Cuentas y Veeduría Comunitaria — Mercy Corps",
-        lead:     "Mecanismos transparentes de consulta y retroalimentación basados en la confianza comunitaria y la ética humanitaria:",
-        callout:  "Puntos de contacto comunitarios, buzones de sugerencias y canales de consulta permanente que garantizan la confidencialidad y la oportuna resolución de inquietudes ciudadanas.",
-        imgSrc:   "img_section_5.jpg",
-        imgAlt:   "Monitoreo y evaluación en campo KoboToolbox",
-        tag:      "Monitoreo Mercy Corps"
-      },
-      p6: {
-        eyebrow:   "Aprendizaje y adaptación — Mercy Corps",
-        title:     "Aprendizajes y Continuidad — Mercy Corps",
-        lead:      "Lecciones operativas en asistencia basada en mercados y articulación comunitaria:",
-        cardsHTML: `<div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Adaptación Operativa</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Articulación con redes comerciales locales</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">El enlace previo con proveedores locales y tenderos comunitarios permitió reducir los costos de transacción y maximizar el valor de la ayuda directamente en la economía rural.</p>
-</div>
-<div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Comités de resiliencia comunitaria</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Las capacidades de gestión financiera de emergencia instaladas en los hogares sientan las bases para la transición hacia programas de medios de vida sostenibles en la Fase 2.</p>
-</div>`
-      }
-    },
-    EN: null,
-    FR: null
-  },
-
-  stc: {
-    ES: {
-      global: {
-        brandSub:         "Save the Children — Reporte POA 2026",
-        subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
-        pbiBtnText:       "Power BI",
-        drawerTitle:      "Ajustes & Acceso",
-        drawerLangLabel:  "Idioma",
-        drawerLangSub:    "Preferencia de idioma",
-        drawerThemeLabel: "Tema Visual",
-        drawerThemeSub:   "Alternar modo claro / oscuro",
-        drawerPbiBtn:     "Abrir Power BI"
-      },
-      hero: {
-        title: "Seguimiento al POA 2026 — Save the Children",
-        lead:  "Compromiso humanitario enfocado en la protección integral de la niñez y la adolescencia, espacios amigables y entornos protectores frente a las violencias en el marco del Consorcio ConEsperanza.",
-        kpisHTML: `<div class="t"><div class="v">Consorcio</div><div class="l">ConEsperanza 2026</div></div>
-<div class="t"><div class="v">Niñez &amp; Juventud</div><div class="l">Protección y derechos</div></div>
-<div class="t"><div class="v">Entornos Seguros</div><div class="l">Espacios amigables de cuidado</div></div>
-<div class="t"><div class="v">MEAL</div><div class="l">Consolidación en proceso</div></div>`,
-        imgSrc: "img_section_1.jpg",
-        imgAlt: "Protección integral a la niñez en territorio"
-      },
-      p2: {
-        eyebrow:  "Despliegue territorial — Save the Children",
-        title:    "Protección de la infancia en zonas críticas",
-        lead:     "Presencia en comunidades afectadas para garantizar que niñas, niños y adolescentes cuenten con entornos seguros, apoyo psicosocial y continuidad en su desarrollo integral.",
-        kpisHTML: `<div class="t"><span class="l">NIÑEZ PRIORIZADA</span><span class="v">Primera infancia y jóvenes</span></div>
-<div class="t"><span class="l">ESPACIOS SEGUROS</span><span class="v">Entornos amigables activos</span></div>
-<div class="t"><span class="l">CUIDADO FAMILIAR</span><span class="v">Acompañamiento integral</span></div>
-<div class="t"><span class="l">FASE TÉCNICA</span><span class="v">Reporte MEAL en curso</span></div>`,
-        imgSrc:   "img_section_3.jpg",
-        imgAlt:   "Presencia humanitaria y trabajo territorial en zonas comunitarias",
-        tag:      "Presencia Save the Children"
-      },
-      p3: {
-        eyebrow:  "Sectores de respuesta — Save the Children",
-        title:    "Líneas de respuesta humanitaria — Save the Children",
-        lead:     "Especialización en protección infantil, espacios protectores y fortalecimiento a familias y cuidadores:",
-        recsHTML: `<div class="rec">
-  <span class="rn">01</span>
-  <h3>Protección Infantil Especializada</h3>
-  <p class="body" style="color:var(--ink-soft)">Identificación y acompañamiento de casos de vulneración de derechos, mitigación de riesgos para menores y prevención de mecanismos negativos de afrontamiento.</p>
-  <span class="sub" style="color:var(--ink-muted)">Enfoque prioritario de niñez</span>
-</div>
-<div class="rec">
-  <span class="rn">02</span>
-  <h3>Espacios Amigables para la Infancia</h3>
-  <p class="body" style="color:var(--ink-soft)">Habilitación de áreas seguras y protectoras donde niños, niñas y adolescentes acceden a apoyo psicosocial, actividades pedagógicas y recreación.</p>
-  <span class="sub" style="color:var(--ink-muted)">Espacios de paz y aprendizaje</span>
-</div>
-<div class="rec">
-  <span class="rn">03</span>
-  <h3>Fortalecimiento a Familias y Cuidadores</h3>
-  <p class="body" style="color:var(--ink-soft)">Orientación comunitaria para promover pautas de crianza positiva, resolución dialogada de conflictos y entornos libres de violencia intrafamiliar.</p>
-  <span class="sub" style="color:var(--ink-muted)">Acompañamiento psicosocial familiar</span>
-</div>
-<div class="rec">
-  <span class="rn">04</span>
-  <h3>Consolidación Técnica MEAL</h3>
-  <p class="body" style="color:var(--ink-soft)"><em>La matriz sectorial y el desglose contractual de metas e indicadores se encuentran en proceso de consolidación técnica con el equipo de coordinación del consorcio.</em></p>
-  <span class="sub" style="color:var(--ink-muted)">Enfoque sectorial en preparación</span>
-</div>`
-      },
-      p4: {
-        eyebrow:    "Voces de la comunidad — Save the Children",
-        title:      "Voces desde el territorio — Save the Children",
-        lead:       "Relatos de niñas, niños, familias y cuidadores acompañados en los entornos comunitarios de Save the Children:",
-        quotesHTML: `<div class="callout reveal d1">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«En el espacio amigable mis hijos encuentran un lugar de paz y aprendizaje mientras los adultos podemos gestionar la emergencia del día a día.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Madre de familia participante (Save the Children)</p>
-</div>
-<div class="callout reveal d2">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Los talleres nos enseñaron a comunicarnos mejor con nuestros hijos y a resolver las dificultades del hogar con diálogo y respeto mutuo.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Cuidador comunitario (Testimonio protegido)</p>
-</div>
-<div class="callout reveal d3">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Me gusta venir porque aquí jugamos, leemos y los profesores nos escuchan con cariño. Nos sentimos seguros y protegidos todos los días.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Niña participante (Testimonio protegido infantil — STC)</p>
-</div>
-<div class="callout reveal d4">
-  <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El acompañamiento psicosocial ayudó a que los jóvenes de la vereda recuperaran su proyecto de vida y fortalecieran su liderazgo juvenil en la comunidad.»</p>
-  <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa comunitaria (Save the Children)</p>
-</div>`
-      },
-      p5: {
-        eyebrow:  "Rendición de Cuentas (AAP) — Save the Children",
-        title:    "Rendición de Cuentas Amigable con la Niñez — Save the Children",
-        lead:     "Mecanismos adaptados especialmente para que niños, niñas y adolescentes puedan expresar sus opiniones y sugerencias:",
-        callout:  "Buzones pedagógicos ilustrados, comités consultivos infantiles y protocolos éticos de escucha activa diseñados bajo estrictas salvaguardas de protección a la infancia.",
-        imgSrc:   "img_section_5.jpg",
-        imgAlt:   "Monitoreo y evaluación en campo KoboToolbox",
-        tag:      "Monitoreo Save the Children"
-      },
-      p6: {
-        eyebrow:   "Aprendizaje y adaptación — Save the Children",
-        title:     "Aprendizajes y Continuidad — Save the Children",
-        lead:      "Lecciones en protección comunitaria infantil y entornos protectores:",
-        cardsHTML: `<div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Adaptación Operativa</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Metodologías lúdico-pedagógicas seguras</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La implementación de actividades lúdicas contextualizadas permitió evaluar y atender las necesidades emocionales de los menores sin generar revictimización ni barreras de participación.</p>
-</div>
-<div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
-  <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
-  <h3 style="font-family:var(--font-d);font-size:18px">Red permanente de espacios protectores</h3>
-  <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Los espacios amigables y docentes formados quedan instalados en las comunidades como entornos protectores de base sobre los cuales continuará la intervención en la Fase 2.</p>
-</div>`
-      }
-    },
-    EN: null,
-    FR: null
-  }
-};
-
-/* ============================================================
-   BLOQUE B: ESTADO GLOBAL DE LA APP (AppState & Reactive Engine)
-   ============================================================ */
-const AppState = {
-  org:   'todos',  // 'todos' | 'care' | 'irc' | 'mercy_corps' | 'stc'
-  lang:  'ES',     // 'ES' | 'EN' | 'FR'
-  theme: 'light'   // 'light' | 'dark'
-};
-
-function setState(patch) {
-  Object.assign(AppState, patch);
-  // Aplicar tema al DOM si cambió
-  if (patch.theme !== undefined) {
-    document.documentElement.setAttribute('data-theme', AppState.theme);
-    try { localStorage.setItem('ce-theme', AppState.theme); } catch(e) {}
-  }
-  // Aplicar org al DOM si cambió
-  if (patch.org !== undefined) {
-    document.documentElement.setAttribute('data-active-org', AppState.org);
-    try { localStorage.setItem('ce-org', AppState.org); } catch(e) {}
-  }
-  // Guardar idioma si cambió
-  if (patch.lang !== undefined) {
-    try { localStorage.setItem('ce-lang', AppState.lang); } catch(e) {}
-  }
-  if (typeof renderApp === 'function') {
-    renderApp();
-  }
-}
-
-// Restaurar estado guardado al cargar
-(function restoreState() {
-  try {
-    const savedTheme = localStorage.getItem('ce-theme');
-    const savedOrg   = localStorage.getItem('ce-org');
-    const savedLang  = localStorage.getItem('ce-lang');
-    if (savedTheme) AppState.theme = savedTheme;
-    if (savedOrg && (savedOrg === 'todos' || (typeof MASTER_DATA !== 'undefined' && MASTER_DATA[savedOrg]))) {
-      AppState.org = savedOrg;
-    }
-    if (savedLang && ['ES','EN','FR'].includes(savedLang)) {
-      AppState.lang = savedLang;
-    }
-  } catch(e) {}
-  document.documentElement.setAttribute('data-theme', AppState.theme);
-  document.documentElement.setAttribute('data-active-org', AppState.org);
-})();
-
-
-
-/* ============================================================
-   BLOQUE C: MOTOR ÚNICO DE RENDER (renderApp)
-   ============================================================ */
-function renderApp() {
-  const { org, lang, theme } = AppState;
-
-  // 1. Sincronizar estado visual de controles globales
-  // Botones de idioma: marcar activo
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-
-  // Tabs de socias (Desktop y Móvil): marcar activo
-  document.querySelectorAll('[data-org]').forEach(tab => {
-    tab.classList.toggle('active', tab.dataset.org === org);
-  });
-
-  // 2. Extraer datos para la organización e idioma seleccionados
-  const orgData = (typeof MASTER_DATA !== 'undefined' && MASTER_DATA[org]) ? MASTER_DATA[org] : null;
-  if (!orgData) {
-    // Si aún no hay datos para esta org (ej. Fase 1), no renderizar contenido interno
-    return;
-  }
-
-  // Fallback seccional: si el idioma no existe para esa sección o socia, usar ES
-  const esData = orgData['ES'] || {};
-  const curLangData = orgData[lang] || {};
-  const data = {
-    global: curLangData.global || esData.global || {},
-    hero:   curLangData.hero   || esData.hero,
-    p2:     curLangData.p2     || esData.p2,
-    p3:     curLangData.p3     || esData.p3,
-    p4:     curLangData.p4     || esData.p4,
-    p5:     curLangData.p5     || esData.p5,
-    p6:     curLangData.p6     || esData.p6,
-    footer: curLangData.footer || esData.footer || (MASTER_DATA.todos && MASTER_DATA.todos.ES && MASTER_DATA.todos.ES.footer)
-  };
-
-  const g = data.global;
-
-  // --- HEADER GLOBAL ---
-  if (g) {
-    const brandSub = document.querySelector('#brandSub, .brand-sub');
-    if (brandSub && g.brandSub) brandSub.textContent = g.brandSub;
-
-    const subbarLabel = document.querySelector('#subbarLabel');
-    if (subbarLabel && g.subbarFilter) subbarLabel.textContent = g.subbarFilter;
-
-    const pbiBtnLabel = document.querySelector('#pbiBtnLabel');
-    if (pbiBtnLabel && g.pbiBtnText) pbiBtnLabel.textContent = g.pbiBtnText;
-
-    if (g.orgTodos) {
-      document.querySelectorAll('[data-org="todos"] span').forEach(el => el.textContent = g.orgTodos);
-    }
-
-    const pbiBtnDrawerLabel = document.querySelector('#pbiBtnDrawerLabel');
-    if (pbiBtnDrawerLabel && g.pbiBtnText) pbiBtnDrawerLabel.textContent = g.pbiBtnText;
-
-    // Drawer móvil
-    const drawerTitle = document.querySelector('#drawerTitle');
-    if (drawerTitle && g.drawerTitle) drawerTitle.textContent = g.drawerTitle;
-
-    const drawerLangLabel = document.querySelector('#drawerLangLabel');
-    if (drawerLangLabel && g.drawerLangLabel) drawerLangLabel.textContent = g.drawerLangLabel;
-
-    const drawerLangSub = document.querySelector('#drawerLangSub');
-    if (drawerLangSub && g.drawerLangSub) drawerLangSub.textContent = g.drawerLangSub;
-
-    const drawerThemeLabel = document.querySelector('#drawerThemeLabel');
-    if (drawerThemeLabel && g.drawerThemeLabel) drawerThemeLabel.textContent = g.drawerThemeLabel;
-
-    const drawerThemeSub = document.querySelector('#drawerThemeSub');
-    if (drawerThemeSub && g.drawerThemeSub) drawerThemeSub.textContent = g.drawerThemeSub;
-  }
-
-  // --- SECCIÓN 1: HERO (#p1) ---
-  const p1 = document.querySelector('#p1');
-  if (p1 && data.hero) {
-    p1.style.position = 'relative';
-    p1.style.overflow = 'hidden';
-    p1.style.padding = '0';
-    p1.style.paddingLeft = 'clamp(24px,4vw,64px)';
-    p1.innerHTML = `
-      <div class="wrap grid" style="position:relative;z-index:2;height:100%;max-width:none;margin:0">
-        <div class="split narrow-r" style="gap:clamp(24px,3vw,48px);align-items:stretch;height:100%">
-          <div class="stack hero-content-stack" style="justify-content:space-between;height:100%;gap:24px;padding:clamp(24px,3.5vh,44px) 0;max-width:calc(var(--wrap) * 0.6)">
-            <div class="stack" style="gap:14px;max-width:680px">
-              <h1 class="claim reveal d1">${data.hero.title}</h1>
-              <p class="lead reveal d2" style="margin-top:4px">${data.hero.lead}</p>
-            </div>
-            <div class="tease reveal d3" style="width:100%">
-              ${data.hero.kpisHTML}
-            </div>
-          </div>
-          <div class="photo hero-photo-full reveal d2" style="height:100%;width:100%;border-radius:0">
-            <img src="${data.hero.imgSrc}" alt="${data.hero.imgAlt}" class="hero-img" style="width:100%;height:100%;object-fit:cover">
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  // --- SECCIÓN 2: TERRITORIAL (#p2) ---
-  const p2 = document.querySelector('#p2');
-  if (p2 && data.p2) {
-    p2.innerHTML = `
-      <div class="wrap grid" style="gap:clamp(24px,2.6vw,42px)">
-        <div class="page-head reveal">
-          <span class="page-num">02</span><span class="eyebrow">${data.p2.eyebrow}</span>
-        </div>
-        <div class="stack" style="gap:16px;width:100%">
-          <h2 class="d-lg reveal" style="max-width:none">${data.p2.title}</h2>
-          <p class="lead reveal d1" style="max-width:none">${data.p2.lead}</p>
-        </div>
-        <div class="tease reveal d1">
-          ${data.p2.kpisHTML}
-        </div>
-        <div class="photo reveal d2" style="aspect-ratio:21/9;max-height:260px;width:100%">
-          <img src="${data.p2.imgSrc}" alt="${data.p2.imgAlt}">
-          <span class="tag">${data.p2.tag || 'Presencia Territorial'}</span>
-        </div>
-      </div>
-    `;
-  }
-
-  // --- SECCIÓN 3: SECTORES (#p3) — SIEMPRE 4 tarjetas ---
-  const p3 = document.querySelector('#p3');
-  if (p3 && data.p3) {
-    p3.innerHTML = `
-      <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
-        <div class="page-head reveal">
-          <span class="page-num">03</span><span class="eyebrow">${data.p3.eyebrow}</span>
-        </div>
-        <div class="stack" style="gap:16px;width:100%">
-          <h2 class="d-lg reveal">${data.p3.title}</h2>
-          <p class="lead reveal d1">${data.p3.lead}</p>
-        </div>
-        <div class="recs reveal d1">
-          ${data.p3.recsHTML}
-        </div>
-      </div>
-    `;
-  }
-
-  // --- SECCIÓN 4: VOCES (#p4) — SIEMPRE 4 testimonios ---
-  const p4 = document.querySelector('#p4');
-  if (p4 && data.p4) {
-    p4.innerHTML = `
-      <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
-        <div class="page-head reveal">
-          <span class="page-num">04</span><span class="eyebrow">${data.p4.eyebrow}</span>
-        </div>
-        <div class="stack" style="gap:16px;width:100%">
-          <h2 class="d-lg reveal" style="max-width:none">${data.p4.title}</h2>
-          <p class="lead reveal d1" style="max-width:none">${data.p4.lead}</p>
-        </div>
-        <div class="stack quotes-box" style="gap:18px;width:100%">
-          ${data.p4.quotesHTML}
-        </div>
-      </div>
-    `;
-  }
-
-  // --- SECCIÓN 5: AAP (#p5) ---
-  const p5 = document.querySelector('#p5');
-  if (p5 && data.p5) {
-    p5.innerHTML = `
-      <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
-        <div class="page-head reveal">
-          <span class="page-num">05</span><span class="eyebrow">${data.p5.eyebrow}</span>
-        </div>
-        <div class="split narrow-l" style="align-items:center;gap:clamp(24px,3vw,52px)">
-          <div class="photo reveal" style="aspect-ratio:5/4;max-height:400px">
-            <img src="${data.p5.imgSrc}" alt="${data.p5.imgAlt}">
-            <span class="tag">${data.p5.tag || 'Monitoreo y AAP'}</span>
-          </div>
-          <div class="stack" style="gap:16px">
-            <h2 class="d-lg reveal">${data.p5.title}</h2>
-            <p class="lead reveal d1">${data.p5.lead}</p>
-            <div class="callout reveal d2" style="border-left-color:var(--c-up, #2E6B38)">
-              <p class="body" style="color:var(--ink)">${data.p5.callout}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  // --- SECCIÓN 6: APRENDIZAJE (#p6) ---
-  const p6 = document.querySelector('#p6');
-  if (p6 && data.p6) {
-    p6.innerHTML = `
-      <div class="wrap grid" style="gap:clamp(24px,2.6vw,40px)">
-        <div class="page-head reveal">
-          <span class="page-num">06</span><span class="eyebrow">${data.p6.eyebrow}</span>
-        </div>
-        <div class="stack" style="gap:16px;width:100%">
-          <h2 class="d-lg reveal">${data.p6.title}</h2>
-          <p class="lead reveal d1">${data.p6.lead}</p>
-        </div>
-        <div class="split" style="gap:clamp(20px,2.5vw,36px);align-items:stretch">
-          ${data.p6.cardsHTML}
-        </div>
-      </div>
-    `;
-  }
-
-  // --- FOOTER ---
-  if (data.footer) {
-    renderFooter(data.footer);
-  }
-
-  // --- RE-RENDERIZAR GRÁFICAS ---
-  if (typeof renderAll === 'function') {
-    requestAnimationFrame(renderAll);
-  }
-
-  const mainEl = document.querySelector('main');
-  if (mainEl) mainEl.style.opacity = '1';
-
-  // Revelar elementos y registrar en observer
-  if (typeof observeReveals === 'function') {
-    observeReveals();
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in', 'visible'));
-  }
-}
-
-/* ============================================================
-   BLOQUE D: FUNCIONES AUXILIARES
-   ============================================================ */
-function renderFooter(footerData) {
-  const f = document.querySelector('#site-footer');
-  if (!f || !footerData) return;
-
-  if (typeof footerData === 'string') {
-    f.innerHTML = footerData;
-    return;
-  }
-
-  const linksHtml = (footerData.col2Links || []).map(link => 
-    `<li><a href="${link.href}">${link.label}</a></li>`
-  ).join('');
-
-  f.innerHTML = `
-    <div class="footer-pad">
-      <div class="footer-content">
-        <!-- Columna 1: Identidad del Consorcio -->
-        <div class="footer-col">
-          <div class="brand-title" style="font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px">${footerData.col1Title || 'ConEsperanza'}</div>
-          <div class="footer-body">
-            <p class="brand-desc">${footerData.col1Body || ''}</p>
-          </div>
-        </div>
-
-        <!-- Columna 2: Navegación -->
-        <div class="footer-col">
-          <h4>${footerData.col2Title || 'Navegación'}</h4>
-          <ul>
-            ${linksHtml}
-          </ul>
-        </div>
-
-        <!-- Columna 3: Socias Implementadoras -->
-        <div class="footer-col">
-          <h4>${footerData.col3Title || 'Socias implementadoras'}</h4>
-          <ul>
-            <li><a href="javascript:void(0)" onclick="setState({org:'care'})">CARE Colombia</a></li>
-            <li><a href="javascript:void(0)" onclick="setState({org:'irc'})">International Rescue Committee (IRC)</a></li>
-            <li><a href="javascript:void(0)" onclick="setState({org:'mercy_corps'})">Mercy Corps</a></li>
-            <li><a href="javascript:void(0)" onclick="setState({org:'stc'})">Save the Children</a></li>
-          </ul>
-        </div>
-
-        <!-- Columna 4: Datos del Reporte -->
-        <div class="footer-col">
-          <h4>${footerData.col4Title || 'Datos del reporte'}</h4>
-          <div class="footer-body">
-            <p class="credit-tag">${footerData.col4Donor || 'Donante: OCHA / RHPF LAC'}</p>
-            <p class="credit-tag">${footerData.col4Date || 'Corte oficial: 30 de septiembre de 2026'}</p>
-            <p class="credit-tag">${footerData.col4Period || 'Periodo: Junio – Noviembre 2026'}</p>
-            <p class="credit-tag" style="margin-top:6px"><a href="javascript:void(0)" onclick="openPowerBI()" style="color:var(--ink);font-weight:600;text-decoration:underline">${footerData.col4PbiLabel || 'Abrir informe en Power BI ↗'}</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-art">
-      <img src="${footerData.artImg || 'footer.jpg'}" onerror="this.onerror=null; this.src='footer.jpeg';" alt="${footerData.artAlt || 'Ilustración ConEsperanza Colombia'}">
-    </div>
-  `;
-}
-
-function toggleDrawer(show) {
-  const drawer = document.getElementById('mobileDrawer');
-  const backdrop = document.getElementById('drawerBackdrop');
-  if (drawer && backdrop) {
-    if (show) {
-      drawer.classList.add('open');
-      backdrop.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    } else {
-      drawer.classList.remove('open');
-      backdrop.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  }
-}
-function toggleMobileDrawer(show) { toggleDrawer(show); }
-
-
-/* ============================================================
-   CHARTS & SVG ENGINE
-   ============================================================ */
 /* ============================================================
    DATA (verified from Coupler.io / GA4 — see report)
    ============================================================ */
@@ -2739,61 +1645,910 @@ const charts=[drawTrend,drawDiverge,drawBubble,drawIndex,drawDonut,drawRev];
 function renderAll(){charts.forEach(f=>{try{f();}catch(e){console.error(e);}});}
 renderAll();
 
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.14});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+// rail active state
+const secs=[...document.querySelectorAll(".page")];
+const links=[...document.querySelectorAll("#rnav a")];
+const io2=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+  const id=e.target.id;links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+id));}});},{threshold:.5});
+secs.forEach(s=>io2.observe(s));
 
 
-// re-render charts on resize (debounced)
-let rt;
-window.addEventListener("resize", () => {
-  clearTimeout(rt);
-  rt = setTimeout(() => {
-    if (typeof renderAll === 'function') renderAll();
-  }, 180);
-});
-
-// reveal on scroll observer (shared)
-let io;
-try {
-  io = new IntersectionObserver((es) => {
-    es.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        e.target.classList.add("visible");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.05 });
-} catch(e) {}
-
-function observeReveals() {
-  document.querySelectorAll(".reveal").forEach(el => {
-    // If element is already in viewport or hero, reveal immediately
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      el.classList.add("in");
-      el.classList.add("visible");
-    } else if (io) {
-      io.observe(el);
-    } else {
-      el.classList.add("in");
-      el.classList.add("visible");
-    }
-  });
+// Mobile drawer toggle
+function toggleMobileDrawer(open) {
+  const drawer = document.getElementById("mobileDrawer");
+  const backdrop = document.getElementById("drawerBackdrop");
+  if (!drawer || !backdrop) return;
+  const willOpen = open !== undefined ? open : !drawer.classList.contains("open");
+  drawer.classList.toggle("open", willOpen);
+  backdrop.classList.toggle("open", willOpen);
 }
 
+function toggleCurrentTheme() {
+  const cur = document.documentElement.getAttribute("data-theme")
+    || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light");
+  setTheme(cur === "dark" ? "light" : "dark");
+}
+
+function setLanguage(lang) {
+  document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
+  applyTranslations(lang);
+  try { localStorage.setItem("conesperanza-lang", lang); } catch(e) {}
+}
+
+// Restore saved language on load
+try {
+  const savedLang = localStorage.getItem("conesperanza-lang");
+  if(savedLang && (savedLang === 'EN' || savedLang === 'FR' || savedLang === 'ES')) {
+    setLanguage(savedLang);
+  }
+} catch(e) {}
+
+
+// NGO Organization Selector (Desktop & Mobile Synchronized)
+let currentOrg = 'todos';
+
+/* ============================================================
+   MULTI-PARTNER DYNAMIC CONTENT SYSTEM (ConEsperanza Consortium)
+   ============================================================ */
+const PARTNERS_DATA = {
+  todos: {
+    hero: {
+      title: "Seguimiento al POA 2026",
+      lead: "Monitoreo continuo de atenciones integrales en protección, salud, transferencias monetarias y mitigación de violencias para familias vulnerables y comunidades afectadas en departamentos priorizados de Colombia, bajo el Fondo Humanitario OCHA / RHPF LAC.",
+      kpis: `
+        <div class="t"><div class="v">31.868</div><div class="l">Meta participantes únicos</div></div>
+        <div class="t"><div class="v delta up"><span class="ar">▲</span>14.673</div><div class="l">Alcance conjunto a la fecha</div></div>
+        <div class="t"><div class="v">59.453</div><div class="l">Atenciones totales proyectadas</div></div>
+        <div class="t"><div class="v">4 Socias</div><div class="l">Despliegue en consorcio</div></div>
+      `
+    },
+    p2: {
+      title: "Presencia humanitaria en zonas de alta vulnerabilidad",
+      lead: "Distribución geográfica de la respuesta humanitaria en departamentos y municipios focalizados: cobertura coordinada en áreas rurales, zonas de difícil acceso y comunidades con mayores brechas de atención humanitaria.",
+      kpis: `
+        <div class="t"><span class="l">DEPARTAMENTOS FOCALIZADOS</span><span class="v">Priorizados</span></div>
+        <div class="t"><span class="l">COBERTURA MUNICIPAL</span><span class="v">Rural y veredal</span></div>
+        <div class="t"><span class="l">MODALIDAD DE ATENCIÓN</span><span class="v">Presencial y móvil</span></div>
+        <div class="t"><span class="l">VENTANA OPERATIVA</span><span class="v">Junio – Noviembre</span></div>
+      `
+    },
+    p3: {
+      title: "Cuatro líneas de acción para la protección y el bienestar",
+      lead: "La intervención integral del consorcio se estructura en los cuatro sectores prioritarios del marco lógico de OCHA, asegurando que las capacidades de cada socia respondan de manera articulada a las necesidades críticas de las comunidades:",
+      recs: `
+        <div class="rec">
+          <span class="rn">01</span>
+          <h3>VBG (Violencia Basada en Género)</h3>
+          <p class="body" style="color:var(--ink-soft)">Sensibilización comunitaria, prevención, mitigación de riesgos y entrega de kits de dignidad para mujeres, adolescentes y población en riesgo.</p>
+          <span class="sub" style="color:var(--ink-muted)">Prevención y mitigación comunitaria</span>
+        </div>
+        <div class="rec">
+          <span class="rn">02</span>
+          <h3>Protección General y Especializada</h3>
+          <p class="body" style="color:var(--ink-soft)">Gestión de casos de alto riesgo, acompañamiento psicosocial integral, asistencia monetaria de emergencia (cash de protección) y espacios seguros.</p>
+          <span class="sub" style="color:var(--ink-muted)">Acompañamiento a personas afectadas</span>
+        </div>
+        <div class="rec">
+          <span class="rn">03</span>
+          <h3>Salud Primaria y SSR</h3>
+          <p class="body" style="color:var(--ink-soft)">Consultas de atención primaria en salud, salud sexual y reproductiva, suministro de insumos esenciales y atención clínica especializada a sobrevivientes.</p>
+          <span class="sub" style="color:var(--ink-muted)">Atención en salud esencial</span>
+        </div>
+        <div class="rec">
+          <span class="rn">04</span>
+          <h3>Transferencias Monetarias (MPCA)</h3>
+          <p class="body" style="color:var(--ink-soft)">Asistencia en efectivo multipropósito para cobertura de necesidades alimentarias y vitales inmediatas con plena autonomía para las familias.</p>
+          <span class="sub" style="color:var(--ink-muted)">Autonomía y dignidad para los hogares</span>
+        </div>
+      `
+    },
+    p4: {
+      title: "Evidencia cualitativa y dignidad en la atención",
+      lead: "Relatos de vida, percepciones y testimonios protegidos que dan cuenta del impacto humano, la pertinencia y la oportunidad de la respuesta humanitaria bajo el principio de Acción sin Daño:",
+      quotes: `
+        <div class="callout reveal d1">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El apoyo y los insumos recibidos nos permitieron afrontar momentos críticos con tranquilidad. Sentir el respaldo en el territorio devuelve la esperanza y la dignidad a nuestras familias.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante comunitaria (Testimonio protegido — Sector VBG)</p>
+        </div>
+        <div class="callout reveal d2">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Las jornadas de orientación y los espacios comunitarios fortalecieron la confianza en nuestras comunidades. Ahora conocemos nuestros derechos y las rutas de atención seguras.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa comunitaria (Testimonio protegido — Sector Protección)</p>
+        </div>
+        <div class="callout reveal d3">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La llegada oportuna de los equipos de salud y los insumos esenciales a nuestras veredas marcó una diferencia vital en momentos de mayor aislamiento.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Promotor comunitario de salud en terreno (Sector Salud)</p>
+        </div>
+        <div class="callout reveal d4">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La asistencia en efectivo nos dio la autonomía para priorizar la alimentación de nuestros hijos y cubrir necesidades urgentes del hogar con total dignidad.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Jefe de hogar participante (Testimonio protegido — Sector MPCA)</p>
+        </div>
+      `
+    },
+    p5: {
+      title: "Mecanismos de escucha, consulta y transparencia",
+      lead: "La rendición de cuentas a las poblaciones afectadas es el compromiso ético transversal del consorcio: garantizar que cada persona atendida conozca sus derechos, reciba un trato digno y cuente con canales accesibles, confidenciales y seguros para ser escuchada.",
+      callout: "Canales de retroalimentación habilitados: líneas telefónicas de atención gratuita, buzones comunitarios y puntos focales en terreno para la recepción y trámite oportuno de peticiones, quejas y sugerencias registradas en KoboToolbox."
+    },
+    p6: {
+      title: "Lecciones aprendidas para la sostenibilidad y Fase 2",
+      lead: "Sistematización de aprendizajes operativos, resolución de retos en terreno y consolidación de la capacidad comunitaria instalada para la continuidad y sostenibilidad de la respuesta humanitaria:",
+      cards: `
+        <div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Adaptación Operativa</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Estrategias flexibles ante retos de acceso</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La concertación comunitaria previa, la mediación humanitaria y el trabajo coordinado con liderazgos locales permitieron garantizar la continuidad en la entrega de suministros y atenciones aun ante restricciones de movilidad o seguridad en los territorios.</p>
+        </div>
+        <div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Capacidad comunitaria instalada</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Las lideresas, comités comunitarios y promotores formados en esta etapa constituyen una red comunitaria sólida sobre la cual se desplegarán las acciones escaladas de la Fase 2, asegurando apropiación local y sostenibilidad del impacto.</p>
+        </div>
+      `
+    }
+  },
+
+  care: {
+    hero: {
+      title: "Seguimiento al POA 2026 — CARE Colombia",
+      lead: "Respuesta humanitaria especializada en protección integral, mitigación de violencia basada en género (VBG), entrega de kits de dignidad y transferencias monetarias para comunidades afectadas en Norte de Santander y Cauca.",
+      kpis: `
+        <div class="t"><div class="v">23.251</div><div class="l">Meta participantes únicos</div></div>
+        <div class="t"><div class="v delta up"><span class="ar">▲</span>9.721</div><div class="l">Alcance acumulado (41.8%)</div></div>
+        <div class="t"><div class="v">15.200</div><div class="l">Meta en protección y VBG</div></div>
+        <div class="t"><div class="v">576 Hog.</div><div class="l">Meta MPCA transferencias</div></div>
+      `
+    },
+    p2: {
+      title: "Focalización en Norte de Santander y Cauca",
+      lead: "Despliegue operativo presencial en municipios de alta vulnerabilidad como Ábrego, Hacarí, Buenos Aires y Morales, combinando atención en puntos fijos comunitarios con brigadas móviles veredales.",
+      kpis: `
+        <div class="t"><span class="l">DEPARTAMENTOS PRIORIZADOS</span><span class="v">Norte Sant. &amp; Cauca</span></div>
+        <div class="t"><span class="l">MUNICIPIOS FOCALIZADOS</span><span class="v">4+ Zonas rurales</span></div>
+        <div class="t"><span class="l">KITS DE DIGNIDAD</span><span class="v">2.400 Físicos</span></div>
+        <div class="t"><span class="l">AVANCE MPCA</span><span class="v delta up">▲ 93.4%</span></div>
+      `
+    },
+    p3: {
+      title: "Líneas de respuesta humanitaria — CARE Colombia",
+      lead: "Liderazgo operativo en prevención de VBG, activación masiva de Espacios Seguros comunitarios y atención integral con enfoque de género e interseccionalidad:",
+      recs: `
+        <div class="rec">
+          <span class="rn">01</span>
+          <h3>VBG y Mitigación de Riesgos (Líder)</h3>
+          <p class="body" style="color:var(--ink-soft)">Meta de 15.200 personas: 8.000 en sensibilizaciones comunitarias y entrega de 2.400 kits de dignidad física beneficiando a 7.200 personas con enfoque de género.</p>
+          <span class="sub" style="color:var(--ink-muted)">7.589 personas alcanzadas (50% de avance)</span>
+        </div>
+        <div class="rec">
+          <span class="rn">02</span>
+          <h3>Protección y Espacios Seguros</h3>
+          <p class="body" style="color:var(--ink-soft)">1.152 personas en gestión de casos especializada (497 atendidas a agosto) y activación masiva de 5.400 participantes en Espacios Seguros en oct/nov.</p>
+          <span class="sub" style="color:var(--ink-muted)">Meta sectorial: 6.552 personas protegidas</span>
+        </div>
+        <div class="rec">
+          <span class="rn">03</span>
+          <h3>Salud Sexual y Reproductiva (SSR)</h3>
+          <p class="body" style="color:var(--ink-soft)">2.690 consultas médicas y de SSR brindadas (1.179 a agosto), entrega de 140 kits post-parto y 576 atenciones médicas de emergencia en VBG programadas.</p>
+          <span class="sub" style="color:var(--ink-muted)">Atención en salud esencial para mujeres y jóvenes</span>
+        </div>
+        <div class="rec">
+          <span class="rn">04</span>
+          <h3>Transferencias Monetarias (MPCA)</h3>
+          <p class="body" style="color:var(--ink-soft)">576 hogares meta con 538 alcanzados a agosto (93.4%), cerrando al 100% de cumplimiento con los últimos 38 hogares en septiembre.</p>
+          <span class="sub" style="color:var(--ink-muted)">Cumplimiento anticipado de meta MPCA</span>
+        </div>
+      `
+    },
+    p4: {
+      title: "Voces desde las comunidades acompañadas por CARE",
+      lead: "Testimonios directos de participantes en Norte de Santander y Cauca sobre el impacto de las acciones en VBG, protección y transferencias:",
+      quotes: `
+        <div class="callout reveal d1">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Recibir el kit de dignidad y la orientación del equipo de CARE en nuestra vereda nos devolvió la seguridad y el cuidado en los momentos más difíciles de la emergencia.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante comunitaria, Ábrego (Testimonio protegido — CARE VBG)</p>
+        </div>
+        <div class="callout reveal d2">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Los Espacios Seguros han sido el único lugar donde podemos reunirnos a hablar de nuestros derechos sin temor y aprender a cuidarnos colectivamente entre nosotras.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa de comité de mujeres, Buenos Aires (Testimonio protegido — CARE)</p>
+        </div>
+        <div class="callout reveal d3">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El kit post-parto y el chequeo médico llegaron justo a tiempo cuando el camino hacia el hospital municipal estaba bloqueado por las lluvias.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Madre gestante acompañada en brigada veredal (CARE Salud)</p>
+        </div>
+        <div class="callout reveal d4">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El apoyo en efectivo nos permitió comprar alimentos y medicinas sin endeudarnos en el pueblo. La entrega fue transparente, ágil y muy respetuosa.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Jefe de hogar participante MPCA, Morales (Cauca)</p>
+        </div>
+      `
+    },
+    p5: {
+      title: "Rendición de Cuentas y Escucha Activa — CARE Colombia",
+      lead: "Mecanismos institucionales de transparencia y rendición de cuentas que garantizan la participación segura y confidencial de las comunidades atendidas:",
+      callout: "Canales habilitados por CARE: Línea gratuita nacional 018000, canal seguro de WhatsApp para protección, buzones físicos en puntos de entrega y encuestas de satisfacción registradas en KoboToolbox para seguimiento continuo."
+    },
+    p6: {
+      title: "Aprendizajes Operativos y Puente a Fase 2 — CARE",
+      lead: "Lecciones metodológicas sistematizadas durante el despliegue territorial y consolidación de la capacidad instalada para la siguiente etapa:",
+      cards: `
+        <div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Adaptación Operativa</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Concertación comunitaria y acceso rural</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La articulación estrecha con juntas de acción comunal y cabildos indígenas permitió establecer corredores humanitarios confiables para el ingreso seguro del equipo a veredas con restricciones de movilidad.</p>
+        </div>
+        <div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Redes de protección comunitaria instaladas</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Las lideresas y comités formados en prevención de VBG y espacios seguros quedan plenamente capacitados para articularse de inmediato con las metas de escalamiento previstas en la Fase 2.</p>
+        </div>
+      `
+    }
+  },
+
+  irc: {
+    hero: {
+      title: "Seguimiento al POA 2026 — IRC",
+      lead: "Despliegue humanitario con liderazgo operativo en atención médica primaria, salud sexual y reproductiva (SSR), atención a sobrevivientes de violencia y transferencias monetarias multipropósito a gran escala.",
+      kpis: `
+        <div class="t"><div class="v">8.617</div><div class="l">Meta participantes únicos</div></div>
+        <div class="t"><div class="v delta up"><span class="ar">▲</span>4.952</div><div class="l">Alcance acumulado (57.5%)</div></div>
+        <div class="t"><div class="v">20.871</div><div class="l">Consultas médicas y SSR</div></div>
+        <div class="t"><div class="v">1.310 Hog.</div><div class="l">Meta transferencias MPCA</div></div>
+      `
+    },
+    p2: {
+      title: "Atención médica y corredores de asistencia — IRC",
+      lead: "Presencia focalizada mediante brigadas móviles de salud y puntos de atención en zonas de frontera y corredores de alta movilidad humana, garantizando acceso médico continuo a familias en situación de vulnerabilidad.",
+      kpis: `
+        <div class="t"><span class="l">PUNTOS DE SALUD</span><span class="v">Unidades móviles</span></div>
+        <div class="t"><span class="l">CONSULTAS BRINDADAS</span><span class="v delta up">▲ 8.237</span></div>
+        <div class="t"><span class="l">SOBRECUMPLIMIENTO VBG</span><span class="v">473% (71 Casos)</span></div>
+        <div class="t"><span class="l">AVANCE MPCA</span><span class="v delta up">▲ 69.6% (912 Hog.)</span></div>
+      `
+    },
+    p3: {
+      title: "Líneas de respuesta humanitaria — IRC",
+      lead: "Especialización en atención sanitaria de emergencia, protocolos clínicos para sobrevivientes de violencia y apoyo socioeconómico inmediato:",
+      recs: `
+        <div class="rec">
+          <span class="rn">01</span>
+          <h3>Salud Primaria y SSR (Sector Líder)</h3>
+          <p class="body" style="color:var(--ink-soft)">Meta masiva de 20.871 consultas de atención primaria y salud sexual y reproductiva, con 8.237 consultas realizadas a agosto y aceleración escalonada hacia noviembre.</p>
+          <span class="sub" style="color:var(--ink-muted)">Atención médica directa y gratuita</span>
+        </div>
+        <div class="rec">
+          <span class="rn">02</span>
+          <h3>Atención Médica a Sobrevivientes VBG</h3>
+          <p class="body" style="color:var(--ink-soft)">Meta contractual de 15 superada con 71 personas atendidas (473% de cumplimiento), garantizando manejo clínico oportuno, confidencial y tratamiento médico integral.</p>
+          <span class="sub" style="color:var(--ink-muted)">Hito sobresaliente ante OCHA</span>
+        </div>
+        <div class="rec">
+          <span class="rn">03</span>
+          <h3>Protección y Gestión de Casos</h3>
+          <p class="body" style="color:var(--ink-soft)">300 gestiones de caso de alto riesgo (158 a agosto, 53%), 1.562 personas en sensibilizaciones de protección y entrega de cash de protección a 104 personas.</p>
+          <span class="sub" style="color:var(--ink-muted)">Acompañamiento psicosocial individualizado</span>
+        </div>
+        <div class="rec">
+          <span class="rn">04</span>
+          <h3>Transferencias Monetarias (MPCA)</h3>
+          <p class="body" style="color:var(--ink-soft)">1.310 hogares meta con 912 alcanzados a agosto (69.6%), programando superar la meta contractual con 1.337 hogares al cierre de septiembre (102%).</p>
+          <span class="sub" style="color:var(--ink-muted)">Superación de meta en septiembre</span>
+        </div>
+      `
+    },
+    p4: {
+      title: "Voces desde las comunidades atendidas por IRC",
+      lead: "Testimonios de pacientes y familias beneficiarias de las consultas médicas, tratamientos y transferencias monetarias de IRC:",
+      quotes: `
+        <div class="callout reveal d1">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La consulta médica y los medicamentos gratuitos fueron un alivio inmenso. No teníamos cómo pagar una cita particular ni el transporte hacia la ciudad.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Paciente atendido en brigada móvil de salud (IRC Salud)</p>
+        </div>
+        <div class="callout reveal d2">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El trato del personal médico fue completamente respetuoso y confidencial. Me explicaron cada paso con paciencia y me dieron el tratamiento que necesitaba con urgencia.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Sobreviviente asistida en consulta clínica (IRC VBG)</p>
+        </div>
+        <div class="callout reveal d3">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Con la transferencia monetaria pudimos asegurar el arriendo y la alimentación de nuestros hijos durante los meses más difíciles de la emergencia.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Beneficiario de MPCA (Testimonio protegido — IRC)</p>
+        </div>
+        <div class="callout reveal d4">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El acompañamiento en la gestión de caso nos ayudó a acceder a las rutas de protección que requeríamos para salir de una situación de alto riesgo familiar.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante de protección individual (IRC)</p>
+        </div>
+      `
+    },
+    p5: {
+      title: "Rendición de Cuentas y Programación Receptiva — IRC",
+      lead: "Metodología de Programación Receptiva al Cliente (CRP) orientada a la calidad y la dignidad en cada punto de servicio:",
+      callout: "Canales activos de IRC: Encuestas de percepción y trato digno inmediatamente después de cada consulta médica, buzones confidenciales en unidades de salud y línea telefónica directa para seguimiento de casos."
+    },
+    p6: {
+      title: "Aprendizajes Operativos y Puente a Fase 2 — IRC",
+      lead: "Lecciones en gestión de salud de emergencia y articulación con redes de derivación locales:",
+      cards: `
+        <div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Adaptación Operativa</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Modelo ágil de brigadas móviles de salud</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La implementación de protocolos clínicos estandarizados y equipos móviles polivalentes permitió duplicar la capacidad de atención diaria sin comprometer la confidencialidad ni la calidad médica.</p>
+        </div>
+        <div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Rutas de derivación articuladas con la red pública</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La coordinación con hospitales y centros de salud locales asegura que los casos que requieren atención de mayor complejidad cuenten con rutas expeditas y sostenibles durante la Fase 2.</p>
+        </div>
+      `
+    }
+  },
+
+  mercy_corps: {
+    hero: {
+      title: "Seguimiento al POA 2026 — Mercy Corps",
+      lead: "Acción humanitaria orientada a la resiliencia económica, transferencias monetarias para la seguridad alimentaria y fortalecimiento comunitario en el marco del Consorcio ConEsperanza.",
+      kpis: `
+        <div class="t"><div class="v">Consorcio</div><div class="l">ConEsperanza 2026</div></div>
+        <div class="t"><div class="v">Resiliencia</div><div class="l">Seguridad alimentaria y medios</div></div>
+        <div class="t"><div class="v">Protección</div><div class="l">Familias y comunidades</div></div>
+        <div class="t"><div class="v">MEAL</div><div class="l">Consolidación en proceso</div></div>
+      `
+    },
+    p2: {
+      title: "Cobertura territorial y resiliencia comunitaria",
+      lead: "Intervención en territorios priorizados fortaleciendo la capacidad de respuesta de los hogares frente a choques económicos y emergencias humanitarias prolongadas.",
+      kpis: `
+        <div class="t"><span class="l">TERRITORIOS CLAVE</span><span class="v">Áreas priorizadas</span></div>
+        <div class="t"><span class="l">HOGARES RURALES</span><span class="v">Seguridad alimentaria</span></div>
+        <div class="t"><span class="l">TRANSFERENCIAS</span><span class="v">Asistencia multipropósito</span></div>
+        <div class="t"><span class="l">FASE TÉCNICA</span><span class="v">Reporte MEAL en curso</span></div>
+      `
+    },
+    p3: {
+      title: "Líneas de respuesta humanitaria — Mercy Corps",
+      lead: "Especialización en transferencias monetarias multipropósito, dinamización de economías locales y protección comunitaria:",
+      recs: `
+        <div class="rec">
+          <span class="rn">01</span>
+          <h3>Transferencias Monetarias (MPCA)</h3>
+          <p class="body" style="color:var(--ink-soft)">Entrega de asistencia en efectivo para dinamizar comercios locales y permitir a las familias priorizar sus necesidades alimentarias y vitales más urgentes.</p>
+          <span class="sub" style="color:var(--ink-muted)">Autonomía y recuperación económica</span>
+        </div>
+        <div class="rec">
+          <span class="rn">02</span>
+          <h3>Seguridad Alimentaria y Nutrición</h3>
+          <p class="body" style="color:var(--ink-soft)">Acompañamiento a hogares con alta vulnerabilidad para mitigar el deterioro nutricional y evitar estrategias negativas de afrontamiento económico.</p>
+          <span class="sub" style="color:var(--ink-muted)">Protección del bienestar familiar</span>
+        </div>
+        <div class="rec">
+          <span class="rn">03</span>
+          <h3>Fortalecimiento Comunitario</h3>
+          <p class="body" style="color:var(--ink-soft)">Promoción de capacidades organizativas locales y alianzas con redes de comercio para optimizar el alcance de la respuesta humanitaria.</p>
+          <span class="sub" style="color:var(--ink-muted)">Tejido social y resiliencia territorial</span>
+        </div>
+        <div class="rec">
+          <span class="rn">04</span>
+          <h3>Consolidación Técnica MEAL</h3>
+          <p class="body" style="color:var(--ink-soft)"><em>La matriz sectorial y el desglose contractual de metas e indicadores se encuentran en proceso de consolidación técnica con el equipo de coordinación del consorcio.</em></p>
+          <span class="sub" style="color:var(--ink-muted)">Enfoque sectorial en preparación</span>
+        </div>
+      `
+    },
+    p4: {
+      title: "Voces desde el territorio — Mercy Corps",
+      lead: "Percepciones y testimonios de participantes y liderazgos comunitarios en zonas de intervención de Mercy Corps:",
+      quotes: `
+        <div class="callout reveal d1">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El apoyo en efectivo nos permitió reactivar las compras en los pequeños comercios de la vereda, dinamizando no solo a mi familia sino a toda la comunidad.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Participante comunitario (Mercy Corps)</p>
+        </div>
+        <div class="callout reveal d2">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Aprender a gestionar mejor los recursos de emergencia nos dio la tranquilidad de planificar los meses venideros frente a las crisis de la región.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa comunitaria (Testimonio protegido)</p>
+        </div>
+        <div class="callout reveal d3">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El diálogo constante del equipo de campo con las organizaciones locales facilitó que la ayuda llegara con rapidez y sin contratiempos a las familias más necesitadas.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Representante comunitario en territorio</p>
+        </div>
+        <div class="callout reveal d4">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«La orientación recibida nos permitió tomar decisiones acertadas para asegurar la nutrición de nuestros niños durante la temporada de emergencia.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Jefe de hogar participante (Mercy Corps)</p>
+        </div>
+      `
+    },
+    p5: {
+      title: "Rendición de Cuentas y Veeduría Comunitaria — Mercy Corps",
+      lead: "Mecanismos transparentes de consulta y retroalimentación basados en la confianza comunitaria y la ética humanitaria:",
+      callout: "Puntos de contacto comunitarios, buzones de sugerencias y canales de consulta permanente que garantizan la confidencialidad y la oportuna resolución de inquietudes ciudadanas."
+    },
+    p6: {
+      title: "Aprendizajes y Continuidad — Mercy Corps",
+      lead: "Lecciones operativas en asistencia basada en mercados y articulación comunitaria:",
+      cards: `
+        <div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Adaptación Operativa</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Articulación con redes comerciales locales</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">El enlace previo con proveedores locales y tenderos comunitarios permitió reducir los costos de transacción y maximizar el valor de la ayuda directamente en la economía rural.</p>
+        </div>
+        <div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Comités de resiliencia comunitaria</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Las capacidades de gestión financiera de emergencia instaladas en los hogares sientan las bases para la transición hacia programas de medios de vida sostenibles en la Fase 2.</p>
+        </div>
+      `
+    }
+  },
+
+  stc: {
+    hero: {
+      title: "Seguimiento al POA 2026 — Save the Children",
+      lead: "Compromiso humanitario enfocado en la protección integral de la niñez y la adolescencia, espacios amigables y entornos protectores frente a las violencias en el marco del Consorcio ConEsperanza.",
+      kpis: `
+        <div class="t"><div class="v">Consorcio</div><div class="l">ConEsperanza 2026</div></div>
+        <div class="t"><div class="v">Niñez &amp; Juventud</div><div class="l">Protección y derechos</div></div>
+        <div class="t"><div class="v">Entornos Seguros</div><div class="l">Espacios amigables de cuidado</div></div>
+        <div class="t"><div class="v">MEAL</div><div class="l">Consolidación en proceso</div></div>
+      `
+    },
+    p2: {
+      title: "Protección de la infancia en zonas críticas",
+      lead: "Presencia en comunidades afectadas para garantizar que niñas, niños y adolescentes cuenten con entornos seguros, apoyo psicosocial y continuidad en su desarrollo integral.",
+      kpis: `
+        <div class="t"><span class="l">NIÑEZ PRIORIZADA</span><span class="v">Primera infancia y jóvenes</span></div>
+        <div class="t"><span class="l">ESPACIOS SEGUROS</span><span class="v">Entornos amigables activos</span></div>
+        <div class="t"><span class="l">CUIDADO FAMILIAR</span><span class="v">Acompañamiento integral</span></div>
+        <div class="t"><span class="l">FASE TÉCNICA</span><span class="v">Reporte MEAL en curso</span></div>
+      `
+    },
+    p3: {
+      title: "Líneas de respuesta humanitaria — Save the Children",
+      lead: "Especialización en protección infantil, espacios protectores y fortalecimiento a familias y cuidadores:",
+      recs: `
+        <div class="rec">
+          <span class="rn">01</span>
+          <h3>Protección Infantil Especializada</h3>
+          <p class="body" style="color:var(--ink-soft)">Identificación y acompañamiento de casos de vulneración de derechos, mitigación de riesgos para menores y prevención de mecanismos negativos de afrontamiento.</p>
+          <span class="sub" style="color:var(--ink-muted)">Enfoque prioritario de niñez</span>
+        </div>
+        <div class="rec">
+          <span class="rn">02</span>
+          <h3>Espacios Amigables para la Infancia</h3>
+          <p class="body" style="color:var(--ink-soft)">Habilitación de áreas seguras y protectoras donde niños, niñas y adolescentes acceden a apoyo psicosocial, actividades pedagógicas y recreación.</p>
+          <span class="sub" style="color:var(--ink-muted)">Espacios de paz y aprendizaje</span>
+        </div>
+        <div class="rec">
+          <span class="rn">03</span>
+          <h3>Fortalecimiento a Familias y Cuidadores</h3>
+          <p class="body" style="color:var(--ink-soft)">Orientación comunitaria para promover pautas de crianza positiva, resolución dialogada de conflictos y entornos libres de violencia intrafamiliar.</p>
+          <span class="sub" style="color:var(--ink-muted)">Acompañamiento psicosocial familiar</span>
+        </div>
+        <div class="rec">
+          <span class="rn">04</span>
+          <h3>Consolidación Técnica MEAL</h3>
+          <p class="body" style="color:var(--ink-soft)"><em>La matriz sectorial y el desglose contractual de metas e indicadores se encuentran en proceso de consolidación técnica con el equipo de coordinación del consorcio.</em></p>
+          <span class="sub" style="color:var(--ink-muted)">Enfoque sectorial en preparación</span>
+        </div>
+      `
+    },
+    p4: {
+      title: "Voces desde el territorio — Save the Children",
+      lead: "Relatos de niñas, niños, familias y cuidadores acompañados en los entornos comunitarios de Save the Children:",
+      quotes: `
+        <div class="callout reveal d1">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«En el espacio amigable mis hijos encuentran un lugar de paz y aprendizaje mientras los adultos podemos gestionar la emergencia del día a día.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Madre de familia participante (Save the Children)</p>
+        </div>
+        <div class="callout reveal d2">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Los talleres nos enseñaron a comunicarnos mejor con nuestros hijos y a resolver las dificultades del hogar con diálogo y respeto mutuo.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Cuidador comunitario (Testimonio protegido)</p>
+        </div>
+        <div class="callout reveal d3">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«Me gusta venir porque aquí jugamos, leemos y los profesores nos escuchan con cariño. Nos sentimos seguros y protegidos todos los días.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Niña participante (Testimonio protegido infantil — STC)</p>
+        </div>
+        <div class="callout reveal d4">
+          <p class="body" style="font-size:15px;line-height:1.6;color:var(--ink);font-style:italic">«El acompañamiento psicosocial ayudó a que los jóvenes de la vereda recuperaran su proyecto de vida y fortalecieran su liderazgo juvenil en la comunidad.»</p>
+          <p class="caption" style="margin-top:6px;font-weight:600;color:var(--ink-muted)">— Lideresa comunitaria (Save the Children)</p>
+        </div>
+      `
+    },
+    p5: {
+      title: "Rendición de Cuentas Amigable con la Niñez — Save the Children",
+      lead: "Mecanismos adaptados especialmente para que niños, niñas y adolescentes puedan expresar sus opiniones y sugerencias:",
+      callout: "Buzones pedagógicos ilustrados, comités consultivos infantiles y protocolos éticos de escucha activa diseñados bajo estrictas salvaguardas de protección a la infancia."
+    },
+    p6: {
+      title: "Aprendizajes y Continuidad — Save the Children",
+      lead: "Lecciones en protección comunitaria infantil y entornos protectores:",
+      cards: `
+        <div class="card reveal d1" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Adaptación Operativa</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Metodologías lúdico-pedagógicas seguras</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">La implementación de actividades lúdicas contextualizadas permitió evaluar y atender las necesidades emocionales de los menores sin generar revictimización ni barreras de participación.</p>
+        </div>
+        <div class="card reveal d2" style="display:flex;flex-direction:column;gap:12px;padding:24px">
+          <div class="badge" style="width:fit-content">Puente hacia la Fase 2</div>
+          <h3 style="font-family:var(--font-d);font-size:18px">Red permanente de espacios protectores</h3>
+          <p class="body" style="color:var(--ink-soft);font-size:14px;line-height:1.6">Los espacios amigables y docentes formados quedan instalados en las comunidades como entornos protectores de base sobre los cuales continuará la intervención en la Fase 2.</p>
+        </div>
+      `
+    }
+  }
+};
+
+function renderOrgContent(orgId) {
+  const data = PARTNERS_DATA[orgId] || PARTNERS_DATA.todos;
+  const main = document.querySelector('main');
+  
+  if (main) {
+    main.style.transition = 'opacity 0.18s ease';
+    main.style.opacity = '0.7';
+  }
+
+  setTimeout(() => {
+    // 1. Hero (#p1)
+    const h1 = document.querySelector('#p1 h1');
+    if (h1) h1.textContent = data.hero.title;
+    const heroLead = document.querySelector('#p1 p.lead');
+    if (heroLead) heroLead.textContent = data.hero.lead;
+    const heroTease = document.querySelector('#p1 .tease');
+    if (heroTease) heroTease.innerHTML = data.hero.kpis;
+
+    // 2. Section 02 (#p2)
+    const p2H2 = document.querySelector('#p2 h2');
+    if (p2H2) p2H2.textContent = data.p2.title;
+    const p2Lead = document.querySelector('#p2 p.lead');
+    if (p2Lead) p2Lead.textContent = data.p2.lead;
+    const p2Tease = document.querySelector('#p2 .tease');
+    if (p2Tease) p2Tease.innerHTML = data.p2.kpis;
+
+    // 3. Section 03 (#p3)
+    const p3H2 = document.querySelector('#p3 h2');
+    if (p3H2) p3H2.textContent = data.p3.title;
+    const p3Lead = document.querySelector('#p3 p.lead');
+    if (p3Lead) p3Lead.textContent = data.p3.lead;
+    const p3Recs = document.querySelector('#p3 .recs');
+    if (p3Recs) p3Recs.innerHTML = data.p3.recs;
+
+    // 4. Section 04 (#p4)
+    const p4H2 = document.querySelector('#p4 h2');
+    if (p4H2) p4H2.textContent = data.p4.title;
+    const p4Lead = document.querySelector('#p4 p.lead');
+    if (p4Lead) p4Lead.textContent = data.p4.lead;
+    const p4QuotesBox = document.querySelector('#p4 .stack:last-child');
+    if (p4QuotesBox) p4QuotesBox.innerHTML = data.p4.quotes;
+
+    // 5. Section 05 (#p5)
+    const p5H2 = document.querySelector('#p5 h2');
+    if (p5H2) p5H2.textContent = data.p5.title;
+    const p5Lead = document.querySelector('#p5 p.lead');
+    if (p5Lead) p5Lead.textContent = data.p5.lead;
+    const p5Callout = document.querySelector('#p5 .callout p.body');
+    if (p5Callout) p5Callout.textContent = data.p5.callout;
+
+    // 6. Section 06 (#p6)
+    const p6H2 = document.querySelector('#p6 h2');
+    if (p6H2) p6H2.textContent = data.p6.title;
+    const p6Lead = document.querySelector('#p6 p.lead');
+    if (p6Lead) p6Lead.textContent = data.p6.lead;
+    const p6Cards = document.querySelector('#p6 .split');
+    if (p6Cards) p6Cards.innerHTML = data.p6.cards;
+
+    if (main) {
+      main.style.opacity = '1';
+    }
+  }, 100);
+}
+
+function selectOrg(orgId) {
+  currentOrg = orgId;
+  document.documentElement.setAttribute('data-active-org', orgId);
+  // Update desktop tabs
+  document.querySelectorAll('.org-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.org === orgId);
+  });
+  // Update mobile bottom tabs
+  document.querySelectorAll('.bottom-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.org === orgId);
+  });
+  try { localStorage.setItem('selected-org', orgId); } catch(e) {}
+  renderOrgContent(orgId);
+}
 
 function openPowerBI() {
   alert("Redirigiendo al informe consolidado de Power BI - Consorcio Humanitario");
 }
 
-// Vinculación de listeners de botones Power BI
-document.addEventListener('DOMContentLoaded', () => {
-  const pbiBtn = document.getElementById('pbiBtn');
-  if (pbiBtn) pbiBtn.addEventListener('click', openPowerBI);
+// theme management
+function setTheme(t){
+  document.documentElement.setAttribute("data-theme",t);
+  try{localStorage.setItem("mide-theme",t);}catch(e){}
+  requestAnimationFrame(renderAll);
+}
+try{const saved=localStorage.getItem("mide-theme");if(saved)document.documentElement.setAttribute("data-theme",saved);}catch(e){}
+matchMedia("(prefers-color-scheme:dark)").addEventListener("change",()=>{if(!document.documentElement.getAttribute("data-theme"))renderAll();});
+
+// power bi action
+document.getElementById("pbiBtn")?.addEventListener("click", openPowerBI);
+
+// i18n translation system
+const TRANSLATIONS = {
+  ES: {
+    // Header & Subbar
+    brandSub: "Reporte de Consorcio",
+    subbarFilter: "Filtrar por Organización:",
+    orgTodos: "Todos",
+    pbiBtnText: "Power BI",
+    
+    // Mobile Drawer
+    drawerTitle: "Ajustes & Acceso",
+    drawerLangLabel: "Idioma",
+    drawerLangSub: "Preferencia de idioma",
+    drawerThemeLabel: "Tema Visual",
+    drawerThemeSub: "Alternar modo claro / oscuro",
+    drawerPbiBtn: "Abrir Power BI",
+
+    // Narrative content
+    heroTitle: "Seguimiento al POA 2026",
+    heroDesc: "Monitoreo continuo de atenciones integrales en protección, salud, transferencias monetarias y mitigación de violencias para familias vulnerables y comunidades afectadas en departamentos priorizados de Colombia, bajo el Fondo Humanitario OCHA / RHPF LAC.",
+    heroAttentions: "Meta participantes únicos",
+    heroKits: "Alcance conjunto a la fecha",
+    heroVbg: "Atenciones totales proyectadas",
+    p2Eyebrow: "Despliegue territorial",
+    p2Title: "Presencia humanitaria en zonas de alta vulnerabilidad",
+    p2Desc: "Distribución geográfica de la respuesta humanitaria en departamentos y municipios focalizados: cobertura coordinada en áreas rurales, zonas de difícil acceso y comunidades con mayores brechas de atención humanitaria.",
+    p3Eyebrow: "Sectores de respuesta",
+    p3Title: "Cuatro líneas de acción para la protección y el bienestar",
+    p3Desc: "La intervención integral del consorcio se estructura en los cuatro sectores prioritarios del marco lógico de OCHA, asegurando que las capacidades de cada socia respondan de manera articulada a las necesidades críticas de las comunidades:",
+    p4Eyebrow: "Voces de la comunidad",
+    p4Title: "Evidencia cualitativa y dignidad en la atención",
+    p5Eyebrow: "Rendición de cuentas (AAP)",
+    p5Title: "Mecanismos de escucha, consulta y transparencia",
+    p6Eyebrow: "Aprendizaje y adaptación",
+    p6Title: "Lecciones aprendidas para la sostenibilidad y Fase 2"
+  },
+  EN: {
+    // Header & Subbar
+    brandSub: "Consortium Report",
+    subbarFilter: "Filter by Organization:",
+    orgTodos: "All",
+    pbiBtnText: "Power BI",
+
+    // Mobile Drawer
+    drawerTitle: "Settings & Access",
+    drawerLangLabel: "Language",
+    drawerLangSub: "Language preference",
+    drawerThemeLabel: "Visual Theme",
+    drawerThemeSub: "Toggle light / dark mode",
+    drawerPbiBtn: "Open Power BI",
+
+    // Narrative content
+    heroTitle: "POA 2026 Monitoring",
+    heroDesc: "Continuous monitoring of comprehensive protection, healthcare, cash assistance, and violence mitigation services for vulnerable families and affected communities in prioritized departments across Colombia, under the OCHA / RHPF LAC Humanitarian Fund.",
+    heroAttentions: "Target unique participants",
+    heroKits: "Joint reach to date",
+    heroVbg: "Projected total assistance",
+    p2Eyebrow: "Territorial deployment",
+    p2Title: "Humanitarian presence in high-vulnerability areas",
+    p2Desc: "Geographic distribution of the humanitarian response across targeted departments and municipalities: coordinated coverage in rural areas, hard-to-reach zones, and underserved communities.",
+    p3Eyebrow: "Response sectors",
+    p3Title: "Four lines of action for protection and well-being",
+    p3Desc: "The consortium's comprehensive response is structured around OCHA's four priority sectors, ensuring that each partner's strengths address critical community needs:",
+    p4Eyebrow: "Community voices",
+    p4Title: "Qualitative evidence and dignity in assistance",
+    p5Eyebrow: "Accountability (AAP)",
+    p5Title: "Active listening, consultation, and transparency mechanisms",
+    p6Eyebrow: "Learning and adaptation",
+    p6Title: "Lessons learned for sustainability and Phase 2"
+  },
+  FR: {
+    // Header & Subbar
+    brandSub: "Rapport de Consortium",
+    subbarFilter: "Filtrer par Organisation :",
+    orgTodos: "Tous",
+    pbiBtnText: "Power BI",
+
+    // Mobile Drawer
+    drawerTitle: "Paramètres & Accès",
+    drawerLangLabel: "Langue",
+    drawerLangSub: "Préférence linguistique",
+    drawerThemeLabel: "Thème Visuel",
+    drawerThemeSub: "Basculer mode clair / sombre",
+    drawerPbiBtn: "Ouvrir Power BI",
+
+    // Narrative content
+    heroTitle: "Suivi du POA 2026",
+    heroDesc: "Suivi continu des services intégrés de protection, santé, transferts monétaires et atténuation des violences pour les familles vulnérables et les communautés touchées dans les départements prioritaires de Colombie, sous le Fonds Humanitaire OCHA / RHPF LAC.",
+    heroAttentions: "Cible participants uniques",
+    heroKits: "Portée conjointe à ce jour",
+    heroVbg: "Assistance totale projetée",
+    p2Eyebrow: "Déploiement territorial",
+    p2Title: "Présence humanitaire dans les zones à haute vulnérabilité",
+    p2Desc: "Répartition géographique de la réponse humanitaire dans les départements et municipalités ciblés : couverture coordonnée dans les zones rurales et difficiles d'accès.",
+    p3Eyebrow: "Secteurs de réponse",
+    p3Title: "Quatre lignes d'action pour la protection et le bien-être",
+    p3Desc: "L'intervention intégrée du consortium s'articule autour des quatre secteurs prioritaires d'OCHA, garantissant une réponse adaptée aux besoins vitaux des communautés :",
+    p4Eyebrow: "Voix de la communauté",
+    p4Title: "Preuve qualitative et dignité dans l'assistance",
+    p5Eyebrow: "Redevabilité (AAP)",
+    p5Title: "Mécanismes d'écoute active, de consultation et de transparence",
+    p6Eyebrow: "Apprentissage et adaptation",
+    p6Title: "Leçons apprises pour la durabilité et la Phase 2"
+  }
+};
+
+function applyTranslations(lang) {
+  const dict = TRANSLATIONS[lang] || TRANSLATIONS.ES;
+  
+  // Header brand subtitle & subbar filter label
+  const brandSub = document.querySelector(".brand-sub");
+  if(brandSub) brandSub.textContent = dict.brandSub;
+  const subbarLabel = document.querySelector(".subbar-label");
+  if(subbarLabel) subbarLabel.textContent = dict.subbarFilter;
+  
+  // "Todos / All / Tous" tabs
+  document.querySelectorAll('.org-tab[data-org="todos"] span, .bottom-tab[data-org="todos"] .tab-label').forEach(el => {
+    el.textContent = dict.orgTodos;
+  });
+
+  // Mobile Drawer elements
+  const drawerTitle = document.querySelector("#mobileDrawer .drawer-title");
+  if(drawerTitle) drawerTitle.textContent = dict.drawerTitle;
+  const drawerLabels = document.querySelectorAll("#mobileDrawer .drawer-label");
+  if(drawerLabels.length >= 2) {
+    drawerLabels[0].textContent = dict.drawerLangLabel;
+    drawerLabels[1].textContent = dict.drawerThemeLabel;
+  }
+  const drawerSublabels = document.querySelectorAll("#mobileDrawer .drawer-sublabel");
+  if(drawerSublabels.length >= 2) {
+    drawerSublabels[0].textContent = dict.drawerLangSub;
+    drawerSublabels[1].textContent = dict.drawerThemeSub;
+  }
+  const drawerPbiBtn = document.querySelector("#pbiBtnDrawer span");
+  if(drawerPbiBtn) drawerPbiBtn.textContent = dict.drawerPbiBtn;
+
+  // Hero
+  const heroTitle = document.querySelector("#p1 h1");
+  if(heroTitle) heroTitle.textContent = dict.heroTitle;
+  const heroDesc = document.querySelector("#p1 p.lead");
+  if(heroDesc) heroDesc.textContent = dict.heroDesc;
+  const teaseLabels = document.querySelectorAll("#p1 .tease .l");
+  if(teaseLabels.length >= 3) {
+    teaseLabels[0].textContent = dict.heroAttentions;
+    teaseLabels[1].textContent = dict.heroKits;
+    teaseLabels[2].textContent = dict.heroVbg;
+  }
+
+  // Section 2
+  const p2Eyebrow = document.querySelector("#p2 .eyebrow");
+  if(p2Eyebrow) p2Eyebrow.textContent = dict.p2Eyebrow;
+  const p2Title = document.querySelector("#p2 h2");
+  if(p2Title) p2Title.textContent = dict.p2Title;
+  const p2Desc = document.querySelector("#p2 p.lead");
+  if(p2Desc) p2Desc.textContent = dict.p2Desc;
+
+  // Section 3
+  const p3Eyebrow = document.querySelector("#p3 .eyebrow");
+  if(p3Eyebrow) p3Eyebrow.textContent = dict.p3Eyebrow;
+  const p3Title = document.querySelector("#p3 h2");
+  if(p3Title) p3Title.textContent = dict.p3Title;
+  const p3Desc = document.querySelector("#p3 p.lead");
+  if(p3Desc) p3Desc.textContent = dict.p3Desc;
+
+  // Section 4
+  const p4Eyebrow = document.querySelector("#p4 .eyebrow");
+  if(p4Eyebrow) p4Eyebrow.textContent = dict.p4Eyebrow;
+  const p4Title = document.querySelector("#p4 h2");
+  if(p4Title) p4Title.textContent = dict.p4Title;
+
+  // Section 5
+  const p5Eyebrow = document.querySelector("#p5 .eyebrow");
+  if(p5Eyebrow) p5Eyebrow.textContent = dict.p5Eyebrow;
+  const p5Title = document.querySelector("#p5 h2");
+  if(p5Title) p5Title.textContent = dict.p5Title;
+
+  // Section 6
+  const p6Eyebrow = document.querySelector("#p6 .eyebrow");
+  if(p6Eyebrow) p6Eyebrow.textContent = dict.p6Eyebrow;
+  const p6Title = document.querySelector("#p6 h2");
+  if(p6Title) p6Title.textContent = dict.p6Title;
+}
+
+// lang selector (Spanish default / EN)
+document.getElementById("langSelect")?.addEventListener("change", (e) => {
+  const lang = e.target.value;
+  applyTranslations(lang);
 });
 
-// Llamada inicial para hidratar el estado al cargar la página
-renderApp();
+// re-render charts on resize (debounced)
+let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(renderAll,180);});
+
+// Robust Event Listeners for Mobile Drawer & NGO Selector
+(function() {
+  const menuBtn = document.getElementById('menuBtn');
+  const drawer = document.getElementById('mobileDrawer');
+  const backdrop = document.getElementById('drawerBackdrop');
+  const drawerCloseBtn = document.querySelector('.drawer-close');
+
+  function openDrawer() {
+    if (drawer && backdrop) {
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+    }
+  }
+
+  function closeDrawer() {
+    if (drawer && backdrop) {
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+    }
+  }
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openDrawer();
+    });
+  }
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeDrawer();
+    });
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', function(e) {
+      closeDrawer();
+    });
+  }
+
+  // NGO Tab listeners (Desktop + Mobile)
+  function handleOrgClick(orgId) {
+    selectOrg(orgId);
+  }
+
+  document.querySelectorAll('.org-tab').forEach(btn => {
+    btn.addEventListener('click', function() {
+      handleOrgClick(this.dataset.org);
+    });
+  });
+
+  document.querySelectorAll('.bottom-tab').forEach(btn => {
+    btn.addEventListener('click', function() {
+      handleOrgClick(this.dataset.org);
+    });
+  });
+})();
+
+
+// Sincronización dinámica de la altura exacta del header sticky en escritorio
+function syncHeaderHeight() {
+  const topBar = document.querySelector('.top-bar');
+  if (topBar) {
+    const h = topBar.offsetHeight;
+    document.documentElement.style.setProperty('--top-bar-h', `${h}px`);
+  }
+}
+window.addEventListener('resize', syncHeaderHeight);
+window.addEventListener('load', syncHeaderHeight);
+syncHeaderHeight();
+
+
+// Restaurar socia seleccionada guardada en localStorage o inicializar por defecto 'todos'
+try {
+  const savedOrg = localStorage.getItem('selected-org');
+  if (savedOrg && PARTNERS_DATA[savedOrg]) {
+    selectOrg(savedOrg);
+  } else {
+    document.documentElement.setAttribute('data-active-org', 'todos');
+  }
+} catch(e) {
+  document.documentElement.setAttribute('data-active-org', 'todos');
+}
+
 </script>
+
 </body>
 </html>
-
