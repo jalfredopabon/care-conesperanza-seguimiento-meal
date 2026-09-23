@@ -862,3 +862,153 @@ renderApp();
 ---
 
 *Sección técnica añadida el 23 de septiembre de 2026 para facilitar la ejecución por Gemini.*
+
+
+---
+
+## 9. Instrucciones de Ejecución para Gemini
+
+### 9.1. ¿Crear un archivo nuevo o modificar el existente?
+
+**Crear un archivo nuevo.** El flujo es el siguiente:
+
+1. Gemini trabaja sobre un archivo temporal **`index_nuevo.html`** en la misma carpeta.
+   Ruta: `C:\Users\JosePabon\Music\proyecto_seguimiento_poa\02_LANDING_STORYTELLING\proyecto_app_ligera\index_nuevo.html`
+2. Una vez que el archivo nuevo está terminado y validado por el usuario, se renombra:
+   - `index.html` → `index_backup.html` (respaldo del original)
+   - `index_nuevo.html` → `index.html`
+3. Se hace el commit y deploy siguiendo el protocolo de la §5.
+
+> **Nunca sobrescribir `index.html` directamente** mientras se trabaja. El original es el respaldo.
+
+---
+
+### 9.2. Dónde leer el contenido actual para migrar
+
+El archivo `index.html` actual tiene los datos organizados así:
+
+| Bloque | Líneas en `index.html` | Qué contiene |
+|---|---|---|
+| `@font-face` Besley + Inter | L8 – L9 | Fuentes en base64 — **copiar íntegras al nuevo `<style>`** |
+| `<style>` completo | L4 – L1013 | CSS actual — referencia y base para el nuevo |
+| Ambientación de socias (CSS) | L702 – L812 | Variables `--subbar-bg`, `--subbar-border` por `data-active-org` — **copiar íntegro** |
+| `<footer>` HTML | L1309 – ~L1390 | Estructura del pie de página actual |
+| `<script>` bloque completo | L1390 – L2551 | Todo el JS actual |
+| **`PARTNERS_DATA`** | L1697 – L2178 | **Fuente principal de datos a migrar** |
+| ↳ `todos` | L1698 – L1793 | Datos del consorcio general |
+| ↳ `todos.hero` | L1699 – L1708 | Hero: title, lead, kpis HTML |
+| ↳ `todos.p2` | L1709 – L1718 | Despliegue territorial: title, lead, kpis HTML |
+| ↳ `todos.p3` | L1719 – L1748 | Sectores: title, lead, recsHTML (4 tarjetas) |
+| ↳ `todos.p4` | L1749 – L1770 | Testimonios: title, lead, quotesHTML (4 citas) |
+| ↳ `todos.p5` | L1771 – L1775 | AAP: title, lead, callout |
+| ↳ `todos.p6` | L1776 – L1793 | Aprendizaje: title, lead, cardsHTML |
+| ↳ `care` | L1794 – L1889 | Datos específicos de CARE Colombia |
+| ↳ `irc` | L1890 – L1985 | Datos específicos de IRC |
+| ↳ `mercy_corps` | L1986 – L2081 | Datos específicos de Mercy Corps |
+| ↳ `stc` | L2082 – L2177 | Datos específicos de Save the Children |
+| **`TRANSLATIONS`** | L2275 – L2378 | Traducciones actuales ES/EN/FR (solo superficiales) — **expandir en MASTER_DATA** |
+| `renderOrgContent()` | L2179 – L2241 | Función a **reemplazar** por `renderApp()` |
+| `applyTranslations()` | L2380 – L2455 | Función a **reemplazar** por `renderApp()` |
+| Gráficas (renderAll, drawTrend...) | L1645 – L1696 | Funciones de charts — **copiar íntegras al nuevo JS** |
+
+---
+
+### 9.3. Cómo leer el contenido actual (instrucción práctica)
+
+Para leer un bloque específico del `index.html` actual sin abrir el archivo completo, usar:
+
+```python
+# Leer líneas 1698 a 1793 (datos de 'todos')
+with open("index.html", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+print("".join(lines[1697:1793]))  # índice 0-based, por eso -1
+```
+
+---
+
+### 9.4. Cómo migrar los datos de PARTNERS_DATA a MASTER_DATA
+
+El contenido en `PARTNERS_DATA.todos` (líneas 1698-1793) tiene esta estructura:
+
+```javascript
+// ESTRUCTURA ACTUAL (leer y migrar de aquí)
+todos: {
+  hero: {
+    title: "...",
+    lead: "...",
+    kpis: `<div class="t">...</div>`   // ← esto va a MASTER_DATA.todos.ES.hero.kpisHTML
+  },
+  p2: { title, lead, kpis },
+  p3: { title, lead, recs: `...` },   // ← recs va a recsHTML
+  p4: { title, lead, quotes: `...` }, // ← quotes va a quotesHTML
+  p5: { title, lead, callout },
+  p6: { title, lead, cards: `...` }   // ← cards va a cardsHTML
+}
+
+// ESTRUCTURA NUEVA (así debe quedar en MASTER_DATA)
+todos: {
+  ES: {
+    global: { brandSub, subbarFilter, orgTodos, pbiBtnText, /* drawer */ },
+    hero:   { title, lead, kpisHTML, imgSrc, imgAlt },
+    p2:     { eyebrow, title, lead, kpisHTML, imgSrc, imgAlt },
+    p3:     { eyebrow, title, lead, recsHTML },
+    p4:     { eyebrow, title, lead, quotesHTML },
+    p5:     { eyebrow, title, lead, callout, imgSrc, imgAlt },
+    p6:     { eyebrow, title, lead, cardsHTML },
+    footer: { col1Title, col1Body, col2Title, col2Links, col3Title, col4Title, col4Date, col4PbiLabel }
+  },
+  EN: { /* misma estructura, textos en inglés — leer de TRANSLATIONS.EN actual (L2310-L2342) */ },
+  FR: { /* misma estructura, textos en francés — leer de TRANSLATIONS.FR actual (L2344-L2376) */ }
+}
+```
+
+**Nota:** Los campos `eyebrow` de cada sección ya existen en `TRANSLATIONS.EN` y `TRANSLATIONS.FR` como `p2Eyebrow`, `p3Eyebrow`, etc. Hay que copiarlos y expandirlos con el contenido profundo (tarjetas, citas, etc.) que **no existe aún en ningún idioma distinto al ES** y debe escribirse nuevo.
+
+---
+
+### 9.5. Contenido que necesita traducirse (no existe en inglés ni francés)
+
+Todo lo que está en `PARTNERS_DATA.todos.p3.recs`, `p4.quotes`, `p6.cards` está solo en español. Para la vista `todos → EN` y `todos → FR`, Gemini debe escribir la traducción de:
+
+| Campo | Qué es | Dónde leer el original ES |
+|---|---|---|
+| `p3.recsHTML` | 4 tarjetas sectoriales (VBG, Protección, Salud, MPCA) | `index.html` L1719–L1748 |
+| `p4.quotesHTML` | 4 testimonios de participantes | `index.html` L1749–L1770 |
+| `p5.callout` | Texto de canales AAP | `index.html` L1771–L1775 |
+| `p6.cardsHTML` | 2 tarjetas: Adaptación + Fase 2 | `index.html` L1776–L1793 |
+| `footer` completo | Las 4 columnas del pie de página | HTML del footer: L1309–~L1390 |
+
+Para las **socias específicas** (CARE, IRC, Mercy Corps, STC), el contenido en inglés y francés puede ser `null` (fallback automático a ES). No hace falta traducirlas ahora.
+
+---
+
+### 9.6. Funciones de gráficas — cómo migrarlas
+
+Las funciones de visualización (`drawTrend`, `drawDiverge`, `drawBubble`, `drawDonut`, `drawIndex`, `drawRev`, `renderAll`) se encuentran entre las líneas **1390–1696** del `index.html` actual.
+
+**Instrucción:** Copiarlas **íntegramente** al nuevo `<script>`, justo después de la definición de `renderApp()` y antes de los eventos. **No modificarlas.** Solo asegurarse de que `renderApp()` llame a `renderAll()` al final usando `requestAnimationFrame(renderAll)`.
+
+---
+
+### 9.7. Checklist de verificación antes del deploy
+
+Antes de renombrar `index_nuevo.html` → `index.html`, verificar:
+
+- [ ] Cambiar `ES → EN` traduce: header, subbarra, todas las secciones de "Todos".
+- [ ] Cambiar `ES → FR` traduce: lo mismo.
+- [ ] Cambiar de socia mientras está en `EN` mantiene el idioma en inglés.
+- [ ] Cambiar al modo oscuro afecta toda la página (fondo, texto, tarjetas, footer).
+- [ ] El tema persiste al recargar la página (localStorage `ce-theme`).
+- [ ] La socia persiste al recargar (localStorage `ce-org`).
+- [ ] El idioma persiste al recargar (localStorage `ce-lang`).
+- [ ] Los 5 logos SVG de socias se ven en la subbarra de escritorio.
+- [ ] El bottom nav móvil funciona (las 5 tabs de socias).
+- [ ] El drawer móvil abre y cierra correctamente.
+- [ ] Las gráficas se renderizan en todas las socias.
+- [ ] Las 4 imágenes JPG cargan correctamente (`img_section_1.jpg`, etc.).
+- [ ] El footer.jpg carga (con fallback a footer.jpeg).
+- [ ] El botón Power BI muestra el alert (placeholder funcional).
+
+---
+
+*Sección de instrucciones de ejecución añadida el 23 de septiembre de 2026.*
