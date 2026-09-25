@@ -148,26 +148,31 @@
   --subbar-bg: #E0F0FA;
   --subbar-border: rgba(65, 143, 222, 0.35);
   --subbar-bg-mobile: rgba(224, 240, 250, 0.95);
+  --org-accent: #418FDE;
 }
 :root[data-active-org="care"] {
   --subbar-bg: #FFDBC4;
   --subbar-border: rgba(243, 112, 33, 0.35);
   --subbar-bg-mobile: rgba(255, 219, 196, 0.95);
+  --org-accent: #F37021;
 }
 :root[data-active-org="irc"] {
   --subbar-bg: #FEF7CD;
   --subbar-border: rgba(234, 179, 8, 0.35);
   --subbar-bg-mobile: rgba(254, 247, 205, 0.95);
+  --org-accent: #FFC325;
 }
 :root[data-active-org="mercy_corps"] {
   --subbar-bg: #FFE4E8;
   --subbar-border: rgba(227, 24, 55, 0.35);
   --subbar-bg-mobile: rgba(255, 228, 232, 0.95);
+  --org-accent: #E31837;
 }
 :root[data-active-org="stc"] {
   --subbar-bg: #FEE4E2;
   --subbar-border: rgba(218, 41, 28, 0.35);
   --subbar-bg-mobile: rgba(254, 228, 226, 0.95);
+  --org-accent: #DA291C;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -204,26 +209,31 @@
   --subbar-bg: #E0F0FA;
   --subbar-border: rgba(65, 143, 222, 0.35);
   --subbar-bg-mobile: rgba(224, 240, 250, 0.95);
+  --org-accent: #418FDE;
 }
 :root[data-theme="light"][data-active-org="care"] {
   --subbar-bg: #FFDBC4;
   --subbar-border: rgba(243, 112, 33, 0.35);
   --subbar-bg-mobile: rgba(255, 219, 196, 0.95);
+  --org-accent: #F37021;
 }
 :root[data-theme="light"][data-active-org="irc"] {
   --subbar-bg: #FEF7CD;
   --subbar-border: rgba(234, 179, 8, 0.35);
   --subbar-bg-mobile: rgba(254, 247, 205, 0.95);
+  --org-accent: #FFC325;
 }
 :root[data-theme="light"][data-active-org="mercy_corps"] {
   --subbar-bg: #FFE4E8;
   --subbar-border: rgba(227, 24, 55, 0.35);
   --subbar-bg-mobile: rgba(255, 228, 232, 0.95);
+  --org-accent: #E31837;
 }
 :root[data-theme="light"][data-active-org="stc"] {
   --subbar-bg: #FEE4E2;
   --subbar-border: rgba(218, 41, 28, 0.35);
   --subbar-bg-mobile: rgba(254, 228, 226, 0.95);
+  --org-accent: #DA291C;
 }
 
 :root[data-theme="dark"],
@@ -374,13 +384,17 @@ main{margin-left:var(--rail)}
 :root[data-theme="dark"] .scorecard .cell{background:var(--canvas);border-color:var(--hairline);box-shadow:none}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .scorecard .cell{background:var(--canvas);border-color:var(--hairline);box-shadow:none}}
 
-.callout{background:#FFFFFF;border:1px solid var(--hairline);border-left:3px solid var(--ink);
-  border-radius:12px;padding:18px 22px;box-shadow:0 1px 2px rgba(0,0,0,.03);
-  transition:border-color .2s ease,box-shadow .2s ease}
-.callout:hover{border-color:rgba(0,0,0,.15);box-shadow:0 3px 12px rgba(0,0,0,.04)}
-:root[data-theme="dark"] .callout{background:var(--canvas);border-color:var(--hairline);border-left-color:var(--ink);box-shadow:none}
-:root[data-theme="dark"] .callout:hover{border-color:rgba(255,255,255,.16)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .callout{background:var(--canvas);border-color:var(--hairline);border-left-color:var(--ink);box-shadow:none}}
+.callout{background:#FFFFFF;border:1px solid var(--hairline);border-left:3.5px solid var(--hairline);
+  border-radius:12px;padding:18px 22px;box-shadow:0 1px 3px rgba(0,0,0,.03);
+  transition:border-color .22s cubic-bezier(0.16, 1, 0.3, 1),border-left-color .22s cubic-bezier(0.16, 1, 0.3, 1),box-shadow .22s ease,transform .22s ease}
+.callout:hover{border-color:rgba(0,0,0,.12);border-left-color:var(--org-accent, #418FDE);
+  box-shadow:0 6px 18px rgba(0,0,0,.06);transform:translateY(-2px)}
+:root[data-theme="dark"] .callout{background:var(--canvas-muted);border-color:var(--hairline);border-left-color:var(--hairline);box-shadow:none}
+:root[data-theme="dark"] .callout:hover{border-color:rgba(255,255,255,.16);border-left-color:var(--org-accent, #418FDE);
+  box-shadow:0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .callout{background:var(--canvas-muted);border-color:var(--hairline);border-left-color:var(--hairline);box-shadow:none}
+:root:not([data-theme="light"]) .callout:hover{border-color:rgba(255,255,255,.16);border-left-color:var(--org-accent, #418FDE);
+  box-shadow:0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px)}}
 .callout .q{font-family:var(--font-d);font-size:17px;line-height:1.48;font-weight:500;color:var(--ink)}
 
 .photo{border-radius:16px;overflow:hidden;background:var(--surface-soft);position:relative;border:1px solid var(--hairline)}
