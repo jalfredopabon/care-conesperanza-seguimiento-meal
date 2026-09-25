@@ -33,11 +33,11 @@ Tanto la barra de escritorio (`.org-subbar-desktop`) como la barra flotante móv
 
 | Socia | Color Base | Relleno Sutil (`--subbar-bg`) | Bordes Simétricos (`--subbar-border`) | Personalidad Visual |
 | :--- | :--- | :--- | :--- | :--- |
-| **Todos** | Azul OCHA | `#F0F6FA` | `rgba(65, 143, 222, 0.20)` | Institucional, fresco y paraguas humanitario. |
-| **CARE** | Naranja CARE | `#FFF7ED` | `rgba(243, 112, 33, 0.22)` | Cálido, acogedor y enfocado en dignidad y género. |
+| **Todos** | Azul OCHA | `#E0F0FA` | `rgba(65, 143, 222, 0.35)` | Institucional, fresco y paraguas humanitario. |
+| **CARE** | Naranja CARE | `#FFDBC4` | `rgba(243, 112, 33, 0.35)` | Cálido, acogedor y enfocado en dignidad y género. |
 | **IRC** | Amarillo IRC (`#FFC325`) | `#FEF7CD` | `rgba(234, 179, 8, 0.35)` | Amarillo solar limpio, luminoso y sin tintes beige. |
-| **Mercy Corps** | Carmesí Mercy (`#E31837`) | `#FFF1F2` | `rgba(227, 24, 55, 0.20)` | Rosa carmesí sutil y técnico para respuesta rápida. |
-| **Save the Children** | Rojo STC (`#DA291C`) | `#FEF2F2` | `rgba(218, 41, 28, 0.20)` | Rubí tenue limpio enfocado en niñez y protección. |
+| **Mercy Corps** | Carmesí Mercy (`#E31837`) | `#FFE4E8` | `rgba(227, 24, 55, 0.35)` | Rosa carmesí sutil y técnico para respuesta rápida. |
+| **Save the Children** | Rojo STC (`#DA291C`) | `#FEE4E2` | `rgba(218, 41, 28, 0.35)` | Rubí tenue limpio enfocado en niñez y protección. |
 
 * **Simetría de bordes (Opción A):** La subbarra de escritorio cuenta con `border-top` y `border-bottom` coordinados exactamente con el mismo color institucional tenue (`--subbar-border`), enmarcando la barra como una cinta elegante.
 * **Comportamiento en móvil:** En pantallas menores a 900px, el encabezado superior mantiene un borde neutro, mientras que la barra flotante inferior hereda el tinte y el borde institucional de la socia seleccionada, expandiendo la cápsula activa con el logo a color.
