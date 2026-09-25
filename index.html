@@ -839,7 +839,7 @@ svg text{transition:fill .4s ease}
   max-width: var(--wrap);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 0.8fr;
+  grid-template-columns: 1.6fr 0.9fr 1.2fr 1.3fr;
   grid-template-rows: auto 1fr;
   gap: 24px clamp(24px, 3vw, 48px);
   width: 100%;
@@ -1489,6 +1489,7 @@ const MASTER_DATA = {
         col4Date:     "Corte oficial: 30 de septiembre de 2026",
         col4Period:   "Periodo: Junio – Noviembre 2026",
         col4PbiLabel: "Abrir informe en Power BI ↗",
+        col4Contact:  "Contacto & soporte:",
         artImg:       "footer.jpg",
         artAlt:       "Ilustración ConEsperanza Colombia"
       }
@@ -1620,6 +1621,7 @@ const MASTER_DATA = {
         col4Date:     "Official cutoff: September 30, 2026",
         col4Period:   "Reporting window: June – November 2026",
         col4PbiLabel: "Open Power BI report ↗",
+        col4Contact:  "Contact & support:",
         artImg:       "footer.jpg",
         artAlt:       "ConEsperanza Colombia Illustration"
       }
@@ -1751,6 +1753,7 @@ const MASTER_DATA = {
         col4Date:     "Date de clôture : 30 septembre 2026",
         col4Period:   "Période : Juin – Novembre 2026",
         col4PbiLabel: "Ouvrir le rapport Power BI ↗",
+        col4Contact:  "Contact & support :",
         artImg:       "footer.jpg",
         artAlt:       "Illustration ConEsperanza Colombie"
       }
@@ -2549,6 +2552,10 @@ function renderFooter(footerData) {
             <p class="credit-tag">${footerData.col4Date || 'Corte oficial: 30 de septiembre de 2026'}</p>
             <p class="credit-tag">${footerData.col4Period || 'Periodo: Junio – Noviembre 2026'}</p>
             <p class="credit-tag" style="margin-top:6px"><a href="javascript:void(0)" onclick="openPowerBI()" style="color:var(--ink);font-weight:600;text-decoration:underline">${footerData.col4PbiLabel || 'Abrir informe en Power BI ↗'}</a></p>
+            <p class="credit-tag" style="margin-top:10px;padding-top:8px;border-top:1px solid var(--hairline);line-height:1.4">
+              <span style="color:var(--ink-muted)">${footerData.col4Contact || 'Contacto & soporte:'}</span><br>
+              <a href="mailto:jose.pabon@care.org" style="color:var(--ink);font-weight:600;text-decoration:underline">jose.pabon@care.org</a>
+            </p>
           </div>
         </div>
       </div>
