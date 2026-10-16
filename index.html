@@ -2886,15 +2886,12 @@ function observeReveals() {
 }
 
 
-function openPowerBI() {
-  alert("Redirigiendo al informe consolidado de Power BI - Consorcio Humanitario");
-}
+const POWER_BI_URL = "https://app.fabric.microsoft.com/view?r=eyJrIjoiY2JhZmVhMzMtZTcyMC00N2NmLWI5NTMtNmU3YjZiODVhYjFlIiwidCI6IjJlZDU1NzRjLWY5YmEtNDQyNi05NjU4LWU0NzdhZDc0MzlkYiIsImMiOjR9";
 
-// Vinculación de listeners de botones Power BI
-document.addEventListener('DOMContentLoaded', () => {
-  const pbiBtn = document.getElementById('pbiBtn');
-  if (pbiBtn) pbiBtn.addEventListener('click', openPowerBI);
-});
+function openPowerBI(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  window.open(POWER_BI_URL, "_blank", "noopener,noreferrer");
+}
 
 // Llamada inicial para hidratar el estado al cargar la página
 renderApp();

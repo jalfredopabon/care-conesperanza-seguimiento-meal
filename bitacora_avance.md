@@ -5,7 +5,8 @@
 > **Fondo:** Fondo Humanitario para Colombia y LAC (OCHA / RHPF LAC).  
 > **Socias Implementadoras:** CARE Colombia (Líder de Consorcio), IRC (International Rescue Committee), Mercy Corps, Save the Children.  
 > **Corte Oficial de Datos:** 30 de septiembre de 2026.  
-> **Sitio en vivo:** [https://jalfredopabon.github.io/care-conesperanza-seguimiento-meal/](https://jalfredopabon.github.io/care-conesperanza-seguimiento-meal/)
+> **Sitio en vivo:** [https://jalfredopabon.github.io/care-conesperanza-seguimiento-meal/](https://jalfredopabon.github.io/care-conesperanza-seguimiento-meal/)  
+> **Tablero Power BI en vivo:** [https://app.fabric.microsoft.com/view?r=eyJrIjoiY2JhZmVhMzMtZTcyMC00N2NmLWI5NTMtNmU3YjZiODVhYjFlIiwidCI6IjJlZDU1NzRjLWY5YmEtNDQyNi05NjU4LWU0NzdhZDc0MzlkYiIsImMiOjR9](https://app.fabric.microsoft.com/view?r=eyJrIjoiY2JhZmVhMzMtZTcyMC00N2NmLWI5NTMtNmU3YjZiODVhYjFlIiwidCI6IjJlZDU1NzRjLWY5YmEtNDQyNi05NjU4LWU0NzdhZDc0MzlkYiIsImMiOjR9)
 
 ---
 
