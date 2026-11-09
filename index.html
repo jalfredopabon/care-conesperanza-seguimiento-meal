@@ -63,58 +63,6 @@
   --radius-pill:   999px;    /* Border-radius de pills/badges */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #F3F4F6;
-    --ink-soft: #D1D5DB;
-    --ink-muted: #9CA3AF;
-    --canvas: #14171A;
-    --canvas-muted: #1B1E23;
-    --surface-soft: #23272E;
-    --hairline: #2C313A;
-    --hairline-soft: #22262E;
-    --on-ink: #14171A;
-    --on-ink-muted: #6B7280;
-    --inverse: #F3F4F6;
-    --c-cy: #729AB9;
-    --c-py: #5C5C58;
-    --c-paid: #E0A54B;
-    --c-earned: #729AB9;
-    --c-up: #4EAF61;
-    --c-down: #E74C3C;
-    --c-accent: #D96A61;
-    --grid: #2C313A;
-    --axis: #6B7280;
-    --wash: .14;
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="light"] {
-  --ink: #050A0E;
-  --ink-soft: #3D3D3D;
-  --ink-muted: #717171;
-  --canvas: #F8FAFC;
-  --canvas-muted: #F1F5F9;
-  --surface-soft: #E2E8F0;
-  --hairline: #E2E8F0;
-  --hairline-soft: #EDF2F7;
-  --on-ink: #FFFFFF;
-  --on-ink-muted: #A6A6A6;
-  --inverse: #050A0E;
-  --c-cy: #102F47;
-  --c-py: #B7B7B2;
-  --c-paid: #BD6C27;
-  --c-earned: #102F47;
-  --c-up: #2E6B38;
-  --c-down: #C0392B;
-  --c-accent: #6E120B;
-  --grid: #E2E8F0;
-  --axis: #9A9A94;
-  --wash: .10;
-  color-scheme: light;
-}
-
 :root[data-theme="dark"] {
   --ink: #F3F4F6;
   --ink-soft: #D1D5DB;
@@ -169,67 +117,6 @@
   --org-accent: #E31837;
 }
 :root[data-active-org="stc"] {
-  --subbar-bg: #FEE4E2;
-  --subbar-border: rgba(218, 41, 28, 0.35);
-  --subbar-bg-mobile: rgba(254, 228, 226, 0.95);
-  --org-accent: #DA291C;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root,
-  :root[data-active-org="todos"] {
-    --subbar-bg: rgba(65, 143, 222, 0.16);
-    --subbar-border: rgba(65, 143, 222, 0.38);
-    --subbar-bg-mobile: rgba(20, 26, 32, 0.92);
-  }
-  :root[data-active-org="care"] {
-    --subbar-bg: rgba(243, 112, 33, 0.18);
-    --subbar-border: rgba(243, 112, 33, 0.40);
-    --subbar-bg-mobile: rgba(33, 22, 17, 0.92);
-  }
-  :root[data-active-org="irc"] {
-    --subbar-bg: rgba(255, 195, 37, 0.17);
-    --subbar-border: rgba(255, 195, 37, 0.40);
-    --subbar-bg-mobile: rgba(36, 30, 16, 0.92);
-  }
-  :root[data-active-org="mercy_corps"] {
-    --subbar-bg: rgba(227, 24, 55, 0.16);
-    --subbar-border: rgba(227, 24, 55, 0.38);
-    --subbar-bg-mobile: rgba(33, 18, 22, 0.92);
-  }
-  :root[data-active-org="stc"] {
-    --subbar-bg: rgba(218, 41, 28, 0.16);
-    --subbar-border: rgba(218, 41, 28, 0.38);
-    --subbar-bg-mobile: rgba(33, 18, 18, 0.92);
-  }
-}
-
-:root[data-theme="light"],
-:root[data-theme="light"][data-active-org="todos"] {
-  --subbar-bg: #E0F0FA;
-  --subbar-border: rgba(65, 143, 222, 0.35);
-  --subbar-bg-mobile: rgba(224, 240, 250, 0.95);
-  --org-accent: #418FDE;
-}
-:root[data-theme="light"][data-active-org="care"] {
-  --subbar-bg: #FFDBC4;
-  --subbar-border: rgba(243, 112, 33, 0.35);
-  --subbar-bg-mobile: rgba(255, 219, 196, 0.95);
-  --org-accent: #F37021;
-}
-:root[data-theme="light"][data-active-org="irc"] {
-  --subbar-bg: #FEF7CD;
-  --subbar-border: rgba(234, 179, 8, 0.35);
-  --subbar-bg-mobile: rgba(254, 247, 205, 0.95);
-  --org-accent: #FFC325;
-}
-:root[data-theme="light"][data-active-org="mercy_corps"] {
-  --subbar-bg: #FFE4E8;
-  --subbar-border: rgba(227, 24, 55, 0.35);
-  --subbar-bg-mobile: rgba(255, 228, 232, 0.95);
-  --org-accent: #E31837;
-}
-:root[data-theme="light"][data-active-org="stc"] {
   --subbar-bg: #FEE4E2;
   --subbar-border: rgba(218, 41, 28, 0.35);
   --subbar-bg-mobile: rgba(254, 228, 226, 0.95);
@@ -348,7 +235,6 @@ main{margin-left:var(--rail)}
 .page.inverse .eyebrow,.page.inverse .caption,.page.inverse .page-num{color:var(--on-ink-muted)}
 :root[data-theme="dark"] .page.inverse,
 :root:not([data-theme="light"]) .page.inverse{background:#0A1117}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .page.inverse{background:#0A1117}}
 
 /* ============================================================
    COMPONENTS
@@ -364,7 +250,6 @@ main{margin-left:var(--rail)}
 .card:hover{border-color:rgba(0,0,0,.15);box-shadow:0 4px 14px rgba(0,0,0,.04)}
 :root[data-theme="dark"] .card{background:var(--canvas);border-color:var(--hairline);box-shadow:none}
 :root[data-theme="dark"] .card:hover{border-color:rgba(255,255,255,.16)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .card{background:var(--canvas);border-color:var(--hairline);box-shadow:none}}
 .card.line{background:transparent;border-color:var(--hairline)}
 
 .delta{font-weight:600;font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:.34em;
@@ -382,19 +267,16 @@ main{margin-left:var(--rail)}
 .scorecard .cell .v{font-family:var(--font-d);font-weight:600;font-size:clamp(24px,2.6vw,34px);line-height:1.1;letter-spacing:-.02em}
 .scorecard .cell .s{font-size:12px;color:var(--ink-muted)}
 :root[data-theme="dark"] .scorecard .cell{background:var(--canvas);border-color:var(--hairline);box-shadow:none}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .scorecard .cell{background:var(--canvas);border-color:var(--hairline);box-shadow:none}}
 
-.callout{background:#FFFFFF;border:1px solid var(--hairline);border-left:3.5px solid var(--hairline);
+/* Callout (citas #p4 y AAP #p5): contenido de lectura, sin hover. Borde izquierdo fijo con el color de la socia activa. */
+.callout{--callout-accent:var(--org-accent, #418FDE);
+  background:#FFFFFF;border:1px solid var(--hairline);border-left:3.5px solid var(--callout-accent);
   border-radius:12px;padding:18px 22px;box-shadow:0 1px 3px rgba(0,0,0,.03);
-  transition:border-color .22s cubic-bezier(0.16, 1, 0.3, 1),border-left-color .22s cubic-bezier(0.16, 1, 0.3, 1),box-shadow .22s ease,transform .22s ease}
-.callout:hover{border-color:rgba(0,0,0,.12);border-left-color:var(--org-accent, #418FDE);
-  box-shadow:0 6px 18px rgba(0,0,0,.06);transform:translateY(-2px)}
-:root[data-theme="dark"] .callout{background:var(--canvas-muted);border-color:var(--hairline);border-left-color:var(--hairline);box-shadow:none}
-:root[data-theme="dark"] .callout:hover{border-color:rgba(255,255,255,.16);border-left-color:var(--org-accent, #418FDE);
-  box-shadow:0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .callout{background:var(--canvas-muted);border-color:var(--hairline);border-left-color:var(--hairline);box-shadow:none}
-:root:not([data-theme="light"]) .callout:hover{border-color:rgba(255,255,255,.16);border-left-color:var(--org-accent, #418FDE);
-  box-shadow:0 6px 20px rgba(0,0,0,.4);transform:translateY(-2px)}}
+  transition:border-left-color .4s ease}
+/* IRC en claro: amarillo más profundo para que el borde se distinga sobre blanco */
+:root[data-active-org="irc"] .callout{--callout-accent:#C99700}
+:root[data-theme="dark"] .callout{background:var(--canvas-muted);border-color:var(--hairline);border-left-color:var(--callout-accent);box-shadow:none}
+:root[data-theme="dark"][data-active-org="irc"] .callout{--callout-accent:#FFC325}
 .callout .q{font-family:var(--font-d);font-size:17px;line-height:1.48;font-weight:500;color:var(--ink)}
 
 .photo{border-radius:16px;overflow:hidden;background:var(--surface-soft);position:relative;border:1px solid var(--hairline)}
@@ -439,7 +321,6 @@ svg text{transition:fill .4s ease}
 .rec:hover{border-color:rgba(0,0,0,.15);box-shadow:0 4px 14px rgba(0,0,0,.05)}
 :root[data-theme="dark"] .rec{background:var(--canvas);border-color:var(--hairline);box-shadow:none}
 :root[data-theme="dark"] .rec:hover{border-color:rgba(255,255,255,.16)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rec{background:var(--canvas);border-color:var(--hairline);box-shadow:none}}
 .rec .rn{font-family:var(--font-d);font-size:14px;font-weight:600;color:var(--ink-muted);letter-spacing:.04em;display:block;margin-bottom:2px}
 .rec h3{font-size:20px;font-weight:700;color:var(--ink);line-height:1.28;letter-spacing:-.015em}
 .rec .sub{margin-top:16px;padding-top:12px;border-top:1px solid var(--hairline);font-size:12px;font-weight:500;color:var(--ink-muted);display:block}
@@ -475,7 +356,6 @@ svg text{transition:fill .4s ease}
 .tease .t:hover{border-color:rgba(0,0,0,.15)}
 :root[data-theme="dark"] .tease .t{background:var(--canvas);border-color:var(--hairline);box-shadow:none}
 :root[data-theme="dark"] .tease .t:hover{border-color:rgba(255,255,255,.18)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tease .t{background:var(--canvas);border-color:var(--hairline);box-shadow:none}}
 .tease .t .v{height:32px;display:flex;align-items:baseline;flex-shrink:0;margin-bottom:8px;font-family:var(--font-d);font-weight:600;font-size:clamp(20px,2vw,27px);line-height:1.15;letter-spacing:-.02em;color:var(--ink)!important;white-space:nowrap;flex-wrap:nowrap}
 .tease .t .v.delta,.tease .t .v.delta.up,.tease .t .v.delta.down{color:var(--ink)!important}
 .tease .t .v .unit,.tease .t .v span.unit{font-size:.62em;font-family:var(--font-b);font-weight:400;color:var(--ink-soft);margin-left:4px}
@@ -601,7 +481,8 @@ svg text{transition:fill .4s ease}
   background: var(--canvas-muted);
   border: 1px solid var(--hairline);
   border-radius: 8px;
-  padding: 3px;
+  height: 32px;          /* altura común de controles del header */
+  padding: 2px;          /* inset del botón activo */
   gap: 2px;
 }
 .lang-btn {
@@ -611,8 +492,8 @@ svg text{transition:fill .4s ease}
   font-size: 11.5px;
   font-weight: 600;
   color: var(--ink-muted);
-  padding: 4px 8px;
-  border-radius: 5px;
+  padding: 0 8px;
+  border-radius: 6px;    /* 8 (contenedor) - 2 (inset) = esquinas concéntricas */
   cursor: pointer;
   transition: all .2s ease;
 }
@@ -622,8 +503,8 @@ svg text{transition:fill .4s ease}
   box-shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 .theme-toggle-btn {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
   background: var(--canvas-muted);
   border: 1px solid var(--hairline);
@@ -645,7 +526,8 @@ svg text{transition:fill .4s ease}
   font-family: var(--font-b);
   font-size: 12px;
   font-weight: 600;
-  padding: 8px 14px;
+  height: 32px;
+  padding: 0 14px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -932,12 +814,6 @@ svg text{transition:fill .4s ease}
   filter: invert(0.92) hue-rotate(180deg);
   mix-blend-mode: screen;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .site-footer .footer-art img {
-    filter: invert(0.92) hue-rotate(180deg);
-    mix-blend-mode: screen;
-  }
-}
 @media (max-width: 900px) {
   .site-footer .footer-content {
     grid-template-columns: 1fr 1fr;
@@ -1008,7 +884,7 @@ svg text{transition:fill .4s ease}
   transition: filter .25s ease, opacity .25s ease, transform .25s ease;
 }
 .org-tab:hover {
-  border-color: var(--ink-soft);
+  border-color: var(--ink-muted);
   color: var(--ink);
 }
 .org-tab:hover .org-icon {
@@ -1016,7 +892,7 @@ svg text{transition:fill .4s ease}
 }
 .org-tab.active {
   background: var(--canvas);
-  border-color: var(--ink);
+  border-color: var(--ink-soft);
   color: var(--ink);
   box-shadow: 0 1px 4px rgba(0,0,0,.08);
 }
@@ -1242,8 +1118,8 @@ svg text{transition:fill .4s ease}
         <span class="subbar-label" id="subbarLabel">Filtrar por Organización:</span>
         <nav class="org-nav-desktop" aria-label="Selector de Organización Desktop">
           <button class="org-tab active" data-org="todos" onclick="setState({org:'todos'})">
-            <img src="onu_logo.svg" alt="Todos" class="org-icon">
-            <span>Todos</span>
+            <img src="onu_logo.svg" alt="Consorcio" class="org-icon">
+            <span>Consorcio</span>
           </button>
           <button class="org-tab" data-org="care" onclick="setState({org:'care'})">
             <img src="care_logo.svg" alt="CARE" class="org-icon">
@@ -1330,9 +1206,9 @@ svg text{transition:fill .4s ease}
 
   <!-- ==================== MOBILE BOTTOM NAVIGATION (< 900px) ==================== -->
   <nav class="bottom-nav-mobile" id="mobileBottomNav" aria-label="Navegación Móvil de Organizaciones">
-    <button class="bottom-tab active" data-org="todos" onclick="setState({org:'todos'})" title="Todos">
-      <img src="onu_logo.svg" alt="Todos" class="org-icon">
-      <span class="tab-label">Todos</span>
+    <button class="bottom-tab active" data-org="todos" onclick="setState({org:'todos'})" title="Consorcio">
+      <img src="onu_logo.svg" alt="Consorcio" class="org-icon">
+      <span class="tab-label">Consorcio</span>
     </button>
     <button class="bottom-tab" data-org="care" onclick="setState({org:'care'})" title="CARE">
       <img src="care_logo.svg" alt="CARE" class="org-icon">
@@ -1366,7 +1242,7 @@ const MASTER_DATA = {
       global: {
         brandSub:         "Reporte de Consorcio",
         subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
+        orgTodos:         "Consorcio",
         pbiBtnText:       "Power BI",
         drawerTitle:      "Ajustes & Acceso",
         drawerLangLabel:  "Idioma",
@@ -1498,7 +1374,7 @@ const MASTER_DATA = {
       global: {
         brandSub:         "Consortium Report",
         subbarFilter:     "Filter by Organization:",
-        orgTodos:         "All",
+        orgTodos:         "Consortium",
         pbiBtnText:       "Power BI",
         drawerTitle:      "Settings & Access",
         drawerLangLabel:  "Language",
@@ -1630,7 +1506,7 @@ const MASTER_DATA = {
       global: {
         brandSub:         "Rapport de Consortium",
         subbarFilter:     "Filtrer par Organisation :",
-        orgTodos:         "Tous",
+        orgTodos:         "Consortium",
         pbiBtnText:       "Power BI",
         drawerTitle:      "Paramètres & Accès",
         drawerLangLabel:  "Langue",
@@ -1765,7 +1641,7 @@ const MASTER_DATA = {
       global: {
         brandSub:         "CARE Colombia — Reporte POA 2026",
         subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
+        orgTodos:         "Consorcio",
         pbiBtnText:       "Power BI",
         drawerTitle:      "Ajustes & Acceso",
         drawerLangLabel:  "Idioma",
@@ -1880,7 +1756,7 @@ const MASTER_DATA = {
       global: {
         brandSub:         "IRC — Reporte POA 2026",
         subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
+        orgTodos:         "Consorcio",
         pbiBtnText:       "Power BI",
         drawerTitle:      "Ajustes & Acceso",
         drawerLangLabel:  "Idioma",
@@ -1995,7 +1871,7 @@ const MASTER_DATA = {
       global: {
         brandSub:         "Mercy Corps — Reporte POA 2026",
         subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
+        orgTodos:         "Consorcio",
         pbiBtnText:       "Power BI",
         drawerTitle:      "Ajustes & Acceso",
         drawerLangLabel:  "Idioma",
@@ -2110,7 +1986,7 @@ const MASTER_DATA = {
       global: {
         brandSub:         "Save the Children — Reporte POA 2026",
         subbarFilter:     "Filtrar por Organización:",
-        orgTodos:         "Todos",
+        orgTodos:         "Consorcio",
         pbiBtnText:       "Power BI",
         drawerTitle:      "Ajustes & Acceso",
         drawerLangLabel:  "Idioma",
